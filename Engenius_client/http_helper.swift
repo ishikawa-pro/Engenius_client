@@ -10,14 +10,19 @@ import Foundation
 import Alamofire
 
 class Http_helper{
+    //ベースURL格納用
     let base_url: String
+    //取得した記事を格納
     var articles = [AnyObject]()
     
+    //初期化時にベースURLを設定
     init(base_url: String) {
         self.base_url = base_url
     }
     
+    //記事を取得
     func get_articles(params: Dictionary<String, String>) -> Void{
+        //パラメータを設定
         let parameters: Parameters = params
         Alamofire.request(self.base_url, parameters: parameters).responseJSON{ response in
             if let dict = response.result.value as? Array<AnyObject>{
