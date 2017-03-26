@@ -11,25 +11,25 @@ import Alamofire
 
 class Http_helper{
     //ベースURL格納用
-    let base_url: String
+    let baseUrl: String
     //取得した記事を格納
     var articles = [AnyObject]()
     
     //初期化時にベースURLを設定
-    init(base_url: String) {
-        self.base_url = base_url
+    init(baseUrl: String) {
+        self.baseUrl = baseUrl
     }
     
     //記事を取得
-    func get_articles(params: Dictionary<String, String>) -> Void{
+    func getArticles(params: Dictionary<String, String>) -> Void{
         //パラメータを設定
         let parameters: Parameters = params
-        Alamofire.request(self.base_url, parameters: parameters).responseJSON{ response in
+        Alamofire.request(self.baseUrl, parameters: parameters).responseJSON{ response in
             if let dict = response.result.value as? Array<AnyObject>{
                 //articlesへ結果を格納
                 self.articles = dict
                 //articlesを取得したことを通知
-                NotificationCenter.default.post(name: NSNotification.Name("got_articles"), object: self)
+                NotificationCenter.default.post(name: NSNotification.Name("gotArticles"), object: self)
             }
         }
     }

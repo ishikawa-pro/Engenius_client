@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
     //記事の取得用クラスHttp_helperのインスタンスの生成
-    let http_helper = Http_helper.init(base_url: "http://localhost:3000/article.json")
+    let http_helper = Http_helper.init(baseUrl: "http://localhost:3000/article.json")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,11 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.got_articles),
-            name: NSNotification.Name("got_articles"),
+            name: NSNotification.Name("gotArticles"),
             object: nil
         )
         //記事を取得
-        self.http_helper.get_articles(params: ["category":"Docker","limit":"3"])
+        self.http_helper.getArticles(params: ["category":"Docker","limit":"3"])
 
     }
 
