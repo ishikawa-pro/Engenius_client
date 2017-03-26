@@ -9,13 +9,23 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //記事の取得用クラスHttp_helperのインスタンスの生成
     let http_helper = Http_helper.init(baseUrl: "http://localhost:3000/article.json")
+    //tableViewの宣言
+    var articleTableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //tableViewの作成
+        self.articleTableView = UITableView(frame: view.frame, style: .grouped)
+        //tableViewのデリゲートを設定
+        self.articleTableView.delegate = self
+        //tableViewのデーターソースを設定
+        self.articleTableView.dataSource = self
+
         
         //記事の取得通知を受け取るように登録
         NotificationCenter.default.addObserver(
@@ -25,7 +35,7 @@ class ViewController: UIViewController {
             object: nil
         )
         //記事を取得
-        self.http_helper.getArticles(params: ["category":"Docker","limit":"3"])
+        self.http_helper.getArticles(params: ["category":"Docker","limit":"10"])
 
     }
 
@@ -36,11 +46,31 @@ class ViewController: UIViewController {
     
     //記事を取得したら呼ばれる
     func got_articles() -> Void {
-        for data in self.http_helper.articles {
-            if let title = data["title"] as? String {
-                print(title)
-            }
-        }
+        //記事を取得できた時点でtableViewを表示させる
+        view.addSubview(self.articleTableView)
+        
+        //コンソール上に取得データを表示するデバッグ用コード
+//        for data in self.http_helper.articles {
+//            if let title = data["title"] as? String {
+//                print(title)
+//            }
+//        }
+    }
+    
+    //cellの数を指定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        //記事の数に応じたcell数を返す
+        return self.http_helper.articles.count
+    }
+    
+    //各行に表示するcellを定義
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        //cellの作成
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        //cellのtextLabelに取得した記事の情報を入れる
+        cell.textLabel?.text =
+            self.http_helper.articles[(indexPath as NSIndexPath).row]["title"] as? String
+        return cell
     }
 
 }
