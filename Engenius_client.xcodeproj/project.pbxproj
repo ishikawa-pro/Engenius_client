@@ -16,6 +16,8 @@
 		E97CA9771E54AC6300901AC7 /* Engenius_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9761E54AC6300901AC7 /* Engenius_clientTests.swift */; };
 		E97CA9821E54AC6400901AC7 /* Engenius_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9811E54AC6400901AC7 /* Engenius_clientUITests.swift */; };
 		E97CA9901E54ADCC00901AC7 /* http_helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA98F1E54ADCC00901AC7 /* http_helper.swift */; };
+		E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */; };
+		E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */; };
 		E9AF170516941131D3C18B35 /* Pods_Engenius_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCEB2494EF09B942AD21D8C /* Pods_Engenius_client.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		E97CA9811E54AC6400901AC7 /* Engenius_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engenius_clientUITests.swift; sourceTree = "<group>"; };
 		E97CA9831E54AC6400901AC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E97CA98F1E54ADCC00901AC7 /* http_helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = http_helper.swift; sourceTree = "<group>"; };
+		E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
+		E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 				E97CA96A1E54AC6300901AC7 /* LaunchScreen.storyboard */,
 				E97CA96D1E54AC6300901AC7 /* Info.plist */,
 				E97CA9651E54AC6300901AC7 /* Engenius_client.xcdatamodeld */,
+				E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */,
+				E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */,
 			);
 			path = Engenius_client;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */,
 				E97CA96C1E54AC6300901AC7 /* LaunchScreen.storyboard in Resources */,
 				E97CA9691E54AC6300901AC7 /* Assets.xcassets in Resources */,
 				E97CA9641E54AC6300901AC7 /* Main.storyboard in Resources */,
@@ -340,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */,
 				E97CA9611E54AC6300901AC7 /* ViewController.swift in Sources */,
 				E97CA9671E54AC6300901AC7 /* Engenius_client.xcdatamodeld in Sources */,
 				E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */,
