@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             object: nil
         )
         //記事を取得
-        self.http_helper.getArticles(params: ["category":"Docker","limit":"10"])
+        self.http_helper.getArticles(params: ["category":"Docker","limit":"7"])
 
     }
 
@@ -83,6 +83,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
+    
+    //スクロールするたびに呼ばれる
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //contentOffset.y + frame.size.height = UITableViewの高さ0からの変位量 + TableViewの高さ
+        //contentSize.height = スクロールする中身の高さ
+        //isDragging = ドラッグ中
+        //UITableViewの高さ0からの変位量 + TableViewの高さ > スクロールする中身の高さ
+        if self.articleTableView.contentOffset.y + self.articleTableView.frame.size.height >
+            self.articleTableView.contentSize.height && self.articleTableView.isDragging
+        {
+            self.http_helper.getArticles(params: ["category":"Docker","limit":"7","offset":"7"])
+        }
+    }
+
 
 }
 
