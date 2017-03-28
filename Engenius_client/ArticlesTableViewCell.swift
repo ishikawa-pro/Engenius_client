@@ -23,4 +23,8 @@ class ArticlesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setCell(titleText: String) -> Void {
+        self.titleLabel.text = titleText as String
+    }
+    
 }

@@ -74,8 +74,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ArticlesTableViewCell
         
         //cellのtextLabelに取得した記事の情報を入れる
-        cell.titleLabel.text =
-            self.http_helper.articles[(indexPath as NSIndexPath).row]["title"] as? String
+        cell.setCell(titleText:
+            (self.http_helper.articles[(indexPath as NSIndexPath).row]["title"] as? String)!
+        )
+        
         return cell
     }
 

@@ -129,6 +129,7 @@
 		E97CA95D1E54AC6300901AC7 /* Engenius_client */ = {
 			isa = PBXGroup;
 			children = (
+				E9A489971E8A541A003F4C41 /* CustomCell */,
 				E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */,
 				E97CA9601E54AC6300901AC7 /* ViewController.swift */,
 				E97CA98F1E54ADCC00901AC7 /* http_helper.swift */,
@@ -137,8 +138,6 @@
 				E97CA96A1E54AC6300901AC7 /* LaunchScreen.storyboard */,
 				E97CA96D1E54AC6300901AC7 /* Info.plist */,
 				E97CA9651E54AC6300901AC7 /* Engenius_client.xcdatamodeld */,
-				E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */,
-				E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */,
 			);
 			path = Engenius_client;
 			sourceTree = "<group>";
@@ -159,6 +158,15 @@
 				E97CA9831E54AC6400901AC7 /* Info.plist */,
 			);
 			path = Engenius_clientUITests;
+			sourceTree = "<group>";
+		};
+		E9A489971E8A541A003F4C41 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */,
+				E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */,
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
