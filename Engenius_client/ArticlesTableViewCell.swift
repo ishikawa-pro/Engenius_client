@@ -15,6 +15,8 @@ class ArticlesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.titleLabel.numberOfLines = 0
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,6 +27,7 @@ class ArticlesTableViewCell: UITableViewCell {
     
     func setCell(titleText: String) -> Void {
         self.titleLabel.text = titleText as String
+        self.titleLabel.sizeToFit()
     }
     
 }
