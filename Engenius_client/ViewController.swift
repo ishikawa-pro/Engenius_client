@@ -25,6 +25,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.articleTableView.delegate = self
         //tableViewのデーターソースを設定
         self.articleTableView.dataSource = self
+        
+        // カスタムセルクラス名でnibを作成する
+        let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
+        self.articleTableView.register(nib, forCellReuseIdentifier: "customCell")
 
         
         //記事の取得通知を受け取るように登録
@@ -66,9 +70,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //各行に表示するcellを定義
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ArticlesTableViewCell
+        
         //cellのtextLabelに取得した記事の情報を入れる
-        cell.textLabel?.text =
+        cell.titleLabel.text =
             self.http_helper.articles[(indexPath as NSIndexPath).row]["title"] as? String
         return cell
     }
