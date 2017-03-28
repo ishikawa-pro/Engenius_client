@@ -15,6 +15,7 @@ class ArticlesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //titleLabelを複数行表示にする
         self.titleLabel.numberOfLines = 0
         
     }
@@ -25,8 +26,10 @@ class ArticlesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //セルにデータを代入する
     func setCell(titleText: String) -> Void {
         self.titleLabel.text = titleText as String
+        //titleLabelのサイズを調整
         self.titleLabel.sizeToFit()
     }
     
