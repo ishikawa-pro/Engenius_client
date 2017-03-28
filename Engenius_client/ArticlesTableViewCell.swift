@@ -16,7 +16,7 @@ class ArticlesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         //titleLabelを複数行表示にする
-        self.titleLabel.numberOfLines = 0
+        self.titleLabel.numberOfLines = 0        
         
     }
 
