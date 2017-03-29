@@ -86,11 +86,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ArticlesTableViewCell
         
-        print((indexPath as NSIndexPath).row)
+        let image = self.http_helper.getThumbnail(urlString:
+            (self.articles[(indexPath as NSIndexPath).row]["image_url"] as? String)!)
+        
         //cellのtextLabelに取得した記事の情報を入れる
         cell.setCell(titleText:
-            (self.articles[(indexPath as NSIndexPath).row]["title"] as? String)!
+            (self.articles[(indexPath as NSIndexPath).row]["title"] as? String)!,
+                     thumbnailImage: image
         )
+        
         
         return cell
     }

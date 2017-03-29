@@ -27,8 +27,9 @@ class ArticlesTableViewCell: UITableViewCell {
     }
     
     //セルにデータを代入する
-    func setCell(titleText: String) -> Void {
+    func setCell(titleText: String, thumbnailImage: UIImage) -> Void {
         self.titleLabel.text = titleText as String
+        self.thumbnailImageView.image = thumbnailImage
         //titleLabelのサイズを調整
         self.titleLabel.sizeToFit()
     }
