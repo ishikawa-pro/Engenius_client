@@ -46,7 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             object: nil
         )
         //記事を取得
-        self.http_helper.getArticles(params: ["category":"Docker","limit":"7"])
+        self.http_helper.getArticles(params: ["category":"機械学習","limit":"7"])
 
     }
 
@@ -90,8 +90,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.setCell(titleText: (self.articles[(indexPath as NSIndexPath).row]["title"] as? String)!,
                      imageURL: (self.articles[(indexPath as NSIndexPath).row]["image_url"] as? String)!)
         
-        
         return cell
+    }
+    
+    //遷移先に値を渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "webView"{
+            if let indexPath = self.articleTableView.indexPathForSelectedRow{
+                let webViewController: WebViewController = segue.destination as! WebViewController
+                webViewController.link = self.articles[(indexPath as NSIndexPath).row]["link"] as? String
+            }
+        }
+    }
+    
+    //セルがタップされたら呼ばれる
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //画面を遷移する
+        self.performSegue(withIdentifier: "webView", sender: nil)
     }
     
     //スクロールするたびに呼ばれる
@@ -106,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.articleTableView.isDragging &&
             self.isScrolling == false
         {
-            self.http_helper.getArticles(params: ["category":"Docker","limit":"7","offset":"7"])
+            self.http_helper.getArticles(params: ["category":"機械学習","limit":"7","offset":"7"])
             self.isScrolling = true
         }
     }
