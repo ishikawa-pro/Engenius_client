@@ -10,6 +10,10 @@ import UIKit
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    //スクロール中か判定用
+    var isScrolling = false
+    //記事の格納用
+    var articles: [AnyObject] = []
     //記事の取得用クラスHttp_helperのインスタンスの生成
     let http_helper = Http_helper.init(baseUrl: "http://localhost:3000/article.json")
     //tableViewの宣言
@@ -53,21 +57,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //記事を取得したら呼ばれる
     func got_articles() -> Void {
+        //取得した記事をarticlesへ格納
+        for article in self.http_helper.articles{
+            self.articles.append(article)
+        }
+        //記事を追加読み込みする場合はreloadData
+        //初めてTableViewを描画するときはaddSubview
+        if self.articles.count != 7 {
+            self.articleTableView.reloadData()
+            self.isScrolling = false
+            return
+        }else{
         //記事を取得できた時点でtableViewを表示させる
-        view.addSubview(self.articleTableView)
-        
-        //コンソール上に取得データを表示するデバッグ用コード
-//        for data in self.http_helper.articles {
-//            if let title = data["title"] as? String {
-//                print(title)
-//            }
-//        }
+            view.addSubview(self.articleTableView)
+            return
+        }
     }
     
     //cellの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //記事の数に応じたcell数を返す
-        return self.http_helper.articles.count
+        return self.articles.count
     }
     
     //各行に表示するcellを定義
@@ -76,9 +86,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ArticlesTableViewCell
         
+        print((indexPath as NSIndexPath).row)
         //cellのtextLabelに取得した記事の情報を入れる
         cell.setCell(titleText:
-            (self.http_helper.articles[(indexPath as NSIndexPath).row]["title"] as? String)!
+            (self.articles[(indexPath as NSIndexPath).row]["title"] as? String)!
         )
         
         return cell
@@ -90,10 +101,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //contentSize.height = スクロールする中身の高さ
         //isDragging = ドラッグ中
         //UITableViewの高さ0からの変位量 + TableViewの高さ > スクロールする中身の高さ
+        //スクロール中かどうか
         if self.articleTableView.contentOffset.y + self.articleTableView.frame.size.height >
-            self.articleTableView.contentSize.height && self.articleTableView.isDragging
+            self.articleTableView.contentSize.height &&
+            self.articleTableView.isDragging &&
+            self.isScrolling == false
         {
             self.http_helper.getArticles(params: ["category":"Docker","limit":"7","offset":"7"])
+            self.isScrolling = true
         }
     }
 
