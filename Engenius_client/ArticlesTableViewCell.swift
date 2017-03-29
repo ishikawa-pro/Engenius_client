@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ArticlesTableViewCell: UITableViewCell {
 
@@ -27,11 +28,13 @@ class ArticlesTableViewCell: UITableViewCell {
     }
     
     //セルにデータを代入する
-    func setCell(titleText: String, thumbnailImage: UIImage) -> Void {
+    func setCell(titleText: String, imageURL: String) -> Void {
         self.titleLabel.text = titleText as String
-        self.thumbnailImageView.image = thumbnailImage
+        //AlamofireImageで非同期で画像を取得して表示する
+        self.thumbnailImageView!.af_setImage(withURL: URL(string: imageURL)!)
         //titleLabelのサイズを調整
         self.titleLabel.sizeToFit()
     }
+    
     
 }

@@ -32,18 +32,6 @@ class Http_helper{
                 NotificationCenter.default.post(name: NSNotification.Name("gotArticles"), object: self)
             }
         }
-    }
-    
-    //サムネイルを取得
-    func getThumbnail(urlString: String) -> UIImage {
-        //URLセット
-        let url = URL(string: urlString)!
-        //画像の取得
-        let imageData = try? Data(contentsOf: url)
-        //UIImageへ代入
-        let image = UIImage(data: imageData!)        
-        return image!
-    }
-    
+    }    
 
 }
