@@ -31,7 +31,11 @@ class ArticlesTableViewCell: UITableViewCell {
     func setCell(titleText: String, imageURL: String) -> Void {
         self.titleLabel.text = titleText as String
         //AlamofireImageで非同期で画像を取得して表示する
-        self.thumbnailImageView!.af_setImage(withURL: URL(string: imageURL)!)
+        if imageURL != ""{
+            self.thumbnailImageView!.af_setImage(withURL: URL(string: imageURL)!)
+        }else{
+            self.thumbnailImageView.image = UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
+        }
         //titleLabelのサイズを調整
         self.titleLabel.sizeToFit()
     }

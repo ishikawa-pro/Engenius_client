@@ -10,12 +10,14 @@ import UIKit
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    //追加取得する際にいくら飛ばすかを保存しておく
+    var offset = 7
     //スクロール中か判定用
     var isScrolling = false
     //記事の格納用
     var articles: [AnyObject] = []
     //記事の取得用クラスHttp_helperのインスタンスの生成
-    let http_helper = Http_helper.init(baseUrl: "http://localhost:3000/article.json")
+    let http_helper = Http_helper.init(baseUrl: "http://192.168.22.124:3000/article/show.json")
     //tableViewの宣言
     var articleTableView = UITableView()
     
@@ -90,6 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.setCell(titleText: (self.articles[(indexPath as NSIndexPath).row]["title"] as? String)!,
                      imageURL: (self.articles[(indexPath as NSIndexPath).row]["image_url"] as? String)!)
         
+        
         return cell
     }
     
@@ -121,7 +124,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.articleTableView.isDragging &&
             self.isScrolling == false
         {
-            self.http_helper.getArticles(params: ["category":"機械学習","limit":"7","offset":"7"])
+            self.http_helper.getArticles(params: ["category":"機械学習","limit":"7","offset":(String(self.offset))])
+            self.offset += 7
             self.isScrolling = true
         }
     }
