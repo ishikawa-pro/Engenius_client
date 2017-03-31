@@ -14,10 +14,24 @@ class Http_helper{
     let baseUrl: String
     //取得した記事を格納
     var articles = [AnyObject]()
+    //カテゴリを格納
+    var categories = [AnyObject]()
     
     //初期化時にベースURLを設定
     init(baseUrl: String) {
         self.baseUrl = baseUrl
+    }
+    
+    func getCategories() -> Void {
+        Alamofire.request(self.baseUrl).responseJSON{ response in
+            if let dict = response.result.value as? Array<AnyObject>{
+                //articlesへ結果を格納
+                self.categories = dict
+                //articlesを取得したことを通知
+                NotificationCenter.default.post(name: NSNotification.Name("gotCategories"),
+                                                object: self)
+            }
+        }
     }
     
     //記事を取得
@@ -29,7 +43,8 @@ class Http_helper{
                 //articlesへ結果を格納
                 self.articles = dict
                 //articlesを取得したことを通知
-                NotificationCenter.default.post(name: NSNotification.Name("gotArticles"), object: self)
+                NotificationCenter.default.post(name: NSNotification.Name("gotArticles"),
+                                                object: self)
             }
         }
     }    
