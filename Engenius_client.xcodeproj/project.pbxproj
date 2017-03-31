@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E90F36CE1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */; };
 		E90FC1AE1E8BC0340055D7C4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FC1AD1E8BC0340055D7C4 /* WebViewController.swift */; };
+		E93C80E31E8D503F0041338D /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93C80E21E8D503F0041338D /* CAPSPageMenu.swift */; };
 		E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */; };
 		E97CA9611E54AC6300901AC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9601E54AC6300901AC7 /* ViewController.swift */; };
 		E97CA9641E54AC6300901AC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97CA9621E54AC6300901AC7 /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 		E97CA9771E54AC6300901AC7 /* Engenius_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9761E54AC6300901AC7 /* Engenius_clientTests.swift */; };
 		E97CA9821E54AC6400901AC7 /* Engenius_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9811E54AC6400901AC7 /* Engenius_clientUITests.swift */; };
 		E97CA9901E54ADCC00901AC7 /* http_helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA98F1E54ADCC00901AC7 /* http_helper.swift */; };
+		E99066161E8E203A00FB5EE6 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */; };
+		E99066171E8E203A00FB5EE6 /* ArticlesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E99066151E8E203A00FB5EE6 /* ArticlesTableViewController.xib */; };
 		E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */; };
 		E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */; };
 		E9AF170516941131D3C18B35 /* Pods_Engenius_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCEB2494EF09B942AD21D8C /* Pods_Engenius_client.framework */; };
@@ -46,6 +49,7 @@
 		743EB98D82596569853A51F1 /* Pods-Engenius_client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engenius_client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Engenius_client/Pods-Engenius_client.release.xcconfig"; sourceTree = "<group>"; };
 		E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "81v2Ahk8X-L._SX355_.jpg"; path = "../../../../../../Users/akira/Pictures/81v2Ahk8X-L._SX355_.jpg"; sourceTree = "<group>"; };
 		E90FC1AD1E8BC0340055D7C4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		E93C80E21E8D503F0041338D /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		E97CA95B1E54AC6300901AC7 /* Engenius_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engenius_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E97CA9601E54AC6300901AC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		E97CA9811E54AC6400901AC7 /* Engenius_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engenius_clientUITests.swift; sourceTree = "<group>"; };
 		E97CA9831E54AC6400901AC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E97CA98F1E54ADCC00901AC7 /* http_helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = http_helper.swift; sourceTree = "<group>"; };
+		E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
+		E99066151E8E203A00FB5EE6 /* ArticlesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesTableViewController.xib; sourceTree = "<group>"; };
 		E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 		E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,8 +139,11 @@
 		E97CA95D1E54AC6300901AC7 /* Engenius_client */ = {
 			isa = PBXGroup;
 			children = (
+				E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */,
+				E99066151E8E203A00FB5EE6 /* ArticlesTableViewController.xib */,
 				E9A489971E8A541A003F4C41 /* CustomCell */,
 				E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */,
+				E93C80E21E8D503F0041338D /* CAPSPageMenu.swift */,
 				E97CA9601E54AC6300901AC7 /* ViewController.swift */,
 				E90FC1AD1E8BC0340055D7C4 /* WebViewController.swift */,
 				E97CA98F1E54ADCC00901AC7 /* http_helper.swift */,
@@ -288,6 +297,7 @@
 			files = (
 				E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */,
 				E97CA96C1E54AC6300901AC7 /* LaunchScreen.storyboard in Resources */,
+				E99066171E8E203A00FB5EE6 /* ArticlesTableViewController.xib in Resources */,
 				E90F36CE1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg in Resources */,
 				E97CA9691E54AC6300901AC7 /* Assets.xcassets in Resources */,
 				E97CA9641E54AC6300901AC7 /* Main.storyboard in Resources */,
@@ -365,9 +375,11 @@
 			files = (
 				E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */,
 				E90FC1AE1E8BC0340055D7C4 /* WebViewController.swift in Sources */,
+				E93C80E31E8D503F0041338D /* CAPSPageMenu.swift in Sources */,
 				E97CA9611E54AC6300901AC7 /* ViewController.swift in Sources */,
 				E97CA9671E54AC6300901AC7 /* Engenius_client.xcdatamodeld in Sources */,
 				E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */,
+				E99066161E8E203A00FB5EE6 /* ArticlesTableViewController.swift in Sources */,
 				E97CA9901E54ADCC00901AC7 /* http_helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
