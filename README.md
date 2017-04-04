@@ -18,5 +18,5 @@ let http_helper = Http_helper(baseUrl: "http://サーバーのipアドレス:300
 ```
 * `Engenius_client/ArticlesTableViewController.swift`  
 ```swift
-    let http_helper = Http_helper.init(baseUrl: "http://サーバーのipアドレス:3000/article/show.json")  
+let http_helper = Http_helper.init(baseUrl: "http://サーバーのipアドレス:3000/article/show.json")  
 ```
