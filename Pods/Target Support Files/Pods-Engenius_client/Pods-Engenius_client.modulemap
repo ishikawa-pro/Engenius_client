@@ -1,0 +1,6 @@
+framework module Pods_Engenius_client {
+  umbrella header "Pods-Engenius_client-umbrella.h"
+
+  export *
+  module * { export * }
+}
