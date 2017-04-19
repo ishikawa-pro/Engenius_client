@@ -36,9 +36,7 @@ class Http_helper{
     
     //記事を取得
     func getArticles(params: Dictionary<String, String>) -> Void{
-        //パラメータを設定
-        let parameters: Parameters = params
-        Alamofire.request(self.baseUrl, parameters: parameters).responseJSON{ response in
+        Alamofire.request(self.baseUrl, parameters: params).responseJSON{ response in
             if let dict = response.result.value as? Array<AnyObject>{
                 //articlesへ結果を格納
                 self.articles = dict
@@ -47,6 +45,20 @@ class Http_helper{
                                                 object: self)
             }
         }
-    }    
+    }
+    
+    //カテゴリに関係なく最新記事を取得
+    func getLatestArticles(params: Dictionary<String, String>) -> Void{
+        Alamofire.request("http://192.168.100.101:3000/article.json",parameters: params).responseJSON{ response in
+            if let dict = response.result.value as? Array<AnyObject>{
+                //articlesへ結果を格納
+                self.articles = dict
+                //articlesを取得したことを通知
+                NotificationCenter.default.post(name: NSNotification.Name("gotArticles"),
+                                                object: self)
+            }
+        }
+    }
+    
 
 }
