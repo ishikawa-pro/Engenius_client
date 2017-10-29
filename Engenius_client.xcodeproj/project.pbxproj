@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E90F36CE1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */; };
 		E90FC1AE1E8BC0340055D7C4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FC1AD1E8BC0340055D7C4 /* WebViewController.swift */; };
+		E9207D6D1FA5D1870068C907 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9207D6C1FA5D1870068C907 /* XLPagerTabStrip.framework */; };
 		E93C80E31E8D503F0041338D /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93C80E21E8D503F0041338D /* CAPSPageMenu.swift */; };
 		E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */; };
 		E97CA9611E54AC6300901AC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9601E54AC6300901AC7 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		743EB98D82596569853A51F1 /* Pods-Engenius_client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engenius_client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Engenius_client/Pods-Engenius_client.release.xcconfig"; sourceTree = "<group>"; };
 		E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "81v2Ahk8X-L._SX355_.jpg"; path = "../../../../../../Users/akira/Pictures/81v2Ahk8X-L._SX355_.jpg"; sourceTree = "<group>"; };
 		E90FC1AD1E8BC0340055D7C4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		E9207D6C1FA5D1870068C907 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
 		E93C80E21E8D503F0041338D /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		E97CA95B1E54AC6300901AC7 /* Engenius_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engenius_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9207D6D1FA5D1870068C907 /* XLPagerTabStrip.framework in Frameworks */,
 				E9AF170516941131D3C18B35 /* Pods_Engenius_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +103,7 @@
 		07E93755D0DC91B6B804B6F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9207D6C1FA5D1870068C907 /* XLPagerTabStrip.framework */,
 				1DCEB2494EF09B942AD21D8C /* Pods_Engenius_client.framework */,
 			);
 			name = Frameworks;
@@ -197,6 +201,7 @@
 				E97CA9591E54AC6300901AC7 /* Resources */,
 				08CD53571A457C646B88C198 /* [CP] Embed Pods Frameworks */,
 				2D8F9C55A449F9BED10AD2DD /* [CP] Copy Pods Resources */,
+				E9207D6E1FA5D19B0068C907 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -255,7 +260,7 @@
 				TargetAttributes = {
 					E97CA95A1E54AC6300901AC7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 86E8FPKX8A;
+						DevelopmentTeam = 8D69TY9Z9L;
 						ProvisioningStyle = Automatic;
 					};
 					E97CA9711E54AC6300901AC7 = {
@@ -365,6 +370,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		E9207D6E1FA5D19B0068C907 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -533,7 +552,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 86E8FPKX8A;
+				DEVELOPMENT_TEAM = 8D69TY9Z9L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Engenius_client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ishikawa.Engenius-client";
@@ -549,7 +572,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 86E8FPKX8A;
+				DEVELOPMENT_TEAM = 8D69TY9Z9L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Engenius_client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ishikawa.Engenius-client";
