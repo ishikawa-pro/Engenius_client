@@ -2,7 +2,7 @@
   "commitish" : "8.0.0",
   "iOS" : [
     {
-      "hash" : "41b8bda5f8184ff5198763e736438792c670e1ecf9ccefdcb8bb269a1155b7ec",
+      "hash" : "7f905a0e52cf02d5169e8c704f90830d33db3930fcf508691fefbe4c0e829a5c",
       "name" : "XLPagerTabStrip"
     }
   ]
