@@ -62,14 +62,18 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
         for category in self.http_helper.categories {
             categories.append(category["category"] as! String)
         }
+
+        var articleViewController: ArticlesTableViewController
         
         //カテゴリごとの記事一覧を作成
         for category in categories {
-            controller = ArticlesTableViewController(nibName: "ArticlesTableViewController", bundle: nil)
-            controller.title = category
-            controller.delegate = self
-            controllerArray.append(controller)
+            articleViewController = ArticlesTableViewController()
+            articleViewController.title = category
+            articleViewController.delegate = self
+            articleViewControllers.append(articleViewController)
         }
+        _ = viewControllers(for: self)
+        reloadPagerTabStripView()
 
     }
     
