@@ -61,8 +61,13 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             object: nil
         )
         //記事を取得
-        self.http_helper.getArticles(params: ["category":self.title!,"limit":"7"])
-        
+        if let title_str = title {
+            if title_str == "最新記事" {
+                self.http_helper.getLatestArticles(params: ["limit":"7"])
+            } else {
+                self.http_helper.getArticles(params: ["category":self.title!,"limit":"7"])
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -136,7 +141,14 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             self.articleTableView.isDragging &&
             self.isScrolling == false
         {
-            self.http_helper.getArticles(params: ["category":self.title!,"limit":"7","offset":(String(self.offset))])
+            if let title_str = title {
+                if title_str == "最新記事" {
+                    self.http_helper.getLatestArticles(params: ["limit":"7","offset":   (String(self.offset))])
+                } else {
+                    self.http_helper.getArticles(params: ["category":self.title!,"limit":"7","offset":(String(self.offset))])
+                }
+            }
+
             self.offset += 7
             self.isScrolling = true
         }
