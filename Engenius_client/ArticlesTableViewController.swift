@@ -88,6 +88,14 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             return
         }
     }
+
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        if let barTitle = title {
+            return IndicatorInfo(title: barTitle)
+        } else {
+            return IndicatorInfo(title: "No title")
+        }
+    }
     
     //cellの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
