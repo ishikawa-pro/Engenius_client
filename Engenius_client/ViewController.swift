@@ -22,8 +22,6 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
         //カテゴリの取得通知を受け取るように登録
         NotificationCenter.default.addObserver(
             self,
