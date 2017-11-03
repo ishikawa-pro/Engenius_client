@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 
-class ViewController: UIViewController, articlesTableViewDelegate{
+class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
     //カテゴリの取得用
     let http_helper = Http_helper(baseUrl: "http://192.168.100.101:3000/article/categories.json")
     
