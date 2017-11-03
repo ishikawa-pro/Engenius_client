@@ -16,7 +16,6 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     
     // インスタンス配列
     var controllerArray : [UIViewController] = []
-    var pageMenu : CAPSPageMenu?
     
     //表示する記事のURLを格納
     var articleURL = ""
@@ -72,33 +71,6 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
             controllerArray.append(controller)
         }
 
-        
-        
-        
-        // PageMenuのオプション設定
-        let parameters: [CAPSPageMenuOption] = [
-            .scrollMenuBackgroundColor(UIColor.white),
-            .viewBackgroundColor(UIColor.white),
-            .bottomMenuHairlineColor(UIColor(red: 0.25, green: 0.50, blue: 1, alpha: 0.5)),
-            .selectionIndicatorColor(UIColor(red: 0.25, green: 0.50, blue: 1, alpha: 1.0)),
-            .menuItemFont(UIFont(name: "HelveticaNeue", size: 14.0)!),
-            .centerMenuItems(true),
-            .menuItemWidthBasedOnTitleTextWidth(true),
-            .menuMargin(16),
-            .selectedMenuItemLabelColor(UIColor.black),
-            .unselectedMenuItemLabelColor(UIColor.gray),
-            .addBottomMenuShadow(true),
-            .menuItemSeparatorPercentageHeight (30)
-        ]
-        
-        // PageMenuを初期化
-        let rect = CGRect(origin: CGPoint(x: 0,y :20),
-                          size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: rect,
-                                pageMenuOptions: parameters)
-        self.addChildViewController(pageMenu!)
-        self.view.addSubview(pageMenu!.view)
-        pageMenu!.didMove(toParentViewController: self)
     }
     
     //ArticlesTableViewControllerからのデリゲート
