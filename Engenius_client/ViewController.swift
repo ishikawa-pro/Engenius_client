@@ -63,18 +63,6 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
             categories.append(category["category"] as! String)
         }
         
-        //ArticlesTableViewControllerの大元のインスタンスを作成
-        var controller: ArticlesTableViewController
-        
-        //最新記事用のArticlesTableViewControllerを生成
-        controller = ArticlesTableViewController(
-            nibName: "ArticlesTableViewController",
-            bundle: nil
-        )
-        controller.title = "最新記事"
-        controller.delegate = self
-        controllerArray.append(controller)
-        
         //カテゴリごとの記事一覧を作成
         for category in categories {
             controller = ArticlesTableViewController(nibName: "ArticlesTableViewController", bundle: nil)
