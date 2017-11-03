@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 protocol articlesTableViewDelegate {
     func showArticle(url: String)
 }
 
-class ArticlesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UITableViewDelegate, UITableViewDataSource{
     var delegate: articlesTableViewDelegate!
     var masterViewPointer:ViewController?
     //追加取得する際にいくら飛ばすかを保存しておく
