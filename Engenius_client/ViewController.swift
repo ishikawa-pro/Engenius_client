@@ -15,7 +15,7 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     let http_helper = Http_helper(baseUrl: "http://192.168.100.101:3000/article/categories.json")
     
     // インスタンス配列
-    var controllerArray : [UIViewController] = []
+    var articleViewControllers : [UIViewController] = []
     
     //表示する記事のURLを格納
     var articleURL = ""
