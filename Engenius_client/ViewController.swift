@@ -36,6 +36,18 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
         self.http_helper.getCategories()
     }
 
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        if (articleViewControllers.count == 0) {
+            var newsFeedViewController : ArticlesTableViewController
+            newsFeedViewController = ArticlesTableViewController()
+            newsFeedViewController.title = "最新記事"
+            articleViewControllers.append(newsFeedViewController)
+            return articleViewControllers
+        } else {
+            return articleViewControllers
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
