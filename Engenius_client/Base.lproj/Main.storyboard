@@ -71,17 +71,18 @@
                             <constraint firstItem="LI9-6r-ceo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nFt-ts-unk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="rSc-to-YOM"/>
                     <connections>
                         <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
                         <outlet property="containerView" destination="hVT-Dn-O1H" id="AAx-lL-Ogz"/>
-                        <segue destination="mXb-4D-evY" kind="presentation" identifier="webView" id="zfu-Ub-yf4"/>
+                        <segue destination="mXb-4D-evY" kind="show" id="ylZ-CH-Wsl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417.39130434782612" y="116.57608695652175"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Title-->
         <scene sceneID="ajw-EV-9cs">
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="WebViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
