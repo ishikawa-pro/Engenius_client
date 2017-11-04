@@ -37,10 +37,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hVT-Dn-O1H">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hVT-Dn-O1H">
+                                <rect key="frame" x="0.0" y="128" width="414" height="608"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="U0a-d1-ktq"/>
+                                </constraints>
                                 <sections/>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LI9-6r-ceo" customClass="ButtonBarView" customModule="XLPagerTabStrip">
@@ -59,6 +61,15 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LI9-6r-ceo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bxd-vI-HrW"/>
+                            <constraint firstAttribute="trailing" secondItem="hVT-Dn-O1H" secondAttribute="trailing" id="NKK-1y-1Ph"/>
+                            <constraint firstItem="hVT-Dn-O1H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="PDU-Go-8rT"/>
+                            <constraint firstItem="hVT-Dn-O1H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zt7-yY-QH3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hVT-Dn-O1H" secondAttribute="bottom" id="dvx-xi-l0K"/>
+                            <constraint firstAttribute="trailing" secondItem="LI9-6r-ceo" secondAttribute="trailing" id="eN9-FY-sPL"/>
+                            <constraint firstItem="LI9-6r-ceo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nFt-ts-unk"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
