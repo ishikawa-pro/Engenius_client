@@ -36,8 +36,8 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         if (articleViewControllers.count == 0) {
-            var newsFeedViewController : ArticlesTableViewController
-            newsFeedViewController = ArticlesTableViewController()
+            let newsFeedViewController = ArticlesTableViewController()
+            newsFeedViewController.delegate = self
             newsFeedViewController.title = "最新記事"
             articleViewControllers.append(newsFeedViewController)
             return articleViewControllers
