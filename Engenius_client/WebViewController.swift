@@ -10,7 +10,7 @@ import UIKit
 
 class WebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
-    var link:(String)?
+    var url:(String)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +28,13 @@ class WebViewController: UIViewController {
     }
     
     func openWeb(){
-        if let webData = link{
+        if let webData = url{
             if let url = NSURL(string:webData){
                 let urlRequest = NSURLRequest(url: url as URL)
                 webView.loadRequest(urlRequest as URLRequest)
             }
         }
     }
-    
 
     /*
     // MARK: - Navigation
