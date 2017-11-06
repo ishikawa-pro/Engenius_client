@@ -12,7 +12,7 @@ import XLPagerTabStrip
 
 class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
     //カテゴリの取得用
-    let http_helper = Http_helper(baseUrl: "http://192.168.100.101:3000/article/categories.json")
+    let http_helper = Http_helper(baseUrl: "http://ec2-52-199-81-112.ap-northeast-1.compute.amazonaws.com:8000/article/categories.json")
     
     // インスタンス配列
     var articleViewControllers : [UIViewController] = []

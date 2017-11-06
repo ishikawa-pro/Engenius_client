@@ -23,7 +23,7 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
     //記事の格納用
     var articles: [AnyObject] = []
     //記事の取得用クラスHttp_helperのインスタンスの生成
-    let http_helper = Http_helper.init(baseUrl: "http://192.168.22.124:3000/article/show.json")
+    let http_helper = Http_helper.init(baseUrl: "http://ec2-52-199-81-112.ap-northeast-1.compute.amazonaws.com:8000/article/show.json")
     //tableViewの宣言
     var articleTableView = UITableView()
     
