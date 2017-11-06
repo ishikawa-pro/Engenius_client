@@ -78,16 +78,14 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     //ArticlesTableViewControllerからのデリゲート
     //セルをタップすると呼ばれる
     func showArticle(url: String) {
-        self.articleURL = url
-        //画面遷移
-        self.performSegue(withIdentifier: "webView", sender: nil)
+        performSegue(withIdentifier: "WebViewController", sender: url)
     }
-    
+
     //遷移先に値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "webView"{
-            let webViewController: WebViewController = segue.destination as! WebViewController
-            webViewController.link = self.articleURL
+        if let vc = segue.destination as? WebViewController,
+            let url = sender as? String {
+            vc.url = url
         }
     }
 
