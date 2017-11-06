@@ -17,9 +17,6 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     // インスタンス配列
     var articleViewControllers : [UIViewController] = []
     
-    //表示する記事のURLを格納
-    var articleURL = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //カテゴリの取得通知を受け取るように登録
