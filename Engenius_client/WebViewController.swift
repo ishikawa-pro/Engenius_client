@@ -29,7 +29,7 @@ class WebViewController: UIViewController {
     }
     
     @IBAction func backToTableView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func openWeb(){        
