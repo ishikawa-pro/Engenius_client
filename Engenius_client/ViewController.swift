@@ -26,9 +26,13 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
             name: NSNotification.Name("gotCategories"),
             object: nil
         )
-        
         //カテゴリを取得
         self.http_helper.getCategories()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
