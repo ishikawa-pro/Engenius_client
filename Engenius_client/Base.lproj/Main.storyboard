@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jq9-yz-mLd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="56w-5i-29E">
+            <objects>
+                <navigationController id="Jq9-yz-mLd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pFO-fm-I7Q">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IKi-mg-45L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQ0-0h-9hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1422" y="117"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -22,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hVT-Dn-O1H">
-                                <rect key="frame" x="0.0" y="84" width="414" height="652"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="608"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="U0a-d1-ktq"/>
@@ -30,7 +46,7 @@
                                 <sections/>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LI9-6r-ceo" customClass="ButtonBarView" customModule="XLPagerTabStrip">
-                                <rect key="frame" x="0.0" y="20" width="414" height="64"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="9r3-5B-gcg"/>
@@ -59,14 +75,14 @@
                     <connections>
                         <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
                         <outlet property="containerView" destination="hVT-Dn-O1H" id="AAx-lL-Ogz"/>
-                        <segue destination="mXb-4D-evY" kind="show" identifier="WebViewController" id="ylZ-CH-Wsl"/>
+                        <segue destination="mXb-4D-evY" kind="show" identifier="WebViewController" id="qjP-oQ-LQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417.39130434782612" y="116.57608695652175"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Title-->
         <scene sceneID="ajw-EV-9cs">
             <objects>
                 <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="WebViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,34 +98,23 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSS-L9-Vg9">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="dkB-7z-LTr"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Title" id="ihu-lB-e6N">
-                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="zK5-n2-RGU">
-                                            <connections>
-                                                <action selector="backToTableView:" destination="mXb-4D-evY" id="wM9-Cx-GJa"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="qpR-bG-BXg" secondAttribute="bottom" id="NoU-0X-pbd"/>
-                            <constraint firstItem="qpR-bG-BXg" firstAttribute="top" secondItem="tSS-L9-Vg9" secondAttribute="bottom" id="Y74-I8-vJc"/>
+                            <constraint firstItem="qpR-bG-BXg" firstAttribute="top" secondItem="akr-8d-M83" secondAttribute="bottom" id="Upd-RN-A4c"/>
                             <constraint firstItem="qpR-bG-BXg" firstAttribute="leading" secondItem="mXj-nl-hSV" secondAttribute="leading" id="YGt-vu-Jj7"/>
-                            <constraint firstItem="tSS-L9-Vg9" firstAttribute="leading" secondItem="mXj-nl-hSV" secondAttribute="leading" id="YOI-Rt-ERY"/>
-                            <constraint firstAttribute="trailing" secondItem="tSS-L9-Vg9" secondAttribute="trailing" id="cbu-Zt-g7N"/>
-                            <constraint firstItem="tSS-L9-Vg9" firstAttribute="top" secondItem="akr-8d-M83" secondAttribute="bottom" id="dXt-J4-0CV"/>
                             <constraint firstAttribute="trailing" secondItem="qpR-bG-BXg" secondAttribute="trailing" id="wJq-BA-bHX"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="ihu-lB-e6N">
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="zK5-n2-RGU">
+                            <connections>
+                                <action selector="backToTableView:" destination="mXb-4D-evY" id="wM9-Cx-GJa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="qpR-bG-BXg" id="nep-Vr-T1U"/>
