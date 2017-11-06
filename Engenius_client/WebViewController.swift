@@ -27,11 +27,11 @@ class WebViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func openWeb(){
+    func openWeb(){        
         if let webData = url{
-            if let url = NSURL(string:webData){
-                let urlRequest = NSURLRequest(url: url as URL)
-                webView.loadRequest(urlRequest as URLRequest)
+            if let url = URL(string:webData){
+                let urlRequest = URLRequest(url: url)
+                webView.loadRequest(urlRequest)
             }
         }
     }
