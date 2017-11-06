@@ -7,23 +7,21 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 
-class ViewController: UIViewController, articlesTableViewDelegate{
+class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
     //カテゴリの取得用
     let http_helper = Http_helper(baseUrl: "http://ec2-52-199-81-112.ap-northeast-1.compute.amazonaws.com:8000/article/categories.json")
     
     // インスタンス配列
-    var controllerArray : [UIViewController] = []
-    var pageMenu : CAPSPageMenu?
+    var articleViewControllers : [UIViewController] = []
     
     //表示する記事のURLを格納
     var articleURL = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
         //カテゴリの取得通知を受け取るように登録
         NotificationCenter.default.addObserver(
             self,
@@ -34,6 +32,18 @@ class ViewController: UIViewController, articlesTableViewDelegate{
         
         //カテゴリを取得
         self.http_helper.getCategories()
+    }
+
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        if (articleViewControllers.count == 0) {
+            var newsFeedViewController : ArticlesTableViewController
+            newsFeedViewController = ArticlesTableViewController()
+            newsFeedViewController.title = "最新記事"
+            articleViewControllers.append(newsFeedViewController)
+            return articleViewControllers
+        } else {
+            return articleViewControllers
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,54 +60,19 @@ class ViewController: UIViewController, articlesTableViewDelegate{
         for category in self.http_helper.categories {
             categories.append(category["category"] as! String)
         }
-        
-        //ArticlesTableViewControllerの大元のインスタンスを作成
-        var controller: ArticlesTableViewController
-        
-        //最新記事用のArticlesTableViewControllerを生成
-        controller = ArticlesTableViewController(
-            nibName: "ArticlesTableViewController",
-            bundle: nil
-        )
-        controller.title = "最新記事"
-        controller.delegate = self
-        controllerArray.append(controller)
+
+        var articleViewController: ArticlesTableViewController
         
         //カテゴリごとの記事一覧を作成
         for category in categories {
-            controller = ArticlesTableViewController(nibName: "ArticlesTableViewController", bundle: nil)
-            controller.title = category
-            controller.delegate = self
-            controllerArray.append(controller)
+            articleViewController = ArticlesTableViewController()
+            articleViewController.title = category
+            articleViewController.delegate = self
+            articleViewControllers.append(articleViewController)
         }
+        _ = viewControllers(for: self)
+        reloadPagerTabStripView()
 
-        
-        
-        
-        // PageMenuのオプション設定
-        let parameters: [CAPSPageMenuOption] = [
-            .scrollMenuBackgroundColor(UIColor.white),
-            .viewBackgroundColor(UIColor.white),
-            .bottomMenuHairlineColor(UIColor(red: 0.25, green: 0.50, blue: 1, alpha: 0.5)),
-            .selectionIndicatorColor(UIColor(red: 0.25, green: 0.50, blue: 1, alpha: 1.0)),
-            .menuItemFont(UIFont(name: "HelveticaNeue", size: 14.0)!),
-            .centerMenuItems(true),
-            .menuItemWidthBasedOnTitleTextWidth(true),
-            .menuMargin(16),
-            .selectedMenuItemLabelColor(UIColor.black),
-            .unselectedMenuItemLabelColor(UIColor.gray),
-            .addBottomMenuShadow(true),
-            .menuItemSeparatorPercentageHeight (30)
-        ]
-        
-        // PageMenuを初期化
-        let rect = CGRect(origin: CGPoint(x: 0,y :20),
-                          size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: rect,
-                                pageMenuOptions: parameters)
-        self.addChildViewController(pageMenu!)
-        self.view.addSubview(pageMenu!.view)
-        pageMenu!.didMove(toParentViewController: self)
     }
     
     //ArticlesTableViewControllerからのデリゲート

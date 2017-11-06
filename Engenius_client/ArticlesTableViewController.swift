@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 protocol articlesTableViewDelegate {
     func showArticle(url: String)
 }
 
-class ArticlesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UITableViewDelegate, UITableViewDataSource{
     var delegate: articlesTableViewDelegate!
     var masterViewPointer:ViewController?
     //追加取得する際にいくら飛ばすかを保存しておく
@@ -25,16 +26,6 @@ class ArticlesTableViewController: UIViewController, UITableViewDelegate, UITabl
     let http_helper = Http_helper.init(baseUrl: "http://ec2-52-199-81-112.ap-northeast-1.compute.amazonaws.com:8000/article/show.json")
     //tableViewの宣言
     var articleTableView = UITableView()
-    
-    
-    //nibファイルをパラメタにとるイニシャライザinit
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +91,14 @@ class ArticlesTableViewController: UIViewController, UITableViewDelegate, UITabl
             //記事を取得できた時点でtableViewを表示させる
             view.addSubview(self.articleTableView)
             return
+        }
+    }
+
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        if let barTitle = title {
+            return IndicatorInfo(title: barTitle)
+        } else {
+            return IndicatorInfo(title: "No title")
         }
     }
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,17 +20,53 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hVT-Dn-O1H">
+                                <rect key="frame" x="0.0" y="84" width="414" height="652"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="U0a-d1-ktq"/>
+                                </constraints>
+                                <sections/>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LI9-6r-ceo" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="20" width="414" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="9r3-5B-gcg"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aET-fm-pfv">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LI9-6r-ceo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bxd-vI-HrW"/>
+                            <constraint firstAttribute="trailing" secondItem="hVT-Dn-O1H" secondAttribute="trailing" id="NKK-1y-1Ph"/>
+                            <constraint firstItem="hVT-Dn-O1H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="PDU-Go-8rT"/>
+                            <constraint firstItem="hVT-Dn-O1H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zt7-yY-QH3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hVT-Dn-O1H" secondAttribute="bottom" id="dvx-xi-l0K"/>
+                            <constraint firstAttribute="trailing" secondItem="LI9-6r-ceo" secondAttribute="trailing" id="eN9-FY-sPL"/>
+                            <constraint firstItem="LI9-6r-ceo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nFt-ts-unk"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="rSc-to-YOM"/>
                     <connections>
-                        <segue destination="mXb-4D-evY" kind="presentation" identifier="webView" id="zfu-Ub-yf4"/>
+                        <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
+                        <outlet property="containerView" destination="hVT-Dn-O1H" id="AAx-lL-Ogz"/>
+                        <segue destination="mXb-4D-evY" kind="show" id="ylZ-CH-Wsl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-416" y="117"/>
+            <point key="canvasLocation" x="-417.39130434782612" y="116.57608695652175"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Title-->
         <scene sceneID="ajw-EV-9cs">
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="WebViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,35 +78,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-uw-iJA">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="ihu-lB-e6N">
-                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="zK5-n2-RGU">
-                                            <connections>
-                                                <action selector="backToTableView:" destination="mXb-4D-evY" id="wM9-Cx-GJa"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpR-bG-BXg">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qpR-bG-BXg" secondAttribute="trailing" id="3X3-XM-g16"/>
-                            <constraint firstItem="kN5-uw-iJA" firstAttribute="leading" secondItem="mXj-nl-hSV" secondAttribute="leading" id="P6g-CV-5fZ"/>
-                            <constraint firstItem="qpR-bG-BXg" firstAttribute="leading" secondItem="mXj-nl-hSV" secondAttribute="leading" id="cxa-Ia-lvI"/>
-                            <constraint firstAttribute="trailing" secondItem="kN5-uw-iJA" secondAttribute="trailing" id="f6z-QJ-FOz"/>
-                            <constraint firstItem="kN5-uw-iJA" firstAttribute="top" secondItem="akr-8d-M83" secondAttribute="bottom" id="o36-Qf-YBZ"/>
-                            <constraint firstItem="qpR-bG-BXg" firstAttribute="top" secondItem="kN5-uw-iJA" secondAttribute="bottom" id="w6A-R2-6oD"/>
-                            <constraint firstAttribute="bottom" secondItem="qpR-bG-BXg" secondAttribute="bottom" id="wvc-ns-dtn"/>
+                            <constraint firstItem="qpR-bG-BXg" firstAttribute="leading" secondItem="mXj-nl-hSV" secondAttribute="leading" id="4fh-nz-sTj"/>
+                            <constraint firstAttribute="trailing" secondItem="qpR-bG-BXg" secondAttribute="trailing" id="HvI-dq-qeN"/>
+                            <constraint firstAttribute="bottom" secondItem="qpR-bG-BXg" secondAttribute="bottom" id="Teh-lb-HR2"/>
+                            <constraint firstItem="qpR-bG-BXg" firstAttribute="top" secondItem="akr-8d-M83" secondAttribute="bottom" id="ZKm-CV-S25"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="ihu-lB-e6N">
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="zK5-n2-RGU">
+                            <connections>
+                                <action selector="backToTableView:" destination="mXb-4D-evY" id="wM9-Cx-GJa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="qpR-bG-BXg" id="nep-Vr-T1U"/>
@@ -78,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKS-sO-Vho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860.86956521739137" y="117.39130434782609"/>
+            <point key="canvasLocation" x="630.43478260869574" y="116.57608695652175"/>
         </scene>
     </scenes>
 </document>
