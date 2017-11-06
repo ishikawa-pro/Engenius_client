@@ -59,17 +59,17 @@
                     <connections>
                         <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
                         <outlet property="containerView" destination="hVT-Dn-O1H" id="AAx-lL-Ogz"/>
-                        <segue destination="mXb-4D-evY" kind="show" id="ylZ-CH-Wsl"/>
+                        <segue destination="mXb-4D-evY" kind="show" identifier="WebViewController" id="ylZ-CH-Wsl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417.39130434782612" y="116.57608695652175"/>
         </scene>
-        <!--Title-->
+        <!--Web View Controller-->
         <scene sceneID="ajw-EV-9cs">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="WebViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="WebViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akr-8d-M83"/>
                         <viewControllerLayoutGuide type="bottom" id="RBz-Ey-yh2"/>
