@@ -88,9 +88,6 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
         if segue.identifier == "webView"{
             let webViewController: WebViewController = segue.destination as! WebViewController
             webViewController.link = self.articleURL
-//            if let indexPath = self.articleTableView.indexPathForSelectedRow{
-//
-//            }
         }
     }
 
