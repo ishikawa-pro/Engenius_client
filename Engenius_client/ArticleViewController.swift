@@ -13,8 +13,7 @@ class ArticleViewController: SFSafariViewController {
     var url:(String)?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        openWeb()
+        super.viewDidLoad()        
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +29,7 @@ class ArticleViewController: SFSafariViewController {
     
     @IBAction func backToTableView(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-    }    
+    }
 
     /*
     // MARK: - Navigation
