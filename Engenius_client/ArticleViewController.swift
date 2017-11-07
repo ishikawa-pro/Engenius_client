@@ -30,16 +30,7 @@ class ArticleViewController: SFSafariViewController {
     
     @IBAction func backToTableView(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-    }
-    
-    func openWeb(){        
-        if let webData = url{
-            if let url = URL(string:webData){
-                let urlRequest = URLRequest(url: url)
-                webView.loadRequest(urlRequest)
-            }
-        }
-    }
+    }    
 
     /*
     // MARK: - Navigation
