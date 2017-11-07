@@ -84,7 +84,7 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
 
     //遷移先に値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? WebViewController,
+        if let vc = segue.destination as? ArticleViewController,
             let url = sender as? String {
             vc.url = url
         }
