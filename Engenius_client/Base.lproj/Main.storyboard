@@ -85,7 +85,7 @@
         <!--Title-->
         <scene sceneID="ajw-EV-9cs">
             <objects>
-                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="WebViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="ArticleViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akr-8d-M83"/>
                         <viewControllerLayoutGuide type="bottom" id="RBz-Ey-yh2"/>
