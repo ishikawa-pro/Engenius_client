@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class ArticleViewController: UIViewController {    
+class ArticleViewController: SFSafariViewController {
     var url:(String)?
     
     override func viewDidLoad() {
