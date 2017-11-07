@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WebViewController: UIViewController {
+class ArticleViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     var url:(String)?
     
