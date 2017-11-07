@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ArticleViewController: UIViewController {
-    @IBOutlet weak var webView: UIWebView!
+class ArticleViewController: UIViewController {    
     var url:(String)?
     
     override func viewDidLoad() {
