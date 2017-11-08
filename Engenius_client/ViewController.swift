@@ -8,11 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
+import SafariServices
 
 
 class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
     //カテゴリの取得用
-    let http_helper = Http_helper(baseUrl: "http://ec2-52-199-81-112.ap-northeast-1.compute.amazonaws.com:8000/article/categories.json")
+    let http_helper = Http_helper(baseUrl: "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/article/categories.json")
     
     // インスタンス配列
     var articleViewControllers : [UIViewController] = []
@@ -79,17 +80,11 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     //ArticlesTableViewControllerからのデリゲート
     //セルをタップすると呼ばれる
     func showArticle(url: String) {
-        performSegue(withIdentifier: "WebViewController", sender: url)
-    }
-
-    //遷移先に値を渡す
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ArticleViewController,
-            let url = sender as? String {
-            vc.url = url
+        guard let url = URL(string: url) else {
+            return
         }
+        let nextVC = SFSafariViewController(url: url)
+        navigationController?.present(nextVC, animated: true, completion: nil)
     }
-
-
 }
 
