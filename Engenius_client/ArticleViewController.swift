@@ -9,8 +9,7 @@
 import UIKit
 import SafariServices
 
-class ArticleViewController: SFSafariViewController {
-    var url:(String)?
+class ArticleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()        
