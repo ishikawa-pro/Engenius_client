@@ -49,7 +49,7 @@ class Http_helper{
     
     //カテゴリに関係なく最新記事を取得
     func getLatestArticles(params: Dictionary<String, String>) -> Void{
-        Alamofire.request("http://ec2-52-199-81-112.ap-northeast-1.compute.amazonaws.com:8000/article.json",parameters: params).responseJSON{ response in
+        Alamofire.request("http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/article.json",parameters: params).responseJSON{ response in
             if let dict = response.result.value as? Array<AnyObject>{
                 //articlesへ結果を格納
                 self.articles = dict
