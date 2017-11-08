@@ -75,39 +75,11 @@
                     <connections>
                         <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
                         <outlet property="containerView" destination="hVT-Dn-O1H" id="AAx-lL-Ogz"/>
-                        <segue destination="mXb-4D-evY" kind="show" identifier="WebViewController" id="qjP-oQ-LQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417.39130434782612" y="116.57608695652175"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="ajw-EV-9cs">
-            <objects>
-                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mXb-4D-evY" customClass="ArticleViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="akr-8d-M83"/>
-                        <viewControllerLayoutGuide type="bottom" id="RBz-Ey-yh2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mXj-nl-hSV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="ihu-lB-e6N">
-                        <barButtonItem key="leftBarButtonItem" title="戻る" id="zK5-n2-RGU">
-                            <connections>
-                                <action selector="backToTableView:" destination="mXb-4D-evY" id="wM9-Cx-GJa"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KKS-sO-Vho" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="630.43478260869574" y="116.57608695652175"/>
         </scene>
     </scenes>
 </document>
