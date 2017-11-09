@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+public struct Category : Codable{
+    let categories: [String]
+}
