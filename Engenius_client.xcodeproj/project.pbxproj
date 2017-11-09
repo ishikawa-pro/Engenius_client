@@ -137,6 +137,7 @@
 		E97CA95D1E54AC6300901AC7 /* Engenius_client */ = {
 			isa = PBXGroup;
 			children = (
+				E9C7E5461FB50A990017D8FF /* Models */,
 				E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */,
 				E9A489971E8A541A003F4C41 /* CustomCell */,
 				E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */,
@@ -177,6 +178,13 @@
 				E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */,
 			);
 			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		E9C7E5461FB50A990017D8FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
