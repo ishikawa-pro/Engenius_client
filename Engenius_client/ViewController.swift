@@ -9,6 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 import SafariServices
+import Alamofire
 
 
 class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
