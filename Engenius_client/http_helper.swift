@@ -22,18 +22,6 @@ class Http_helper{
         self.baseUrl = baseUrl
     }
     
-    func getCategories() -> Void {
-        Alamofire.request(self.baseUrl).responseJSON{ response in
-            if let dict = response.result.value as? Array<AnyObject>{
-                //articlesへ結果を格納
-                self.categories = dict
-                //articlesを取得したことを通知
-                NotificationCenter.default.post(name: NSNotification.Name("gotCategories"),
-                                                object: self)
-            }
-        }
-    }
-    
     //記事を取得
     func getArticles(params: Dictionary<String, String>) -> Void{
         Alamofire.request(self.baseUrl, parameters: params).responseJSON{ response in
