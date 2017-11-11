@@ -20,6 +20,12 @@ class Engenius_clientTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+    func testCategoryURLRoute() {
+        let request = URLRequest(url: URL(string: "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/category.json")!)
+        XCTAssertEqual(try! EngeniusAPIRouter.category.getCategories().asURLRequest(), request)
+    }
+
     
     func testExample() {
         // This is an example of a functional test case.
