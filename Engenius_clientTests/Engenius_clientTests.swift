@@ -21,6 +21,13 @@ class Engenius_clientTests: XCTestCase {
         super.tearDown()
     }
 
+    func testCategoryModel() {
+        let payload: Data = try! JSONEncoder().encode(["categories":["a", "b", "c", "d"]])
+
+        let category = try! JSONDecoder().decode(Category.self, from: payload)
+        XCTAssert(category.categories == ["a", "b", "c", "d"])
+    }
+
     func testCategoryURLRoute() {
         let request = URLRequest(url: URL(string: "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/category.json")!)
         XCTAssertEqual(try! EngeniusAPIRouter.category.getCategories().asURLRequest(), request)
