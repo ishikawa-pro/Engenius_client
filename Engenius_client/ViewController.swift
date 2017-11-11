@@ -73,30 +73,6 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
         // Dispose of any resources that can be recreated.
     }
     
-    //カテゴリを取得したら呼ばれる
-    //ここでPageMenuを生成する
-    func gotCategories() ->  Void{
-        // categoryリスト
-        var categories:[String] = []
-        //取得したカテゴリリストをcategoriesへ格納
-        for category in self.http_helper.categories {
-            categories.append(category["category"] as! String)
-        }
-
-        var articleViewController: ArticlesTableViewController
-        
-        //カテゴリごとの記事一覧を作成
-        for category in categories {
-            articleViewController = ArticlesTableViewController()
-            articleViewController.title = category
-            articleViewController.delegate = self
-            articleViewControllers.append(articleViewController)
-        }
-        _ = viewControllers(for: self)
-        reloadPagerTabStripView()
-
-    }
-    
     //ArticlesTableViewControllerからのデリゲート
     //セルをタップすると呼ばれる
     func showArticle(url: String) {
