@@ -21,15 +21,18 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //カテゴリの取得通知を受け取るように登録
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.gotCategories),
-            name: NSNotification.Name("gotCategories"),
-            object: nil
-        )
-        //カテゴリを取得
-        self.http_helper.getCategories()
+
+        //cateogryの取得
+        Alamofire.request(EngeniusAPIRouter.category.getCategories()).responseData { (response) in
+            guard let data = response.data else {
+                return
+            }
+            do {
+                self.categories = try JSONDecoder().decode(Category.self, from: data)
+            } catch {
+                print("error")
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
