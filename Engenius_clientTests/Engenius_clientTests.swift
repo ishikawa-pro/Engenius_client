@@ -36,6 +36,9 @@ class Engenius_clientTests: XCTestCase {
         request = URLRequest(url: URL(string: baseURL + ".json?limit=7&offset=7")!)
         XCTAssertEqual(try! EngeniusAPIRouter.article.getFeed(limit: 7, page: 1).asURLRequest(),
                        request)
+
+        request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=7")!)
+        XCTAssertEqual(try! EngeniusAPIRouter.article.getArticle(category: "Swift", limit: 7, page: 0).asURLRequest(), request)
     }
     
     func testExample() {
