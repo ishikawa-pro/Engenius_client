@@ -18,7 +18,7 @@ struct Article : Codable {
     enum CodingKeys: String, CodingKey {
         case title
         case url = "link"
-        case postDate = "post_data"
+        case postDate = "post_date"
         case imageURL = "image_url"
         case category
     }
