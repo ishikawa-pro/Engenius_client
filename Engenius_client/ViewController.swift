@@ -13,6 +13,24 @@ import Alamofire
 
 
 class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
+    var categories:Category? {
+        didSet {
+            var articleViewController: ArticlesTableViewController
+
+            guard let categories = categories else {
+                return
+            }
+            //カテゴリごとの記事一覧を作成
+            for category in categories.categories {
+                articleViewController = ArticlesTableViewController()
+                articleViewController.title = category
+                articleViewController.delegate = self
+                articleViewControllers.append(articleViewController)
+            }
+            _ = viewControllers(for: self)
+            reloadPagerTabStripView()
+        }
+    }
     
     // インスタンス配列
     var articleViewControllers : [UIViewController] = []
