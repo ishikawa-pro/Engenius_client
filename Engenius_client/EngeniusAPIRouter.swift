@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+
+enum EngeniusAPIRouter {
+    static let baseURLString = "engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com"
+}
