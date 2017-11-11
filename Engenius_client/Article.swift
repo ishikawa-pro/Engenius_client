@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Article : Codable {
+    public let title: String
+    public let url: URL?
+    public let postDate: String
+    public let imageURL: URL?
+    public let category: String
+}
