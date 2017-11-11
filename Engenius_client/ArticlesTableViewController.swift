@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import Alamofire
 
 protocol articlesTableViewDelegate {
     func showArticle(url: String)
