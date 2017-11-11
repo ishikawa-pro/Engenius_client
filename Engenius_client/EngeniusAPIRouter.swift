@@ -28,4 +28,32 @@ enum EngeniusAPIRouter {
             return try URLEncoding.default.encode(urlRequest, with: nil)
         }
     }
+
+    enum article : URLRequestConvertible {
+        case getFeed(limit: Int, page: Int)
+
+        var path: String {
+            switch self {
+            case .getFeed:
+                return "/article.json"
+            }
+        }
+
+        static let offset = 7
+
+        func asURLRequest() throws -> URLRequest {
+            let result: (path: String, parameters: Parameters) = {
+                switch self {
+                case let .getFeed(limit, page) where page > 0:
+                    return ("/article.json", ["limit": limit, "offset": page * article.offset])
+                case let .getFeed(limit, _):
+                    return ("/article.json", ["limit": limit])
+                }
+            }()
+
+            let url = try EngeniusAPIRouter.baseURLString.asURL()
+            let urlRequest = URLRequest(url: url.appendingPathComponent(result.path))
+            return try URLEncoding.default.encode(urlRequest, with: result.parameters)
+        }
+    }
 }
