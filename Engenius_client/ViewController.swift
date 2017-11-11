@@ -13,8 +13,6 @@ import Alamofire
 
 
 class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
-    //カテゴリの取得用
-    let http_helper = Http_helper(baseUrl: "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/article/categories.json")
     
     // インスタンス配列
     var articleViewControllers : [UIViewController] = []
