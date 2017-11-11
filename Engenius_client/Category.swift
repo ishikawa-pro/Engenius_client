@@ -9,5 +9,5 @@
 import Foundation
 
 public struct Category : Codable{
-    let categories: [String]
+    public let categories: [String]
 }
