@@ -32,6 +32,10 @@ class Engenius_clientTests: XCTestCase {
         var request = URLRequest(url: URL(string: baseURL + ".json?limit=7")!)
         XCTAssertEqual(try! EngeniusAPIRouter.article.getFeed(limit: 7,page: 0).asURLRequest(),
                        request)
+
+        request = URLRequest(url: URL(string: baseURL + ".json?limit=7&offset=7")!)
+        XCTAssertEqual(try! EngeniusAPIRouter.article.getFeed(limit: 7, page: 1).asURLRequest(),
+                       request)
     }
     
     func testExample() {
