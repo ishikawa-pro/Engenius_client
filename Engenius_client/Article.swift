@@ -14,4 +14,12 @@ struct Article : Codable {
     public let postDate: String
     public let imageURL: URL?
     public let category: String
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case url = "link"
+        case postDate = "post_data"
+        case imageURL = "image_url"
+        case category
+    }
 }
