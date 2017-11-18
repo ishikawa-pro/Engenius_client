@@ -50,9 +50,6 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
         self.articleTableView.delegate = self
         //tableViewのデーターソースを設定
         self.articleTableView.dataSource = self
-        //セルの高さを自動調整する
-        self.articleTableView.estimatedRowHeight = 100
-        self.articleTableView.rowHeight = UITableViewAutomaticDimension
 
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
