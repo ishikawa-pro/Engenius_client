@@ -70,6 +70,19 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
                 self.http_helper.getLatestArticles(params: ["limit":"7"])
             } else {
                 self.http_helper.getArticles(params: ["category":self.title!,"limit":"7"])
+
+    func fetchArticles(request: URLRequestConvertible) {
+        Alamofire.request(request).responseData { (response) in
+            guard let data = response.data else {
+                return
+            }
+
+            do {
+                self.articles.append(
+                    contentsOf: try JSONDecoder().decode([Article].self, from: data)
+                )
+            } catch {
+                print(error)
             }
         }
     }
