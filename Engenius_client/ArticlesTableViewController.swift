@@ -64,15 +64,6 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
         self.articleTableView.register(nib, forCellReuseIdentifier: "customCell")
-        
-        
-        //記事の取得通知を受け取るように登録
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.got_articles),
-            name: NSNotification.Name("gotArticles"),
-            object: nil
-        )
         //記事を取得
         if let title_str = title {
             if title_str == "最新記事" {
