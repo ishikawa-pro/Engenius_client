@@ -54,6 +54,34 @@ class Engenius_clientTests: XCTestCase {
         article = try! JSONDecoder().decode(Article.self, from: payload)
         XCTAssertNil(article.imageURL)
     }
+
+    func testArticles() {
+        let payload: Data = try! JSONEncoder().encode([
+                [
+                    "title": "article-title",
+                    "link": "http://example.com",
+                    "post_date": "1996-05-19",
+                    "image_url": "http://example/image.jpg",
+                    "category": "Swift"
+                ],
+                [
+                    "title": "article-title",
+                    "link": "http://example.com",
+                    "post_date": "1996-05-19",
+                    "image_url": nil,
+                    "category": "Swift"
+                ]
+            ])
+        let articles:[Article] = try! JSONDecoder().decode([Article].self, from: payload)
+        XCTAssert(articles[0].title == "article-title")
+        XCTAssert(articles[0].title == "article-title")
+        XCTAssert(articles[0].url == URL(string: "http://example.com"))
+        XCTAssert(articles[0].postDate == "1996-05-19")
+        XCTAssert(articles[0].imageURL == URL(string: "http://example/image.jpg"))
+        XCTAssert(articles[0].category == "Swift")
+        XCTAssertNil(articles[1].imageURL)
+    }
+
     func testCategoryURLRoute() {
         let request = URLRequest(url: URL(string: "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/category.json")!)
         XCTAssertEqual(try! EngeniusAPIRouter.category.getCategories().asURLRequest(), request)
