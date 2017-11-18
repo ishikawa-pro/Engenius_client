@@ -22,10 +22,6 @@ class ArticlesTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        //titleLabelを複数行表示にする
-        self.titleLabel.numberOfLines = 0        
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
