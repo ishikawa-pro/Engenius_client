@@ -75,8 +75,8 @@ class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDel
     
     //ArticlesTableViewControllerからのデリゲート
     //セルをタップすると呼ばれる
-    func showArticle(url: String) {
-        guard let url = URL(string: url) else {
+    func showArticle(url: URL?) {
+        guard let url = url else {
             return
         }
         let nextVC = SFSafariViewController(url: url)
