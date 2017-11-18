@@ -28,16 +28,14 @@ class ArticlesTableViewCell: UITableViewCell {
     }
     
     //セルにデータを代入する
-    func setCell(titleText: String, imageURL: String) -> Void {
-        self.titleLabel.text = titleText as String
+    func setCell(titleText: String, imageURL: URL?) -> Void {
+        self.titleLabel.text = titleText
         //AlamofireImageで非同期で画像を取得して表示する
-        if imageURL != ""{
-            self.thumbnailImageView!.af_setImage(withURL: URL(string: imageURL)!)
-        }else{
+        guard let url = imageURL else{
             self.thumbnailImageView.image = UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
+            return
         }
-        //titleLabelのサイズを調整
-        self.titleLabel.sizeToFit()
+        self.thumbnailImageView!.af_setImage(withURL: url)
     }
     
     
