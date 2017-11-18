@@ -12,7 +12,7 @@ import SafariServices
 import Alamofire
 
 
-class ViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
+class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
     var categories:Category? {
         didSet {
             var articleViewController: ArticlesTableViewController
