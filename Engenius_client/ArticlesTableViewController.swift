@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import Alamofire
 
 protocol articlesTableViewDelegate {
-    func showArticle(url: String)
+    func showArticle(url: URL?)
 }
 
 class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UITableViewDelegate, UITableViewDataSource{
@@ -128,8 +128,7 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
     //セルがタップされたら呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //webViewControllerへ遷移する部分をデリゲートする。
-        delegate.showArticle(url:
-            (self.articles[(indexPath as NSIndexPath).row]["link"] as? String)!)
+        delegate.showArticle(url: articles[indexPath.row].url)
     }
     
     //スクロールするたびに呼ばれる
