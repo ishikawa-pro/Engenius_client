@@ -64,12 +64,17 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
         self.articleTableView.register(nib, forCellReuseIdentifier: "customCell")
-        //記事を取得
-        if let title_str = title {
-            if title_str == "最新記事" {
-                self.http_helper.getLatestArticles(params: ["limit":"7"])
-            } else {
-                self.http_helper.getArticles(params: ["category":self.title!,"limit":"7"])
+
+        guard let vcTitle = title else {
+            return
+        }
+
+        if vcTitle == "最新記事" {
+            fetchArticles(request: EngeniusAPIRouter.article.fetchFeed(limit: 7, page: 0))
+        } else {
+            fetchArticles(request: EngeniusAPIRouter.article.fetchArticle(category: vcTitle, limit: 7, page: 0))
+        }
+    }
 
     func fetchArticles(request: URLRequestConvertible) {
         Alamofire.request(request).responseData { (response) in
@@ -90,25 +95,6 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //記事を取得したら呼ばれる
-    func got_articles() -> Void {
-        //取得した記事をarticlesへ格納
-        for article in self.http_helper.articles{
-            self.articles.append(article)
-        }
-        //記事を追加読み込みする場合はreloadData
-        //初めてTableViewを描画するときはaddSubview
-        if self.articles.count != 7 {
-            self.articleTableView.reloadData()
-            self.isScrolling = false
-            return
-        }else{
-            //記事を取得できた時点でtableViewを表示させる
-            view.addSubview(self.articleTableView)
-            return
-        }
     }
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -158,12 +144,14 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             self.articleTableView.isDragging &&
             self.isScrolling == false
         {
-            if let title_str = title {
-                if title_str == "最新記事" {
-                    self.http_helper.getLatestArticles(params: ["limit":"7","offset":   (String(self.offset))])
-                } else {
-                    self.http_helper.getArticles(params: ["category":self.title!,"limit":"7","offset":(String(self.offset))])
-                }
+            guard let vcTitle = title else {
+                return
+            }
+
+            if vcTitle == "最新記事" {
+                fetchArticles(request: EngeniusAPIRouter.article.fetchFeed(limit: 7, page: page))
+            } else {
+                fetchArticles(request: EngeniusAPIRouter.article.fetchArticle(category: vcTitle, limit: 7, page: page))
             }
 
             self.offset += 7
