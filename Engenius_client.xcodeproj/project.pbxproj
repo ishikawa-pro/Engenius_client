@@ -143,11 +143,10 @@
 		E97CA95D1E54AC6300901AC7 /* Engenius_client */ = {
 			isa = PBXGroup;
 			children = (
-				E9C7E5461FB50A990017D8FF /* Models */,
-				E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */,
-				E9A489971E8A541A003F4C41 /* CustomCell */,
 				E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */,
-				E97CA9601E54AC6300901AC7 /* ViewController.swift */,
+				E9F109B71FBFCC1000E0EAEF /* Views */,
+				E9F109B61FBFCBDF00E0EAEF /* ViewControllers */,
+				E9C7E5461FB50A990017D8FF /* Models */,
 				E97CA98F1E54ADCC00901AC7 /* http_helper.swift */,
 				E97CA9621E54AC6300901AC7 /* Main.storyboard */,
 				E97CA9681E54AC6300901AC7 /* Assets.xcassets */,
@@ -194,6 +193,23 @@
 				E9C45C0F1FB70C11008DEE5B /* Article.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E9F109B61FBFCBDF00E0EAEF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E97CA9601E54AC6300901AC7 /* ViewController.swift */,
+				E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E9F109B71FBFCC1000E0EAEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9A489971E8A541A003F4C41 /* CustomCell */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
