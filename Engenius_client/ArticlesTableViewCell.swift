@@ -11,7 +11,14 @@ import AlamofireImage
 
 class ArticlesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var thumbnailImageView: UIImageView! {
+        didSet {
+            //titleLabelのサイズを調整
+            if titleLabel != nil {
+                titleLabel.sizeToFit()
+            }
+        }
+    }
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
