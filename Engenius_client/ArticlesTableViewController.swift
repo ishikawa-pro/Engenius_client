@@ -16,7 +16,7 @@ protocol articlesTableViewDelegate {
 
 class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UITableViewDelegate, UITableViewDataSource{
     var delegate: articlesTableViewDelegate!
-    var masterViewPointer:ViewController?
+    var masterViewPointer:EGViewController?
     //追加取得する際にいくら飛ばすかを保存しておく
     var page = 1
     //スクロール中か判定用
