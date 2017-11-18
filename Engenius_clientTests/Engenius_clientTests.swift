@@ -91,7 +91,6 @@ class Engenius_clientTests: XCTestCase {
         let baseURL = "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/article"
 
         var request = URLRequest(url: URL(string: baseURL + ".json?limit=7")!)
-        //XCTAssertEqual(try! EngeniusAPIRouter.article.getFeed(limit: 7,page: 0).asURLRequest(), request)
         XCTAssertEqual(try! EngeniusAPIRouter.article.fetchFeed(limit: 7, page: 0).asURLRequest(), request)
 
         request = URLRequest(url: URL(string: baseURL + ".json?limit=7&offset=7")!)
