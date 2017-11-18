@@ -53,14 +53,7 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
         //セルの高さを自動調整する
         self.articleTableView.estimatedRowHeight = 100
         self.articleTableView.rowHeight = UITableViewAutomaticDimension
-        // サイズと位置調整
-        self.articleTableView.frame = CGRect(
-            x: 0,
-            y: -35, //先頭セルにある謎の隙間を埋めるため
-            width: self.view.frame.width,
-            height: self.view.frame.height - 35 //先頭セルにある謎の隙間を埋めるため
-        )
-        
+
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
         self.articleTableView.register(nib, forCellReuseIdentifier: "customCell")
@@ -104,7 +97,15 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             return IndicatorInfo(title: "No title")
         }
     }
-    
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //return UIView(frame: CGRect(x: 0, y: 0, width: 0.1, height: 0.1))
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
     //cellの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //記事の数に応じたcell数を返す
