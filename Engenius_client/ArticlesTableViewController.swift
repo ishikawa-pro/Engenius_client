@@ -115,13 +115,13 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
         //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ArticlesTableViewCell
-        
-        //cellのtextLabelに取得した記事の情報を入れる
-        cell.setCell(titleText: (self.articles[(indexPath as NSIndexPath).row]["title"] as? String)!,
-                     imageURL: (self.articles[(indexPath as NSIndexPath).row]["image_url"] as? String)!)
-        
-        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? ArticlesTableViewCell {
+            //cellのtextLabelに取得した記事の情報を入れる
+            cell.setCell(titleText: articles[indexPath.row].title, imageURL: articles[indexPath.row].imageURL)
+            return cell
+        }
+        let cell = ArticlesTableViewCell()
+        cell.setCell(titleText: articles[indexPath.row].title, imageURL: articles[indexPath.row].imageURL)
         return cell
     }
     
