@@ -18,7 +18,6 @@
 		E97CA96C1E54AC6300901AC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97CA96A1E54AC6300901AC7 /* LaunchScreen.storyboard */; };
 		E97CA9771E54AC6300901AC7 /* Engenius_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9761E54AC6300901AC7 /* Engenius_clientTests.swift */; };
 		E97CA9821E54AC6400901AC7 /* Engenius_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9811E54AC6400901AC7 /* Engenius_clientUITests.swift */; };
-		E97CA9901E54ADCC00901AC7 /* http_helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA98F1E54ADCC00901AC7 /* http_helper.swift */; };
 		E99066161E8E203A00FB5EE6 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */; };
 		E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */; };
 		E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */; };
@@ -65,7 +64,6 @@
 		E97CA97D1E54AC6400901AC7 /* Engenius_clientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Engenius_clientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97CA9811E54AC6400901AC7 /* Engenius_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engenius_clientUITests.swift; sourceTree = "<group>"; };
 		E97CA9831E54AC6400901AC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E97CA98F1E54ADCC00901AC7 /* http_helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = http_helper.swift; sourceTree = "<group>"; };
 		E99066141E8E203A00FB5EE6 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
 		E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 		E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesTableViewCell.xib; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 				E9F109B71FBFCC1000E0EAEF /* Views */,
 				E9F109B61FBFCBDF00E0EAEF /* ViewControllers */,
 				E9C7E5461FB50A990017D8FF /* Models */,
-				E97CA98F1E54ADCC00901AC7 /* http_helper.swift */,
 				E97CA9621E54AC6300901AC7 /* Main.storyboard */,
 				E97CA9681E54AC6300901AC7 /* Assets.xcassets */,
 				E97CA96A1E54AC6300901AC7 /* LaunchScreen.storyboard */,
@@ -422,7 +419,6 @@
 				E97CA9671E54AC6300901AC7 /* Engenius_client.xcdatamodeld in Sources */,
 				E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */,
 				E99066161E8E203A00FB5EE6 /* ArticlesTableViewController.swift in Sources */,
-				E97CA9901E54ADCC00901AC7 /* http_helper.swift in Sources */,
 				E9C7E5481FB50BB30017D8FF /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
