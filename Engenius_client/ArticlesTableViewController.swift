@@ -154,6 +154,8 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
                 fetchArticles(request: EngeniusAPIRouter.article.fetchArticle(category: vcTitle, limit: 7, page: page))
             }
 
+            //一番下まで行った時に全てのtableViewで残り50pointだけスクロールできない問題の暫定処置
+            articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 50)
             page += 1
             isScrolling = true
         }
