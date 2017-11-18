@@ -22,12 +22,24 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
     //スクロール中か判定用
     var isScrolling = false
     //記事の格納用
-    var articles: [AnyObject] = []
-    //記事の取得用クラスHttp_helperのインスタンスの生成
-    let http_helper = Http_helper.init(baseUrl: "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/article/show.json")
     //tableViewの宣言
     var articleTableView = UITableView()
-    
+    var articles: [Article] = [] {
+        didSet {
+            //記事を追加読み込みする場合はreloadData
+            //初めてTableViewを描画するときはaddSubview
+            if self.articles.count != 7 {
+                self.articleTableView.reloadData()
+                self.isScrolling = false
+                return
+            } else {
+                //記事を取得できた時点でtableViewを表示させる
+                view.addSubview(self.articleTableView)
+                return
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
