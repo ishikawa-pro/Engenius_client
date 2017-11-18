@@ -30,14 +30,14 @@ enum EngeniusAPIRouter {
     }
 
     enum article : URLRequestConvertible {
-        case getFeed(limit: Int, page: Int)
-        case getArticle(category: String, limit: Int, page: Int)
+        case fetchFeed(limit: Int, page: Int)
+        case fetchArticle(category: String, limit: Int, page: Int)
 
         var path: String {
             switch self {
-            case .getFeed:
+            case .fetchFeed:
                 return "/article.json"
-            case .getArticle:
+            case .fetchArticle:
                 return "/article/show.json"
             }
         }
@@ -47,13 +47,13 @@ enum EngeniusAPIRouter {
         func asURLRequest() throws -> URLRequest {
             let result: (path: String, parameters: Parameters) = {
                 switch self {
-                case let .getFeed(limit, page) where page > 0:
+                case let .fetchFeed(limit, page) where page > 0:
                     return ("/article.json", ["limit": limit, "offset": page * article.offset])
-                case let .getFeed(limit, _):
+                case let .fetchFeed(limit, _):
                     return ("/article.json", ["limit": limit])
-                case let .getArticle(category, limit, page) where page > 0:
+                case let .fetchArticle(category, limit, page) where page > 0:
                     return ("/article/show.json", ["category": category, "limit": limit, "offset": page * article.offset])
-                case let .getArticle(category, limit, _):
+                case let .fetchArticle(category, limit, _):
                     return ("/article/show.json", ["category": category, "limit": limit])
                 }
             }()
