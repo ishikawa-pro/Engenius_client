@@ -73,9 +73,13 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             }
 
             do {
-                self.articles.append(
-                    contentsOf: try JSONDecoder().decode([Article].self, from: data)
-                )
+                let newArticle = try JSONDecoder().decode([Article].self, from: data)
+                //記事がなければappendせずにreturn
+                if newArticle.count == 0 {
+                    return
+                } else {
+                    self.articles.append(contentsOf: newArticle)
+                }
             } catch {
                 print(error)
             }
