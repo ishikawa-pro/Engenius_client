@@ -18,7 +18,7 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
     var delegate: articlesTableViewDelegate!
     var masterViewPointer:ViewController?
     //追加取得する際にいくら飛ばすかを保存しておく
-    var offset = 7
+    var page = 1
     //スクロール中か判定用
     var isScrolling = false
     //記事の格納用
@@ -154,8 +154,8 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
                 fetchArticles(request: EngeniusAPIRouter.article.fetchArticle(category: vcTitle, limit: 7, page: page))
             }
 
-            self.offset += 7
-            self.isScrolling = true
+            page += 1
+            isScrolling = true
         }
     }
     
