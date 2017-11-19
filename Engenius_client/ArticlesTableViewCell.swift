@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 class ArticlesTableViewCell: UITableViewCell {
 
@@ -26,20 +25,5 @@ class ArticlesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
-    //セルにデータを代入する
-    func setCell(titleText: String, imageURL: URL?) -> Void {
-        self.titleLabel.text = titleText
-        //AlamofireImageで非同期で画像を取得して表示する
-        guard let url = imageURL else{
-            self.thumbnailImageView.image = UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
-            return
-        }
-        self.thumbnailImageView!.af_setImage(withURL: url)
-    }
-    
-    
 }
