@@ -86,6 +86,18 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             }
         }
     }
+
+    private func downloadThumbnail(imageURL: URL, imageView: UIImageView) {
+        //2回目以降キャッシュが使われる
+        imageView.af_setImage(withURL: imageURL) { (response) in
+            switch (response.result) {
+                case .success(let result):
+                    imageView.image = result
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
