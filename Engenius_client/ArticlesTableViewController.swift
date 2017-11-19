@@ -139,17 +139,12 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
     //各行に表示するcellを定義
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
-        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? ArticlesTableViewCell {
-            //cellのtextLabelに取得した記事の情報を入れる
-            cell.setCell(titleText: articles[indexPath.row].title, imageURL: articles[indexPath.row].imageURL)
-            return cell
+            return setArticleCell(cell: cell, row: indexPath.row)
         }
-        let cell = ArticlesTableViewCell()
-        cell.setCell(titleText: articles[indexPath.row].title, imageURL: articles[indexPath.row].imageURL)
-        return cell
+        return setArticleCell(row: indexPath.row)
     }
-    
+
     //セルがタップされたら呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //webViewControllerへ遷移する部分をデリゲートする。
