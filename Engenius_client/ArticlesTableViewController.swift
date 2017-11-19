@@ -98,6 +98,17 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
             }
         }
     }
+
+    private func setArticleCell(cell: ArticlesTableViewCell = ArticlesTableViewCell(), row: Int) -> ArticlesTableViewCell {
+        //再利用するcellの画像残っているので、デフォルトの画像に一旦差し替える。
+        cell.thumbnailImageView.image =  UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
+        cell.titleLabel.text = articles[row].title
+        guard let url = articles[row].imageURL else {
+            return cell
+        }
+        downloadThumbnail(imageURL: url, imageView: cell.thumbnailImageView)
+        return cell
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
