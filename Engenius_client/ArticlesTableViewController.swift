@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import AlamofireImage
 import Alamofire
 
 protocol articlesTableViewDelegate {
