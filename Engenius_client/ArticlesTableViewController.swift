@@ -180,10 +180,16 @@ extension ArticlesTableViewController : UITableViewDataSource {
             articleTableView.contentSize.height &&
             articleTableView.isDragging && !isFetching {
 
+extension ArticlesTableViewController : UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let row = indexPaths.last?.row else {
+            return
+        }
+        //row + 1 はcellの数
+        if row + 1 == articles.count && !isFetching {
             fetchArticles()
             isFetching = true
-
-            //一番下まで行った時に全てのtableViewで残り50pointだけスクロールできない問題の暫定処置
+            //最後のcellが50pt分だけスクロールできない問題の暫定措置
             articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 50)
         }
     }
