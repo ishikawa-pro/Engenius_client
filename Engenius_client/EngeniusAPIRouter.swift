@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum EngeniusAPIRouter {
-    static let baseURLString = "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com"
+    static let baseURLString = "http://192.168.2.102:3000"
 
     enum category : URLRequestConvertible {
         case getCategories()
