@@ -180,3 +180,13 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
         }
     }
 }
+
+extension ArticlesTableViewController : IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        if let barTitle = title {
+            return IndicatorInfo(title: barTitle)
+        } else {
+            return IndicatorInfo(title: "No title")
+        }
+    }
+}
