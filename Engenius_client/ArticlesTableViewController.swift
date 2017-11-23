@@ -179,6 +179,4 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
             articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 50)
         }
     }
-    
-    
 }
