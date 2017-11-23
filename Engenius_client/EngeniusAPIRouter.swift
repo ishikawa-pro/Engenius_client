@@ -42,7 +42,7 @@ enum EngeniusAPIRouter {
             }
         }
 
-        static let offset = 7
+        static let offset = 10
         static let limit = 10
 
         func asURLRequest() throws -> URLRequest {
