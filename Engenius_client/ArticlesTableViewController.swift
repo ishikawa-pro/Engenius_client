@@ -61,7 +61,7 @@ class ArticlesTableViewController: UIViewController {
         fetchArticles()
     }
 
-    private func fetchArticles() {
+    func fetchArticles() {
         let request: URLRequestConvertible
         guard let vcTitle = title else {
             return
