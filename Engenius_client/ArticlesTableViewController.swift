@@ -132,6 +132,7 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
         }
     }
 
+extension ArticlesTableViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
     }
@@ -139,10 +140,11 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
-    //cellの数を指定
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //記事の数に応じたcell数を返す
-        return articles.count
+
+    //セルがタップされたら呼ばれる
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //webViewControllerへ遷移する部分をデリゲートする。
+        delegate.showArticle(url: articles[indexPath.row].url)
     }
     
     //各行に表示するcellを定義
