@@ -123,11 +123,6 @@ class ArticlesTableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        if let barTitle = title {
-            return IndicatorInfo(title: barTitle)
-        } else {
-            return IndicatorInfo(title: "No title")
         }
     }
 
