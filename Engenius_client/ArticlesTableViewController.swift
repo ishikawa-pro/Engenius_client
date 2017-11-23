@@ -23,7 +23,7 @@ class ArticlesTableViewController: UIViewController {
     //オフセット数は、EngeniusAPIRouterで設定
     private var page = 0
     //記事を取りに行っている否か
-    private var isFetching = false
+    var isFetching = false
     //記事の格納用
     //tableViewの宣言
     var articleTableView = UITableView()
