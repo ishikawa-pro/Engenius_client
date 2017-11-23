@@ -146,7 +146,8 @@ extension ArticlesTableViewController : UITableViewDelegate {
         //webViewControllerへ遷移する部分をデリゲートする。
         delegate.showArticle(url: articles[indexPath.row].url)
     }
-    
+}
+
     //各行に表示するcellを定義
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
