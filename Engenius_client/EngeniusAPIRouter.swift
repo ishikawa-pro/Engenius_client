@@ -30,8 +30,8 @@ enum EngeniusAPIRouter {
     }
 
     enum article : URLRequestConvertible {
-        case fetchFeed(limit: Int, page: Int)
-        case fetchArticle(category: String, limit: Int, page: Int)
+        case fetchFeed(page: Int)
+        case fetchArticle(category: String, page: Int)
 
         var path: String {
             switch self {
