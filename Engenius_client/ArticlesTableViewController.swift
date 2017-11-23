@@ -32,9 +32,9 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
         didSet {
             //記事を追加読み込みする場合はreloadData
             //初めてTableViewを描画するときはaddSubview
-            if self.articles.count != 7 {
+            if self.articles.count > EngeniusAPIRouter.article.limit {
                 self.articleTableView.reloadData()
-                self.isScrolling = false
+                self.isFetching = false
                 return
             } else {
                 //記事を取得できた時点でtableViewを表示させる
