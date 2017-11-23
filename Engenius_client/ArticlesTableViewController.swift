@@ -59,6 +59,8 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
         self.articleTableView.register(nib, forCellReuseIdentifier: "customCell")
+        fetchArticles()
+    }
 
     private func fetchArticles() {
         let request: URLRequestConvertible
