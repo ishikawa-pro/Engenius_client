@@ -81,6 +81,8 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
                 let newArticle = try JSONDecoder().decode([Article].self, from: data)
                 //記事がなければappendせずにreturn
                 if newArticle.count == 0 {
+                    //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
+                    self.isFetching = true
                     return
                 } else {
                     self.articles.append(contentsOf: newArticle)
