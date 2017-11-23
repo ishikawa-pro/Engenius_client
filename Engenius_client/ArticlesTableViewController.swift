@@ -159,19 +159,18 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
         //webViewControllerへ遷移する部分をデリゲートする。
         delegate.showArticle(url: articles[indexPath.row].url)
     }
-    
+
     //スクロールするたびに呼ばれる
+    //スクロールが早すぎて、セルのpreFetchが行われない場合は、スクロールの終端を判定して新しい記事を取りに行く
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //contentOffset.y + frame.size.height = UITableViewの高さ0からの変位量 + TableViewの高さ
         //contentSize.height = スクロールする中身の高さ
-        //isDragging = ドラッグ中
+        //isFetching = 記事を取りに行っているか
         //UITableViewの高さ0からの変位量 + TableViewの高さ > スクロールする中身の高さ
         //スクロール中かどうか
-        if self.articleTableView.contentOffset.y + self.articleTableView.frame.size.height >
-            self.articleTableView.contentSize.height &&
-            self.articleTableView.isDragging &&
-            self.isScrolling == false
-        {
+        if articleTableView.contentOffset.y + articleTableView.frame.size.height >
+            articleTableView.contentSize.height &&
+            articleTableView.isDragging && !isFetching {
 
             fetchArticles()
             isFetching = true
