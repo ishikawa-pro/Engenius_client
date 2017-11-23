@@ -152,10 +152,6 @@ extension ArticlesTableViewController : UITableViewDataSource {
         return setArticleCell(row: indexPath.row)
     }
 
-    //セルがタップされたら呼ばれる
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //webViewControllerへ遷移する部分をデリゲートする。
-        delegate.showArticle(url: articles[indexPath.row].url)
     //cellの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //記事の数に応じたcell数を返す
