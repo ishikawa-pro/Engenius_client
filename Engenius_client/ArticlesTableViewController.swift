@@ -148,6 +148,7 @@ extension ArticlesTableViewController : UITableViewDelegate {
     }
 }
 
+extension ArticlesTableViewController : UITableViewDataSource {
     //各行に表示するcellを定義
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
@@ -161,6 +162,10 @@ extension ArticlesTableViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //webViewControllerへ遷移する部分をデリゲートする。
         delegate.showArticle(url: articles[indexPath.row].url)
+    //cellの数を指定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        //記事の数に応じたcell数を返す
+        return articles.count
     }
 
     //スクロールするたびに呼ばれる
