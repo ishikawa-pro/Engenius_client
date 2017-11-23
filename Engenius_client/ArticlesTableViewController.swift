@@ -172,20 +172,12 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
             self.articleTableView.isDragging &&
             self.isScrolling == false
         {
-            guard let vcTitle = title else {
-                return
-            }
 
-            if vcTitle == "最新記事" {
-                fetchArticles(request: EngeniusAPIRouter.article.fetchFeed(limit: 7, page: page))
-            } else {
-                fetchArticles(request: EngeniusAPIRouter.article.fetchArticle(category: vcTitle, limit: 7, page: page))
-            }
+            fetchArticles()
+            isFetching = true
 
             //一番下まで行った時に全てのtableViewで残り50pointだけスクロールできない問題の暫定処置
             articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 50)
-            page += 1
-            isScrolling = true
         }
     }
     
