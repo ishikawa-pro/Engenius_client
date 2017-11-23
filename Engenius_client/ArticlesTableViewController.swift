@@ -60,18 +60,18 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
         self.articleTableView.register(nib, forCellReuseIdentifier: "customCell")
 
+    private func fetchArticles() {
+        let request: URLRequestConvertible
         guard let vcTitle = title else {
             return
         }
 
         if vcTitle == "最新記事" {
-            fetchArticles(request: EngeniusAPIRouter.article.fetchFeed(limit: 7, page: 0))
+            request = EngeniusAPIRouter.article.fetchFeed(page: page)
         } else {
-            fetchArticles(request: EngeniusAPIRouter.article.fetchArticle(category: vcTitle, limit: 7, page: 0))
+            request = EngeniusAPIRouter.article.fetchArticle(category: vcTitle, page: page)
         }
-    }
 
-    func fetchArticles(request: URLRequestConvertible) {
         Alamofire.request(request).responseData { (response) in
             guard let data = response.data else {
                 return
