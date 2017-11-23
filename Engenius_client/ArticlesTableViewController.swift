@@ -91,6 +91,7 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
                 print(error)
             }
         }
+        page += 1
     }
 
     private func downloadThumbnail(imageURL: URL, imageView: UIImageView) {
