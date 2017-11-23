@@ -107,7 +107,7 @@ class ArticlesTableViewController: UIViewController {
         }
     }
 
-    private func setArticleCell(cell: ArticlesTableViewCell = ArticlesTableViewCell(), row: Int) -> ArticlesTableViewCell {
+    func setArticleCell(cell: ArticlesTableViewCell = ArticlesTableViewCell(), row: Int) -> ArticlesTableViewCell {
         //再利用するcellの画像残っているので、デフォルトの画像に一旦差し替える。
         cell.thumbnailImageView.image =  UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
         cell.titleLabel.text = articles[row].title
