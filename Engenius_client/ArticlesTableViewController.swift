@@ -123,8 +123,26 @@ class ArticlesTableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //スクロールするたびに呼ばれる
+    //スクロールが早すぎて、セルのpreFetchが行われない場合は、スクロールの終端を判定して新しい記事を取りに行く
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //contentOffset.y + frame.size.height = UITableViewの高さ0からの変位量 + TableViewの高さ
+        //contentSize.height = スクロールする中身の高さ
+        //isFetching = 記事を取りに行っているか
+        //UITableViewの高さ0からの変位量 + TableViewの高さ > スクロールする中身の高さ
+        //スクロール中かどうか
+        if articleTableView.contentOffset.y + articleTableView.frame.size.height >
+            articleTableView.contentSize.height &&
+            articleTableView.isDragging && !isFetching {
+
+            fetchArticles()
+            isFetching = true
+
+            //一番下まで行った時に全てのtableViewで残り50pointだけスクロールできない問題の暫定処置
+            articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 50)
         }
     }
+}
 
 extension ArticlesTableViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -158,17 +176,7 @@ extension ArticlesTableViewController : UITableViewDataSource {
         return articles.count
     }
 
-    //スクロールするたびに呼ばれる
-    //スクロールが早すぎて、セルのpreFetchが行われない場合は、スクロールの終端を判定して新しい記事を取りに行く
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //contentOffset.y + frame.size.height = UITableViewの高さ0からの変位量 + TableViewの高さ
-        //contentSize.height = スクロールする中身の高さ
-        //isFetching = 記事を取りに行っているか
-        //UITableViewの高さ0からの変位量 + TableViewの高さ > スクロールする中身の高さ
-        //スクロール中かどうか
-        if articleTableView.contentOffset.y + articleTableView.frame.size.height >
-            articleTableView.contentSize.height &&
-            articleTableView.isDragging && !isFetching {
+}
 
 extension ArticlesTableViewController : UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
