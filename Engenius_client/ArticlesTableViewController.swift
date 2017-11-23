@@ -15,8 +15,7 @@ protocol articlesTableViewDelegate {
     func showArticle(url: URL?)
 }
 
-class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UITableViewDelegate,
-UITableViewDataSource,UITableViewDataSourcePrefetching {
+class ArticlesTableViewController: UIViewController {
 
     var delegate: articlesTableViewDelegate!
     var masterViewPointer:EGViewController?
