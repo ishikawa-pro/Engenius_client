@@ -49,16 +49,16 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
         // Do any additional setup after loading the view, typically from a nib.
         
         //tableViewの作成
-        self.articleTableView = UITableView(frame: view.frame, style: .grouped)
+        articleTableView = UITableView(frame: view.frame, style: .grouped)
         //tableViewのデリゲートを設定
-        self.articleTableView.delegate = self
+        articleTableView.delegate = self
         //tableViewのデーターソースを設定
-        self.articleTableView.dataSource = self
+        articleTableView.dataSource = self
         articleTableView.prefetchDataSource = self
 
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
-        self.articleTableView.register(nib, forCellReuseIdentifier: "customCell")
+        articleTableView.register(nib, forCellReuseIdentifier: "customCell")
         fetchArticles()
     }
 
@@ -142,7 +142,7 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
     //cellの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //記事の数に応じたcell数を返す
-        return self.articles.count
+        return articles.count
     }
     
     //各行に表示するcellを定義
