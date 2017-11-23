@@ -15,7 +15,9 @@ protocol articlesTableViewDelegate {
     func showArticle(url: URL?)
 }
 
-class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UITableViewDelegate, UITableViewDataSource{
+class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UITableViewDelegate,
+UITableViewDataSource,UITableViewDataSourcePrefetching {
+
     var delegate: articlesTableViewDelegate!
     var masterViewPointer:EGViewController?
     //追加取得する際にいくら飛ばすかを保存しておく
@@ -51,6 +53,7 @@ class ArticlesTableViewController: UIViewController, IndicatorInfoProvider,  UIT
         self.articleTableView.delegate = self
         //tableViewのデーターソースを設定
         self.articleTableView.dataSource = self
+        articleTableView.prefetchDataSource = self
 
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
