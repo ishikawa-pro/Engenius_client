@@ -20,11 +20,11 @@ UITableViewDataSource,UITableViewDataSourcePrefetching {
 
     var delegate: articlesTableViewDelegate!
     var masterViewPointer:EGViewController?
-    //スクロール中か判定用
-    var isScrolling = false
     //ページ数
     //オフセット数は、EngeniusAPIRouterで設定
     private var page = 0
+    //記事を取りに行っている否か
+    private var isFetching = false
     //記事の格納用
     //tableViewの宣言
     var articleTableView = UITableView()
