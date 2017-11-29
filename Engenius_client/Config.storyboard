@@ -12,7 +12,7 @@
         <!--設定-->
         <scene sceneID="T5W-pA-7fn">
             <objects>
-                <tableViewController storyboardIdentifier="ConfigViewController" id="AeH-z5-GY4" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ConfigViewController" id="AeH-z5-GY4" customClass="ConfigTableViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TP8-aS-24S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
