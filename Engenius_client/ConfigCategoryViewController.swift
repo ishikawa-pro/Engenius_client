@@ -10,6 +10,7 @@ import UIKit
 
 class ConfigCategoryViewController: UITableViewController {
     let categories : [String]? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
