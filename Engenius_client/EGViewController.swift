@@ -72,6 +72,9 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func configButtonTapped(_ sender: Any) {
+    }
     
     //ArticlesTableViewControllerからのデリゲート
     //セルをタップすると呼ばれる
