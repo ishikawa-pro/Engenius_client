@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum EngeniusAPIRouter {
-    static let baseURLString = "http://192.168.2.102:3000"
+    static let baseURLString = "http://192.168.100.101:3000"
 
     enum category : URLRequestConvertible {
         case getCategories()
@@ -42,8 +42,8 @@ enum EngeniusAPIRouter {
             }
         }
 
-        static let offset = 10
-        static let limit = 10
+        static let offset = 15
+        static let limit = 15
 
         func asURLRequest() throws -> URLRequest {
             let result: (path: String, parameters: Parameters) = {
