@@ -88,24 +88,26 @@ class ArticlesTableViewController: UIViewController {
         } else {
             request = Alamofire.request(EngeniusAPIRouter.article.fetchArticle(category: vcTitle, page: page))
         }
-
-        Alamofire.request(request).responseData { (response) in
-            guard let data = response.data else {
-                return
-            }
-
-            do {
-                let newArticle = try JSONDecoder().decode([Article].self, from: data)
-                //記事がなければappendせずにreturn
-                if newArticle.count == 0 {
-                    //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
-                    self.isFetching = true
-                    return
-                } else {
-                    self.articles.append(contentsOf: newArticle)
-                }
-            } catch {
-                print(error)
+        print("test start Fetching articles")
+        request?.responseData { (response) in
+            print("test got articles")
+            switch (response.result) {
+                case .success(let data):
+                    do {
+                        let newArticle = try JSONDecoder().decode([Article].self, from: data)
+                        //記事がなければappendせずにreturn
+                        if newArticle.count == 0 {
+                            //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
+                            self.isFetching = true
+                            return
+                        } else {
+                            self.articles.append(contentsOf: newArticle)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                case .failure(let error):
+                    print(error)
             }
         }
         page += 1
