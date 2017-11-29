@@ -70,7 +70,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WBS-Mg-CpE">
-                        <barButtonItem key="rightBarButtonItem" title="設定" id="x8c-Mm-fim"/>
+                        <barButtonItem key="rightBarButtonItem" title="設定" id="x8c-Mm-fim">
+                            <connections>
+                                <action selector="configButtonTapped:" destination="BYZ-38-t0r" id="1Bl-L8-hno"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
