@@ -19,6 +19,7 @@ class ArticlesTableViewController: UIViewController {
 
     var delegate: articlesTableViewDelegate!
     var masterViewPointer:EGViewController?
+    var request: Alamofire.DataRequest?
     //ページ数
     //オフセット数は、EngeniusAPIRouterで設定
     private var page = 0
@@ -62,15 +63,14 @@ class ArticlesTableViewController: UIViewController {
     }
 
     func fetchArticles() {
-        let request: URLRequestConvertible
         guard let vcTitle = title else {
             return
         }
 
         if vcTitle == "最新記事" {
-            request = EngeniusAPIRouter.article.fetchFeed(page: page)
+            request = Alamofire.request(EngeniusAPIRouter.article.fetchFeed(categories: ["Swift", "機械学習", "Docker"], page: page))
         } else {
-            request = EngeniusAPIRouter.article.fetchArticle(category: vcTitle, page: page)
+            request = Alamofire.request(EngeniusAPIRouter.article.fetchArticle(category: vcTitle, page: page))
         }
 
         Alamofire.request(request).responseData { (response) in
