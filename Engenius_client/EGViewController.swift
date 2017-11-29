@@ -79,7 +79,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
             return
         }
         let navigationController = UINavigationController(rootViewController: ConfigViewController)
-        self.present(navigationController, animated: true, completion: nil)
+        present(navigationController, animated: true, completion: nil)
     }
     
     //ArticlesTableViewControllerからのデリゲート
