@@ -65,12 +65,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OOh-VS-vdD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" id="OOh-VS-vdD">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OOh-VS-vdD" id="sUx-Yl-52i">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9b-H8-1TY">
+                                            <rect key="frame" x="16" y="0.0" width="311" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="q9b-H8-1TY" firstAttribute="leading" secondItem="sUx-Yl-52i" secondAttribute="leading" constant="16" id="IOW-rP-ghM"/>
+                                        <constraint firstAttribute="trailing" secondItem="q9b-H8-1TY" secondAttribute="trailing" constant="8" id="ds8-52-jnN"/>
+                                        <constraint firstAttribute="bottom" secondItem="q9b-H8-1TY" secondAttribute="bottom" id="hWS-va-GLY"/>
+                                        <constraint firstItem="q9b-H8-1TY" firstAttribute="top" secondItem="sUx-Yl-52i" secondAttribute="top" id="u7e-st-xeK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -83,7 +97,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kZ-QY-opB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="42"/>
+            <point key="canvasLocation" x="380" y="41.829085457271368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uiU-Ra-vRJ">
