@@ -48,7 +48,13 @@
                             <outlet property="delegate" destination="AeH-z5-GY4" id="msm-nO-Y0e"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="設定" id="M3X-NR-Tnj"/>
+                    <navigationItem key="navigationItem" title="設定" id="M3X-NR-Tnj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="dy0-nm-CJz" userLabel="Close">
+                            <connections>
+                                <action selector="closeTapped:" destination="AeH-z5-GY4" id="gsV-yr-A8I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E83-sf-rOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
