@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="-660" y="41.829085457271368"/>
         </scene>
-        <!--Table View Controller-->
+        <!--カテゴリ-->
         <scene sceneID="WZa-t1-KH2">
             <objects>
                 <tableViewController id="Bx2-my-ZIg" sceneMemberID="viewController">
@@ -79,6 +79,7 @@
                             <outlet property="delegate" destination="Bx2-my-ZIg" id="7wH-Gv-n9w"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="カテゴリ" id="m0N-w6-krZ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kZ-QY-opB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
