@@ -18,15 +18,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RwM-QR-2Qc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UDn-Ip-uvZ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RwM-QR-2Qc" id="wZr-mF-cqI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UDn-Ip-uvZ" id="RMC-58-iho">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rK-2L-dkD">
+                                            <rect key="frame" x="16" y="0.0" width="317" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="0rK-2L-dkD" secondAttribute="bottom" id="9TL-AG-jE6"/>
+                                        <constraint firstItem="0rK-2L-dkD" firstAttribute="top" secondItem="RMC-58-iho" secondAttribute="top" id="coO-gH-GBT"/>
+                                        <constraint firstAttribute="trailing" secondItem="0rK-2L-dkD" secondAttribute="trailing" constant="8" id="f6d-RA-QE4"/>
+                                        <constraint firstItem="0rK-2L-dkD" firstAttribute="leading" secondItem="RMC-58-iho" secondAttribute="leading" constant="16" id="gpL-zQ-6zf"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="AeH-z5-GY4" id="YJ5-oZ-P3B"/>
                             <outlet property="delegate" destination="AeH-z5-GY4" id="msm-nO-Y0e"/>
@@ -36,7 +51,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E83-sf-rOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-660" y="42"/>
+            <point key="canvasLocation" x="-660" y="41.829085457271368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uiU-Ra-vRJ">
