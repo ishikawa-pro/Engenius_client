@@ -62,6 +62,22 @@ class ArticlesTableViewController: UIViewController {
         fetchArticles()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isFetching {
+            print("test resume")
+            request?.resume()
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isFetching {
+            print("test suspend")
+            request?.suspend()
+        }
+    }
+
     func fetchArticles() {
         guard let vcTitle = title else {
             return
