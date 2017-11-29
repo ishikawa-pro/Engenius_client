@@ -65,7 +65,6 @@ class ArticlesTableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isFetching {
-            print("test resume")
             request?.resume()
         }
     }
@@ -73,7 +72,6 @@ class ArticlesTableViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isFetching {
-            print("test suspend")
             request?.suspend()
         }
     }
@@ -88,9 +86,7 @@ class ArticlesTableViewController: UIViewController {
         } else {
             request = Alamofire.request(EngeniusAPIRouter.article.fetchArticle(category: vcTitle, page: page))
         }
-        print("test start Fetching articles")
         request?.responseData { (response) in
-            print("test got articles")
             switch (response.result) {
                 case .success(let data):
                     do {
