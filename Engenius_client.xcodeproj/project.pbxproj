@@ -118,6 +118,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E958447A1FCEC65300874826 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E97CA9621E54AC6300901AC7 /* Main.storyboard */,
+				E95844781FCEC44D00874826 /* Config.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		E97CA9521E54AC6300901AC7 = {
 			isa = PBXGroup;
 			children = (
@@ -144,16 +153,15 @@
 			isa = PBXGroup;
 			children = (
 				E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */,
+				E958447A1FCEC65300874826 /* Storyboards */,
 				E9F109B71FBFCC1000E0EAEF /* Views */,
 				E9F109B61FBFCBDF00E0EAEF /* ViewControllers */,
 				E9C7E5461FB50A990017D8FF /* Models */,
-				E97CA9621E54AC6300901AC7 /* Main.storyboard */,
 				E97CA9681E54AC6300901AC7 /* Assets.xcassets */,
 				E97CA96A1E54AC6300901AC7 /* LaunchScreen.storyboard */,
 				E97CA96D1E54AC6300901AC7 /* Info.plist */,
 				E97CA9651E54AC6300901AC7 /* Engenius_client.xcdatamodeld */,
 				E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */,
-				E95844781FCEC44D00874826 /* Config.storyboard */,
 			);
 			path = Engenius_client;
 			sourceTree = "<group>";
