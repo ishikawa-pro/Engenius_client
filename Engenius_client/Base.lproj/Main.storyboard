@@ -69,7 +69,9 @@
                             <constraint firstAttribute="trailing" secondItem="hVT-Dn-O1H" secondAttribute="trailing" id="yCN-8M-xPa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rSc-to-YOM"/>
+                    <navigationItem key="navigationItem" id="WBS-Mg-CpE">
+                        <barButtonItem key="rightBarButtonItem" title="設定" id="x8c-Mm-fim"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="buttonBarView" destination="LI9-6r-ceo" id="woR-k6-Dxv"/>
                         <outlet property="containerView" destination="hVT-Dn-O1H" id="AAx-lL-Ogz"/>
