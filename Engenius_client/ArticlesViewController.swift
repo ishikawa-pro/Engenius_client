@@ -153,7 +153,7 @@ class ArticlesTableViewController: UIViewController {
             isFetching = true
 
             //一番下まで行った時に全てのtableViewで残り50pointだけスクロールできない問題の暫定処置
-            articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 50)
+            articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 95)
         }
     }
 }
@@ -202,7 +202,7 @@ extension ArticlesTableViewController : UITableViewDataSourcePrefetching {
             fetchArticles()
             isFetching = true
             //最後のcellが50pt分だけスクロールできない問題の暫定措置
-            articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 50)
+            articleTableView.contentSize = CGSize.init(width: articleTableView.contentSize.width, height: articleTableView.contentSize.height + 95)
         }
     }
 }
