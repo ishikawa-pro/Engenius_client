@@ -83,25 +83,24 @@ class Engenius_clientTests: XCTestCase {
     }
 
     func testCategoryURLRoute() {
-        let request = URLRequest(url: URL(string: "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/category.json")!)
+        let request = URLRequest(url: URL(string: "http://192.168.100.101:3000/category.json")!)
         XCTAssertEqual(try! EngeniusAPIRouter.category.getCategories().asURLRequest(), request)
     }
 
     func testArticleURLRoute() {
-        let baseURL = "http://engeniusalb-2015328251.ap-northeast-1.elb.amazonaws.com/article"
+        let baseURL = "http://192.168.100.101:3000/article"
 
-        var request = URLRequest(url: URL(string: baseURL + ".json?limit=7")!)
-        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchFeed(limit: 7, page: 0).asURLRequest(), request)
+        var request = URLRequest(url: URL(string: baseURL + ".json?category[]=Docker&category[]=Swift&limit=15")!)
+        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchFeed(categories: ["Docker", "Swift"], page: 0).asURLRequest(), request)
 
-        request = URLRequest(url: URL(string: baseURL + ".json?limit=7&offset=7")!)
-        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchFeed(limit: 7, page: 1).asURLRequest(),
-                       request)
+        request = URLRequest(url: URL(string: baseURL + ".json?category[]=Docker&category[]=Swift&limit=15&offset=15")!)
+        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchFeed(categories: ["Docker", "Swift"], page: 1).asURLRequest(), request)
 
-        request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=7")!)
-        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchArticle(category: "Swift", limit: 7, page: 0).asURLRequest(), request)
+        request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=15")!)
+        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchArticle(category: "Swift", page: 0).asURLRequest(), request)
 
-        request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=7&offset=7")!)
-        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchArticle(category: "Swift", limit: 7, page: 1).asURLRequest(), request)
+        request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=15&offset=15")!)
+        XCTAssertEqual(try! EngeniusAPIRouter.article.fetchArticle(category: "Swift", page: 1).asURLRequest(), request)
     }
     
     func testExample() {
