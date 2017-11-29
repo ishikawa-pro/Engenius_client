@@ -74,6 +74,12 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     }
 
     @IBAction func configButtonTapped(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Config", bundle: nil)
+        guard let ConfigViewController = storyboard.instantiateViewController(withIdentifier: "ConfigViewController")as? UITableViewController else {
+            return
+        }
+        let navigationController = UINavigationController(rootViewController: ConfigViewController)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     //ArticlesTableViewControllerからのデリゲート
