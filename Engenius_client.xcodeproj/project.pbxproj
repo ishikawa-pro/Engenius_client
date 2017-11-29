@@ -12,6 +12,7 @@
 		E9444E661FB5EC6200D8103F /* EngeniusAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */; };
 		E95844791FCEC44D00874826 /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95844781FCEC44D00874826 /* Config.storyboard */; };
 		E958447E1FCED7E100874826 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958447D1FCED7E100874826 /* ConfigViewController.swift */; };
+		E95844801FCEDC8200874826 /* ConfigCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */; };
 		E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */; };
 		E97CA9611E54AC6300901AC7 /* EGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9601E54AC6300901AC7 /* EGViewController.swift */; };
 		E97CA9641E54AC6300901AC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97CA9621E54AC6300901AC7 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngeniusAPIRouter.swift; sourceTree = "<group>"; };
 		E95844781FCEC44D00874826 /* Config.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 		E958447D1FCED7E100874826 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCategoryViewController.swift; sourceTree = "<group>"; };
 		E97CA95B1E54AC6300901AC7 /* Engenius_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engenius_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E97CA9601E54AC6300901AC7 /* EGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EGViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				E97CA9601E54AC6300901AC7 /* EGViewController.swift */,
 				E99066141E8E203A00FB5EE6 /* ArticlesViewController.swift */,
 				E958447D1FCED7E100874826 /* ConfigViewController.swift */,
+				E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */,
 				E99066161E8E203A00FB5EE6 /* ArticlesViewController.swift in Sources */,
 				E9C7E5481FB50BB30017D8FF /* Category.swift in Sources */,
+				E95844801FCEDC8200874826 /* ConfigCategoryViewController.swift in Sources */,
 				E958447E1FCED7E100874826 /* ConfigViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
