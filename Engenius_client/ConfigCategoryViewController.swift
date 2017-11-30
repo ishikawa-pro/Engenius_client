@@ -10,8 +10,12 @@ import UIKit
 import Alamofire
 
 class ConfigCategoryViewController: UITableViewController {
-    let categories : [String]? = nil
-    
+    var categories : Category? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
