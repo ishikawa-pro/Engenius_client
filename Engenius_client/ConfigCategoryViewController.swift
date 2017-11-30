@@ -56,6 +56,20 @@ class ConfigCategoryViewController: UITableViewController {
         return cell
     }
 
+    // セルが選択された時に呼び出される
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at:indexPath)
+        switch (cell?.accessoryType) {
+        case .none?:
+            cell?.accessoryType = .checkmark
+        case .some(.checkmark):
+            cell?.accessoryType = .none
+        default:
+            break
+        }
+        cell?.isSelected = false
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
