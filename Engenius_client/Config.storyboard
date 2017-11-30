@@ -76,19 +76,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9b-H8-1TY">
-                                            <rect key="frame" x="16" y="0.0" width="311" height="44"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X3v-9C-dW1">
+                                            <rect key="frame" x="16" y="0.0" width="319" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="q9b-H8-1TY" firstAttribute="leading" secondItem="sUx-Yl-52i" secondAttribute="leading" constant="16" id="IOW-rP-ghM"/>
-                                        <constraint firstAttribute="trailing" secondItem="q9b-H8-1TY" secondAttribute="trailing" constant="8" id="ds8-52-jnN"/>
-                                        <constraint firstAttribute="bottom" secondItem="q9b-H8-1TY" secondAttribute="bottom" id="hWS-va-GLY"/>
-                                        <constraint firstItem="q9b-H8-1TY" firstAttribute="top" secondItem="sUx-Yl-52i" secondAttribute="top" id="u7e-st-xeK"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
