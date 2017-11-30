@@ -50,15 +50,11 @@ class ConfigCategoryViewController: UITableViewController {
         return categories?.categories.count ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ConfigCell", for: indexPath)
+        cell.textLabel?.text = categories?.categories[indexPath.row]
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
