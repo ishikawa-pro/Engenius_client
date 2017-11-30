@@ -18,12 +18,19 @@ class ConfigCategoryViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //cateogryの取得
+        Alamofire.request(EngeniusAPIRouter.category.getCategories()).responseData { (response) in
+            switch (response.result) {
+                case .success(let data):
+                    do {
+                        self.categories = try JSONDecoder().decode(Category.self, from: data)
+                    } catch {
+                        print("error")
+                    }
+                case .failure(let error):
+                    print(error)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
