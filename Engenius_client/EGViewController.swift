@@ -10,6 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import SafariServices
 import Alamofire
+import RealmSwift
 
 
 class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
