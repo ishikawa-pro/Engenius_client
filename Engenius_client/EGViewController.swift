@@ -14,7 +14,7 @@ import RealmSwift
 
 
 class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
-    var categories:Category? {
+    var categories:[String]? {
         didSet {
             var articleViewController: ArticlesTableViewController
 
@@ -22,7 +22,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
                 return
             }
             //カテゴリごとの記事一覧を作成
-            for category in categories.categories {
+            for category in categories {
                 articleViewController = ArticlesTableViewController()
                 articleViewController.title = category
                 articleViewController.delegate = self
@@ -45,7 +45,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
                 return
             }
             do {
-                self.categories = try JSONDecoder().decode(Category.self, from: data)
+                self.categories = try JSONDecoder().decode(Category.self, from: data).categories
             } catch {
                 print("error")
             }
