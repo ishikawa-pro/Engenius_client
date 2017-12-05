@@ -9,3 +9,6 @@
 import Foundation
 import RealmSwift
 
+class InterestedCategory: Object {
+    @objc dynamic var category = ""
+}
