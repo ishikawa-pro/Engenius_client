@@ -38,17 +38,6 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //cateogryの取得
-        Alamofire.request(EngeniusAPIRouter.category.getCategories()).responseData { (response) in
-            guard let data = response.data else {
-                return
-            }
-            do {
-                self.categories = try JSONDecoder().decode(Category.self, from: data).categories
-            } catch {
-                print("error")
-            }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
