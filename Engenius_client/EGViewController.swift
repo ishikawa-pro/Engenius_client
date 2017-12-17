@@ -30,10 +30,15 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let realm = try! Realm()
-
-        let interestedCategories = realm.objects(InterestedCategory.self)
-        categories = interestedCategories.map{ $0.category }
+        do {
+            let realm = try Realm()
+            var selectedCategory:[String] = realm.objects(InterestedCategory.self).map { $0.category }
+            selectedCategory.insert("最新記事", at: 0)
+            categories = selectedCategory
+        }
+        catch (let e) {
+            print(e)
+        }
         //navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
