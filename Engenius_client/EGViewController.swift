@@ -45,9 +45,16 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         //カテゴリごとの記事一覧を作成
         articleViewControllers = categories.map { (category) -> ArticlesTableViewController in
-            let articleViewController = ArticlesTableViewController()
-            articleViewController.title = category
-            articleViewController.delegate = self
+            //既に作られているカテゴリのViewControllerなら再利用する。
+            //ToDo : リファクタリング
+            guard let articleViewController = articleViewControllers
+                .filter({ (a) -> Bool in a.title == category })
+                .first as? ArticlesTableViewController else {
+                    let articleTableViewController = ArticlesTableViewController()
+                    articleTableViewController.title = category
+                    articleTableViewController.delegate = self
+                    return articleTableViewController
+            }            
             return articleViewController
         }
         return articleViewControllers
