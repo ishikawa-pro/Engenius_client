@@ -54,6 +54,21 @@ class ConfigCategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ConfigCell", for: indexPath)
         cell.textLabel?.text = categories?.categories[indexPath.row]
+        cell.accessoryType = .none
+        do {
+            let realm = try Realm()
+            guard let category = cell.textLabel?.text else {
+                return cell
+            }
+            let interestedCategory = realm.objects(InterestedCategory.self).filter("category = %@", category)
+            if interestedCategory.count == 1 {
+                cell.accessoryType = .checkmark
+            }
+        }
+        catch (let e)
+        {
+            print(e)
+        }
         return cell
     }
 
