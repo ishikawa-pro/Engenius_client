@@ -74,16 +74,33 @@ class ConfigCategoryViewController: UITableViewController {
 
     // セルが選択された時に呼び出される
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at:indexPath)
-        switch (cell?.accessoryType) {
-        case .none?:
-            cell?.accessoryType = .checkmark
-        case .some(.checkmark):
-            cell?.accessoryType = .none
-        default:
-            break
+        do {
+            let realm = try Realm()
+            guard let cell = tableView.cellForRow(at:indexPath), let title = cell.textLabel?.text else {
+                return
+            }
+            switch (cell.accessoryType) {
+            case .none:
+                let interestedCategory = InterestedCategory()
+                interestedCategory.category = title
+                cell.accessoryType = .checkmark
+                try realm.write {
+                    realm.add(interestedCategory)
+                }
+            case .checkmark:
+                let interestedCategory = realm.objects(InterestedCategory.self).filter("category = %@", title)
+                cell.accessoryType = .none
+                try realm.write {
+                    realm.delete(interestedCategory)
+                }
+            default:
+                break
+            }
+            cell.isSelected = false
         }
-        cell?.isSelected = false
+        catch (let e){
+            print(e)
+        }
     }
 
     /*
