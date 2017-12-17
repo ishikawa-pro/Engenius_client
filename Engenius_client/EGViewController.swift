@@ -43,16 +43,14 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        var articleViewController: ArticlesTableViewController
         //カテゴリごとの記事一覧を作成
-        for category in categories {
-            articleViewController = ArticlesTableViewController()
+        articleViewControllers = categories.map { (category) -> ArticlesTableViewController in
+            let articleViewController = ArticlesTableViewController()
             articleViewController.title = category
             articleViewController.delegate = self
-            articleViewControllers.append(articleViewController)
+            return articleViewController
         }
         return articleViewControllers
-
     }
 
     override func didReceiveMemoryWarning() {
