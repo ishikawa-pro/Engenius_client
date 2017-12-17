@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class ConfigCategoryViewController: UITableViewController {
     var categories : Category? {
