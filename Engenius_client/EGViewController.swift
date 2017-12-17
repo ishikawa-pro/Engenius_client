@@ -14,20 +14,8 @@ import RealmSwift
 
 
 class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewDelegate{
-    var categories:[String]? {
+    var categories:[String] = ["最新記事"] {
         didSet {
-            var articleViewController: ArticlesTableViewController
-
-            guard let categories = categories else {
-                return
-            }
-            //カテゴリごとの記事一覧を作成
-            for category in categories {
-                articleViewController = ArticlesTableViewController()
-                articleViewController.title = category
-                articleViewController.delegate = self
-                articleViewControllers.append(articleViewController)
-            }
             _ = viewControllers(for: self)
             reloadPagerTabStripView()
         }
@@ -50,15 +38,16 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        if (articleViewControllers.count == 0) {
-            let newsFeedViewController = ArticlesTableViewController()
-            newsFeedViewController.delegate = self
-            newsFeedViewController.title = "最新記事"
-            articleViewControllers.append(newsFeedViewController)
-            return articleViewControllers
-        } else {
-            return articleViewControllers
+        var articleViewController: ArticlesTableViewController
+        //カテゴリごとの記事一覧を作成
+        for category in categories {
+            articleViewController = ArticlesTableViewController()
+            articleViewController.title = category
+            articleViewController.delegate = self
+            articleViewControllers.append(articleViewController)
         }
+        return articleViewControllers
+
     }
 
     override func didReceiveMemoryWarning() {
