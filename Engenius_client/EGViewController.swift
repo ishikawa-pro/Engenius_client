@@ -38,6 +38,10 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let realm = try! Realm()
+
+        let interestedCategories = realm.objects(InterestedCategory.self)
+        categories = interestedCategories.flatMap{$0.category}
 
         //cateogryの取得
         Alamofire.request(EngeniusAPIRouter.category.getCategories()).responseData { (response) in
