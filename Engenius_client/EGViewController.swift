@@ -38,11 +38,6 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let realm = try! Realm()
-
-        let interestedCategories = realm.objects(InterestedCategory.self)
-        categories = interestedCategories.flatMap{$0.category}
-
         //cateogryの取得
         Alamofire.request(EngeniusAPIRouter.category.getCategories()).responseData { (response) in
             guard let data = response.data else {
@@ -58,6 +53,10 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let realm = try! Realm()
+
+        let interestedCategories = realm.objects(InterestedCategory.self)
+        categories = interestedCategories.map{ $0.category }
         //navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
