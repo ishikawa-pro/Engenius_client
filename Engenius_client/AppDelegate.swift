@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefault.set(true, forKey: "firstLaunch")
         }
         if userDefault.bool(forKey: "firstLaunch") {
+            userDefault.set(false, forKey: "firstLaunch")
         }
         // Override point for customization after application launch.
         return true
