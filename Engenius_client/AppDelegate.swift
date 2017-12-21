@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if userDefault.object(forKey: "firstLaunch") == nil {
             userDefault.set(true, forKey: "firstLaunch")
         }
+        if userDefault.bool(forKey: "firstLaunch") {
+        }
         // Override point for customization after application launch.
         return true
     }
