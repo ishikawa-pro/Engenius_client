@@ -31,6 +31,7 @@
 		E9CD64471FD6DFA700B914F6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CD64431FD6D82300B914F6 /* Realm.framework */; };
 		E9CD64481FD6DFB400B914F6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CD64411FD6D81100B914F6 /* RealmSwift.framework */; };
 		E9FE5D351FEBEF1B008CCBB5 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FE5D341FEBEF1B008CCBB5 /* FirstLaunch.storyboard */; };
+		E9FE5D371FEBF0CC008CCBB5 /* FirstCategoryConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FE5D361FEBF0CC008CCBB5 /* FirstCategoryConfigViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		E9CD64431FD6D82300B914F6 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E9CD64451FD6DF9800B914F6 /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/iOS/Realm.framework.dSYM; sourceTree = "<group>"; };
 		E9FE5D341FEBEF1B008CCBB5 /* FirstLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstLaunch.storyboard; sourceTree = "<group>"; };
+		E9FE5D361FEBF0CC008CCBB5 /* FirstCategoryConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCategoryConfigViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				E99066141E8E203A00FB5EE6 /* ArticlesViewController.swift */,
 				E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */,
 				E95844811FCEFA5700874826 /* ConfigViewController.swift */,
+				E9FE5D361FEBF0CC008CCBB5 /* FirstCategoryConfigViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				E99066161E8E203A00FB5EE6 /* ArticlesViewController.swift in Sources */,
 				E9C7E5481FB50BB30017D8FF /* Category.swift in Sources */,
 				E95844821FCEFA5700874826 /* ConfigViewController.swift in Sources */,
+				E9FE5D371FEBF0CC008CCBB5 /* FirstCategoryConfigViewController.swift in Sources */,
 				E95844801FCEDC8200874826 /* ConfigCategoryViewController.swift in Sources */,
 				E9CD64401FD6C63B00B914F6 /* InterestedCategory.swift in Sources */,
 			);
