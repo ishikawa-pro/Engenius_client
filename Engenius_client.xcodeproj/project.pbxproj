@@ -30,6 +30,7 @@
 		E9CD64401FD6C63B00B914F6 /* InterestedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CD643F1FD6C63B00B914F6 /* InterestedCategory.swift */; };
 		E9CD64471FD6DFA700B914F6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CD64431FD6D82300B914F6 /* Realm.framework */; };
 		E9CD64481FD6DFB400B914F6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CD64411FD6D81100B914F6 /* RealmSwift.framework */; };
+		E9FE5D351FEBEF1B008CCBB5 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FE5D341FEBEF1B008CCBB5 /* FirstLaunch.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E9CD64411FD6D81100B914F6 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		E9CD64431FD6D82300B914F6 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E9CD64451FD6DF9800B914F6 /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/iOS/Realm.framework.dSYM; sourceTree = "<group>"; };
+		E9FE5D341FEBEF1B008CCBB5 /* FirstLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstLaunch.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				E97CA9621E54AC6300901AC7 /* Main.storyboard */,
 				E95844781FCEC44D00874826 /* Config.storyboard */,
+				E9FE5D341FEBEF1B008CCBB5 /* FirstLaunch.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */,
+				E9FE5D351FEBEF1B008CCBB5 /* FirstLaunch.storyboard in Resources */,
 				E97CA96C1E54AC6300901AC7 /* LaunchScreen.storyboard in Resources */,
 				E95844791FCEC44D00874826 /* Config.storyboard in Resources */,
 				E90F36CE1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg in Resources */,
