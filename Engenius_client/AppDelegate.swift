@@ -21,9 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefault.set(true, forKey: "firstLaunch")
         }
         if userDefault.bool(forKey: "firstLaunch") {
+            let configStoryboard = UIStoryboard(name: "FirstLaunch", bundle: nil)
+            let firstLaunchInitialViewController = configStoryboard.instantiateViewController(withIdentifier: "FirstLaunchNavigationController")
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = firstLaunchInitialViewController
+            window?.makeKeyAndVisible()
             userDefault.set(false, forKey: "firstLaunch")
         }
-        // Override point for customization after application launch.
+        userDefault.set(true, forKey: "firstLaunch")
         return true
     }
 
