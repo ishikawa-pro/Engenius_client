@@ -26,6 +26,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
