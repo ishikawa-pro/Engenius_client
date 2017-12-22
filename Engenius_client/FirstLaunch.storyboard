@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--カテゴリ-->
         <scene sceneID="Lt8-qD-nBv">
             <objects>
                 <tableViewController id="Esl-dX-7vk" customClass="FirstCategorySelectViewController" customModule="Engenius_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +42,8 @@
                             <outlet property="delegate" destination="Esl-dX-7vk" id="3dN-s1-4E9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="hJf-N0-ud8"/>
+                    <navigationItem key="navigationItem" title="カテゴリ" id="hJf-N0-ud8">
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNd-S4-VhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
