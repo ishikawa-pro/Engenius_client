@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 class FirstCategorySelectViewController: ConfigCategoryViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func moveMain(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let nextView = storyboard.instantiateViewController(withIdentifier: "EGViewController") as? EGViewController {
+            show(nextView, sender: self)
+        }
+//        present(nextView!, animated: true, completion: nil)
+
     }
 }
