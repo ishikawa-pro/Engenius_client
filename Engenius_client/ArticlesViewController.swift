@@ -33,14 +33,14 @@ class ArticlesTableViewController: UIViewController {
             //記事を追加読み込みする場合はreloadData
             //初めてTableViewを描画するときはaddSubview
             if self.articles.count > EngeniusAPIRouter.article.limit {
-                self.articleTableView.reloadData()
                 self.isFetching = false
-                return
+                articleTableView.reloadData()
             } else {
                 //記事を取得できた時点でtableViewを表示させる
-                view.addSubview(self.articleTableView)
-                return
+                view.addSubview(articleTableView)
             }
+
+            return
         }
     }
 
