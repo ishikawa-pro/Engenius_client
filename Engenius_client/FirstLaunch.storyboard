@@ -43,6 +43,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="カテゴリ" id="hJf-N0-ud8">
+                        <barButtonItem key="rightBarButtonItem" title="記事を見る" id="99P-Wy-sI8">
+                            <connections>
+                                <action selector="moveMain:" destination="Esl-dX-7vk" id="GHJ-99-0Io"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNd-S4-VhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
