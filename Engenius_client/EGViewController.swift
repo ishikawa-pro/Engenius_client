@@ -17,6 +17,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
     var categories:[String] = ["最新記事"] {
         didSet {
             _ = viewControllers(for: self)
+            createArticlesViewControllers()            
             reloadPagerTabStripView()
         }
     }
