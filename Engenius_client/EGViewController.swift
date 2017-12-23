@@ -43,8 +43,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
         //navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        //カテゴリごとの記事一覧を作成
+    private func createArticlesViewControllers() {
         articleViewControllers = categories.map { (category) -> ArticlesTableViewController in
             //既に作られているカテゴリのViewControllerなら再利用する。
             //ToDo : リファクタリング
