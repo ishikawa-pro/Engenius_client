@@ -58,6 +58,13 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
             }            
             return articleViewController
         }
+    }
+
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        //カテゴリごとの記事一覧を作成
+        if articleViewControllers.count == 0 {
+            createArticlesViewControllers()
+        }
         return articleViewControllers
     }
 
