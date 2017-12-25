@@ -30,8 +30,9 @@ class EGViewController: ButtonBarPagerTabStripViewController, articlesTableViewD
         navigationItem.hidesBackButton = true
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //カテゴリの取得などは、viewDidApperでやらないと描画されるタイミング的にCellがうまく描画されない。
         do {
             let realm = try Realm()
             var selectedCategory:[String] = realm.objects(InterestedCategory.self).map { $0.category }
