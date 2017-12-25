@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = firstLaunchInitialViewController
             window?.makeKeyAndVisible()
             userDefault.set(false, forKey: "firstLaunch")
-        }
-        userDefault.set(true, forKey: "firstLaunch")
+        }        
         return true
     }
 
