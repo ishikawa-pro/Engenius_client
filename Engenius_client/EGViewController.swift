@@ -13,7 +13,7 @@ import Alamofire
 import RealmSwift
 
 
-class EGViewController: ButtonBarPagerTabStripViewController, ArticlesTableViewDelegate{
+class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewControllerDelegate{
     var categories:[String] = ["最新記事"] {
         didSet {
             createArticlesViewControllers()

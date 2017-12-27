@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol ArticlesTableViewDelegate {
+protocol ArticlesViewControllerDelegate {
     func showArticle(url: URL?)
 }
+

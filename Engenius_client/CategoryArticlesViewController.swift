@@ -13,7 +13,7 @@ import Alamofire
 
 class CategoryArticlesViewController: UIViewController {
 
-    var delegate: ArticlesTableViewDelegate!
+    var delegate: ArticlesViewControllerDelegate!
     var masterViewPointer:EGViewController?
     var request: Alamofire.DataRequest?
     //ページ数
