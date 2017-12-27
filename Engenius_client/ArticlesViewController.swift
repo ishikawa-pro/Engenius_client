@@ -17,6 +17,31 @@ protocol ArticlesViewControllerDelegate {
 protocol ArticlesViewController {
     func fetchArticles()
     func downloadThumbnail(imageURL: URL, imageView: UIImageView)
-    func setArticleCell(cell: ArticlesTableViewCell, row: Int) -> ArticlesTableViewCell
+    func setArticleCell(cell: ArticlesTableViewCell, article: Article ) -> ArticlesTableViewCell
+}
+
+extension ArticlesViewController where Self: UIViewController {
+    func downloadThumbnail(imageURL: URL, imageView: UIImageView) {
+        //2回目以降キャッシュが使われる
+        imageView.af_setImage(withURL: imageURL) { (response) in
+            switch (response.result) {
+            case .success(let result):
+                imageView.image = result
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    func setArticleCell(cell: ArticlesTableViewCell = ArticlesTableViewCell(), article: Article ) -> ArticlesTableViewCell {
+        //再利用するcellの画像残っているので、デフォルトの画像に一旦差し替える。
+        cell.thumbnailImageView.image =  UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
+        cell.titleLabel.text = article.title
+        guard let url = article.imageURL else {
+            return cell
+        }
+        downloadThumbnail(imageURL: url, imageView: cell.thumbnailImageView)
+        return cell
+    }
 }
 

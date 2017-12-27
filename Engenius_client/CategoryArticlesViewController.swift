@@ -104,29 +104,6 @@ class CategoryArticlesViewController: UIViewController, ArticlesViewController {
         }
         page += 1
     }
-
-    private func downloadThumbnail(imageURL: URL, imageView: UIImageView) {
-        //2回目以降キャッシュが使われる
-        imageView.af_setImage(withURL: imageURL) { (response) in
-            switch (response.result) {
-                case .success(let result):
-                    imageView.image = result
-                case .failure(let error):
-                    print(error)
-            }
-        }
-    }
-
-    func setArticleCell(cell: ArticlesTableViewCell = ArticlesTableViewCell(), row: Int) -> ArticlesTableViewCell {
-        //再利用するcellの画像残っているので、デフォルトの画像に一旦差し替える。
-        cell.thumbnailImageView.image =  UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
-        cell.titleLabel.text = articles[row].title
-        guard let url = articles[row].imageURL else {
-            return cell
-        }
-        downloadThumbnail(imageURL: url, imageView: cell.thumbnailImageView)
-        return cell
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -175,9 +152,9 @@ extension CategoryArticlesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
         if let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? ArticlesTableViewCell {
-            return setArticleCell(cell: cell, row: indexPath.row)
+            return setArticleCell(cell: cell, article: articles[indexPath.row])
         }
-        return setArticleCell(row: indexPath.row)
+        return setArticleCell(article: articles[indexPath.row])
     }
 
     //cellの数を指定
