@@ -7,8 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ArticlesViewControllerDelegate {
     func showArticle(url: URL?)
+}
+
+
+protocol ArticlesViewController {
+    func fetchArticles()
+    func downloadThumbnail(imageURL: URL, imageView: UIImageView)
+    func setArticleCell(cell: ArticlesTableViewCell, row: Int) -> ArticlesTableViewCell
 }
 
