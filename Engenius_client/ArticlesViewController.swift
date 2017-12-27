@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol ArticlesTableViewDelegate {
+    func showArticle(url: URL?)
+}

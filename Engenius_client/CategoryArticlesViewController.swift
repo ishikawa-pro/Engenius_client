@@ -11,10 +11,6 @@ import XLPagerTabStrip
 import AlamofireImage
 import Alamofire
 
-protocol ArticlesTableViewDelegate {
-    func showArticle(url: URL?)
-}
-
 class CategoryArticlesViewController: UIViewController {
 
     var delegate: ArticlesTableViewDelegate!
