@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import AlamofireImage
 import Alamofire
 
-class CategoryArticlesViewController: UIViewController {
+class CategoryArticlesViewController: UIViewController, ArticlesViewController {
 
     var delegate: ArticlesViewControllerDelegate!
     var masterViewPointer:EGViewController?
