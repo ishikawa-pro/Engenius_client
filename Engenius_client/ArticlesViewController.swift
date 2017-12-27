@@ -11,13 +11,13 @@ import XLPagerTabStrip
 import AlamofireImage
 import Alamofire
 
-protocol articlesTableViewDelegate {
+protocol ArticlesTableViewDelegate {
     func showArticle(url: URL?)
 }
 
 class ArticlesTableViewController: UIViewController {
 
-    var delegate: articlesTableViewDelegate!
+    var delegate: ArticlesTableViewDelegate!
     var masterViewPointer:EGViewController?
     var request: Alamofire.DataRequest?
     //ページ数
