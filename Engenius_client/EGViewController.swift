@@ -46,13 +46,13 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesTableViewD
     }
 
     private func createArticlesViewControllers() {
-        articleViewControllers = categories.map { (category) -> ArticlesTableViewController in
+        articleViewControllers = categories.map { (category) -> CategoryArticlesViewController in
             //既に作られているカテゴリのViewControllerなら再利用する。
             //ToDo : リファクタリング
             guard let articleViewController = articleViewControllers
                 .filter({ (avc) -> Bool in avc.title == category })
-                .first as? ArticlesTableViewController else {
-                    let articleTableViewController = ArticlesTableViewController()
+                .first as? CategoryArticlesViewController else {
+                    let articleTableViewController = CategoryArticlesViewController()
                     articleTableViewController.title = category
                     articleTableViewController.delegate = self
                     return articleTableViewController

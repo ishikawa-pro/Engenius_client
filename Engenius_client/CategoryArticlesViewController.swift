@@ -15,7 +15,7 @@ protocol ArticlesTableViewDelegate {
     func showArticle(url: URL?)
 }
 
-class ArticlesTableViewController: UIViewController {
+class CategoryArticlesViewController: UIViewController {
 
     var delegate: ArticlesTableViewDelegate!
     var masterViewPointer:EGViewController?
@@ -158,7 +158,7 @@ class ArticlesTableViewController: UIViewController {
     }
 }
 
-extension ArticlesTableViewController : UITableViewDelegate {
+extension CategoryArticlesViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
     }
@@ -174,7 +174,7 @@ extension ArticlesTableViewController : UITableViewDelegate {
     }
 }
 
-extension ArticlesTableViewController : UITableViewDataSource {
+extension CategoryArticlesViewController : UITableViewDataSource {
     //各行に表示するcellを定義
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
@@ -192,7 +192,7 @@ extension ArticlesTableViewController : UITableViewDataSource {
 
 }
 
-extension ArticlesTableViewController : UITableViewDataSourcePrefetching {
+extension CategoryArticlesViewController : UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         guard let row = indexPaths.last?.row else {
             return
@@ -207,7 +207,7 @@ extension ArticlesTableViewController : UITableViewDataSourcePrefetching {
     }
 }
 
-extension ArticlesTableViewController : IndicatorInfoProvider {
+extension CategoryArticlesViewController : IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         if let barTitle = title {
             return IndicatorInfo(title: barTitle)
