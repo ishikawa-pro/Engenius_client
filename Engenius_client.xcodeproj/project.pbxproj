@@ -13,6 +13,7 @@
 		E95844791FCEC44D00874826 /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95844781FCEC44D00874826 /* Config.storyboard */; };
 		E95844801FCEDC8200874826 /* ConfigCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */; };
 		E95844821FCEFA5700874826 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95844811FCEFA5700874826 /* ConfigViewController.swift */; };
+		E978DFB31FF3797D00C6257D /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978DFB21FF3797D00C6257D /* ArticlesViewController.swift */; };
 		E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */; };
 		E97CA9611E54AC6300901AC7 /* EGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CA9601E54AC6300901AC7 /* EGViewController.swift */; };
 		E97CA9641E54AC6300901AC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97CA9621E54AC6300901AC7 /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		E95844781FCEC44D00874826 /* Config.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 		E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCategoryViewController.swift; sourceTree = "<group>"; };
 		E95844811FCEFA5700874826 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		E978DFB21FF3797D00C6257D /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		E97CA95B1E54AC6300901AC7 /* Engenius_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engenius_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97CA95E1E54AC6300901AC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E97CA9601E54AC6300901AC7 /* EGViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EGViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				E97CA9601E54AC6300901AC7 /* EGViewController.swift */,
 				E99066141E8E203A00FB5EE6 /* CategoryArticlesViewController.swift */,
+				E978DFB21FF3797D00C6257D /* ArticlesViewController.swift */,
 				E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */,
 				E95844811FCEFA5700874826 /* ConfigViewController.swift */,
 				E9FE5D361FEBF0CC008CCBB5 /* FirstCategoryConfigViewController.swift */,
@@ -454,6 +457,7 @@
 			files = (
 				E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */,
 				E97CA9611E54AC6300901AC7 /* EGViewController.swift in Sources */,
+				E978DFB31FF3797D00C6257D /* ArticlesViewController.swift in Sources */,
 				E9C45C101FB70C11008DEE5B /* Article.swift in Sources */,
 				E9444E661FB5EC6200D8103F /* EngeniusAPIRouter.swift in Sources */,
 				E97CA9671E54AC6300901AC7 /* Engenius_client.xcdatamodeld in Sources */,
