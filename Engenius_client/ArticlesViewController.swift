@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AlamofireImage
 
 protocol ArticlesViewControllerDelegate {
     func showArticle(url: URL?)
