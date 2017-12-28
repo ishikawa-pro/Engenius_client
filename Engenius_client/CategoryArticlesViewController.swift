@@ -44,7 +44,7 @@ class CategoryArticlesViewController: UIViewController, ArticlesViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //tableViewの作成
-        articleTableView = UITableView(frame: view.frame, style: .grouped)
+        articleTableView = UITableView(frame: view.frame)
         //tableViewのデリゲートを設定
         articleTableView.delegate = self
         //tableViewのデーターソースを設定
