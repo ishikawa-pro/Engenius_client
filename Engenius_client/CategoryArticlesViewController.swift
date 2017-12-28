@@ -130,14 +130,6 @@ class CategoryArticlesViewController: UIViewController, ArticlesViewController {
 }
 
 extension CategoryArticlesViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
-
     //セルがタップされたら呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //webViewControllerへ遷移する部分をデリゲートする。
