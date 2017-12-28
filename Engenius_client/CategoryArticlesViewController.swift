@@ -8,7 +8,6 @@
 
 import UIKit
 import XLPagerTabStrip
-import AlamofireImage
 import Alamofire
 
 class CategoryArticlesViewController: UIViewController, ArticlesViewController {
