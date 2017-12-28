@@ -14,7 +14,6 @@ import Alamofire
 class CategoryArticlesViewController: UIViewController, ArticlesViewController {
 
     var delegate: ArticlesViewControllerDelegate!
-    var masterViewPointer:EGViewController?
     var request: Alamofire.DataRequest?
     //ページ数
     //オフセット数は、EngeniusAPIRouterで設定
