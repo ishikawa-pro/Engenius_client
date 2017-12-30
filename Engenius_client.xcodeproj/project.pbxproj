@@ -143,6 +143,7 @@
 		E95502921FF7681800CC0D62 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -227,7 +228,6 @@
 		E9C7E5461FB50A990017D8FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */,
 				E9C7E5471FB50BB30017D8FF /* Category.swift */,
 				E9C45C0F1FB70C11008DEE5B /* Article.swift */,
 				E9CD643F1FD6C63B00B914F6 /* InterestedCategory.swift */,
