@@ -27,6 +27,7 @@
 		E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */; };
 		E9AC16CB2006428300300B25 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC16CA2006428300300B25 /* APIClientType.swift */; };
 		E9AC16CD200652A400300B25 /* AlamofireClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC16CC200652A400300B25 /* AlamofireClient.swift */; };
+		E9AC16CF2006533C00300B25 /* EngeniusAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC16CE2006533C00300B25 /* EngeniusAPIClient.swift */; };
 		E9AF170516941131D3C18B35 /* Pods_Engenius_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCEB2494EF09B942AD21D8C /* Pods_Engenius_client.framework */; };
 		E9C45C101FB70C11008DEE5B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C45C0F1FB70C11008DEE5B /* Article.swift */; };
 		E9C7E5481FB50BB30017D8FF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C7E5471FB50BB30017D8FF /* Category.swift */; };
@@ -84,6 +85,7 @@
 		E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesTableViewCell.xib; sourceTree = "<group>"; };
 		E9AC16CA2006428300300B25 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
 		E9AC16CC200652A400300B25 /* AlamofireClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireClient.swift; sourceTree = "<group>"; };
+		E9AC16CE2006533C00300B25 /* EngeniusAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngeniusAPIClient.swift; sourceTree = "<group>"; };
 		E9C45C0F1FB70C11008DEE5B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		E9C7E5471FB50BB30017D8FF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E9CD643F1FD6C63B00B914F6 /* InterestedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCategory.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */,
 				E9AC16CA2006428300300B25 /* APIClientType.swift */,
 				E9AC16CC200652A400300B25 /* AlamofireClient.swift */,
+				E9AC16CE2006533C00300B25 /* EngeniusAPIClient.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				E97CA9671E54AC6300901AC7 /* Engenius_client.xcdatamodeld in Sources */,
 				E9AC16CD200652A400300B25 /* AlamofireClient.swift in Sources */,
 				E97CA95F1E54AC6300901AC7 /* AppDelegate.swift in Sources */,
+				E9AC16CF2006533C00300B25 /* EngeniusAPIClient.swift in Sources */,
 				E99066161E8E203A00FB5EE6 /* CategoryArticlesViewController.swift in Sources */,
 				E9C7E5481FB50BB30017D8FF /* Category.swift in Sources */,
 				E95844821FCEFA5700874826 /* ConfigViewController.swift in Sources */,
