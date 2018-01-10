@@ -13,4 +13,14 @@ struct EngeniusAPIClient {
     init(apiClient: AlamofireClient) {
         self.apiClient = apiClient
     }
+    func fetchCategory(response: @escaping (Category) -> ()) {
+        apiClient.request(urlRequest: EngeniusAPIRouter.category.getCategories()) { data in
+            do {
+                response(try JSONDecoder().decode(Category.self, from: data))
+            } catch {
+                print(error)
+            }
+
+        }
+    }
 }
