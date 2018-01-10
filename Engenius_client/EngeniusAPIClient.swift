@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct EngeniusAPIClient {
+    let apiClient: AlamofireClient
+    init(apiClient: AlamofireClient) {
+        self.apiClient = apiClient
+    }
+}
