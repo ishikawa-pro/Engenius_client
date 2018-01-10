@@ -10,6 +10,6 @@ import Foundation
 
 protocol APIClientType {
     associatedtype URLRequestType
-    func request(urlRequest: URLRequestType, response: @escaping (Data) -> ())
+    func request(urlRequest: URLRequestType, response: @escaping (Data?) -> ())
 }
 
