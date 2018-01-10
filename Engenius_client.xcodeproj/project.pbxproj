@@ -25,6 +25,7 @@
 		E99066161E8E203A00FB5EE6 /* CategoryArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99066141E8E203A00FB5EE6 /* CategoryArticlesViewController.swift */; };
 		E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */; };
 		E9951F031E882C2C00457B72 /* ArticlesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */; };
+		E9AC16CB2006428300300B25 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AC16CA2006428300300B25 /* APIClientType.swift */; };
 		E9AF170516941131D3C18B35 /* Pods_Engenius_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCEB2494EF09B942AD21D8C /* Pods_Engenius_client.framework */; };
 		E9C45C101FB70C11008DEE5B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C45C0F1FB70C11008DEE5B /* Article.swift */; };
 		E9C7E5481FB50BB30017D8FF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C7E5471FB50BB30017D8FF /* Category.swift */; };
@@ -80,6 +81,7 @@
 		E99066141E8E203A00FB5EE6 /* CategoryArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryArticlesViewController.swift; sourceTree = "<group>"; };
 		E9951F001E882C2C00457B72 /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 		E9951F011E882C2C00457B72 /* ArticlesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesTableViewCell.xib; sourceTree = "<group>"; };
+		E9AC16CA2006428300300B25 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
 		E9C45C0F1FB70C11008DEE5B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		E9C7E5471FB50BB30017D8FF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E9CD643F1FD6C63B00B914F6 /* InterestedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCategory.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */,
+				E9AC16CA2006428300300B25 /* APIClientType.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */,
+				E9AC16CB2006428300300B25 /* APIClientType.swift in Sources */,
 				E97CA9611E54AC6300901AC7 /* EGViewController.swift in Sources */,
 				E978DFB31FF3797D00C6257D /* ArticlesViewController.swift in Sources */,
 				E9C45C101FB70C11008DEE5B /* Article.swift in Sources */,
