@@ -14,7 +14,10 @@ struct EngeniusAPIClient {
         self.apiClient = apiClient
     }
     func fetchCategory(response: @escaping (Category) -> ()) {
-        apiClient.request(urlRequest: EngeniusAPIRouter.category.getCategories()) { data in
+        apiClient.request(urlRequest: EngeniusAPIRouter.category.getCategories()) { responseData in
+            guard let data = responseData else {
+                return
+            }
             do {
                 response(try JSONDecoder().decode(Category.self, from: data))
             } catch {
@@ -25,7 +28,10 @@ struct EngeniusAPIClient {
     }
 
     func fetchNewsFeed(categories: [String], page: Int, response: @escaping ([Article]) -> ()) {
-        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchFeed(categories: categories, page: page)) { data in
+        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchFeed(categories: categories, page: page)) { responseData in
+            guard let data = responseData else {
+                return
+            }
             do {
                 response(try JSONDecoder().decode([Article].self, from: data))
             } catch {
@@ -35,7 +41,10 @@ struct EngeniusAPIClient {
     }
 
     func fetchCategoryArticles(category: String, page: Int, response: @escaping ([Article]) -> ()) {
-        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchArticle(category: category, page: page)) { data in
+        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchArticle(category: category, page: page)) { responseData in
+            guard let data = responseData else {
+                return
+            }
             do {
                 response(try JSONDecoder().decode([Article].self, from: data))
             } catch {
