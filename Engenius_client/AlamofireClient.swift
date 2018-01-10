@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import Alamofire
+
+struct AlamofireClient: APIClientType {
+    typealias URLRequestType = URLRequestConvertible
+    func request(urlRequest: URLRequestConvertible, response: @escaping (Data) -> ()) {
+        Alamofire.request(urlRequest).responseData { (ResponseData) in
+            guard let data = ResponseData.data else {
+                return
+            }
+            response(data)
+        }
+    }
+}
