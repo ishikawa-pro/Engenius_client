@@ -23,4 +23,14 @@ struct EngeniusAPIClient {
 
         }
     }
+
+    func fetchNewsFeed(categories: [String], page: Int, response: @escaping ([Article]) -> ()) {
+        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchFeed(categories: categories, page: page)) { data in
+            do {
+                response(try JSONDecoder().decode([Article].self, from: data))
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
