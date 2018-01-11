@@ -53,14 +53,10 @@ enum EngeniusAPIRouter {
         func asURLRequest() throws -> URLRequest {
             let result: (path: String, parameters: Parameters) = {
                 switch self {
-                case let .fetchFeed(categories, page) where page > 0:
-                    return ("/article.json", ["category": categories, "limit": article.limit, "offset": page * article.offset])
-                case let .fetchFeed(categories, _):
-                    return ("/article.json", ["category": categories, "limit": article.limit])
-                case let .fetchArticle(category, page) where page > 0:
+                case let .fetchFeed(categories, page):
+                    return ("/article.json", ["category": categories, "limit": article.limit, "offset": page * article.offset])                
+                case let .fetchArticle(category, page):
                     return ("/article/show.json", ["category": category, "limit": article.limit, "offset": page * article.offset])
-                case let .fetchArticle(category, _):
-                    return ("/article/show.json", ["category": category, "limit": article.limit])
                 }
             }()
 
