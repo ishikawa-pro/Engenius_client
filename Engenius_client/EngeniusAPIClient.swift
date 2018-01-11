@@ -34,28 +34,14 @@ struct EngeniusAPIClient {
     }
 
     func fetchNewsFeed(categories: [String], page: Int, response: @escaping ([Article]) -> ()) {
-        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchFeed(categories: categories, page: page)) { responseData in
-            guard let data = responseData else {
-                return
-            }
-            do {
-                response(try JSONDecoder().decode([Article].self, from: data))
-            } catch {
-                print(error)
-            }
-        }
+        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchFeed(categories: categories, page: page), response: jsonDecode(responseType: [Article].self, response: { articles in
+            response(articles)
+        }))
     }
 
     func fetchCategoryArticles(category: String, page: Int, response: @escaping ([Article]) -> ()) {
-        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchArticle(category: category, page: page)) { responseData in
-            guard let data = responseData else {
-                return
-            }
-            do {
-                response(try JSONDecoder().decode([Article].self, from: data))
-            } catch {
-                print(error)
-            }
-        }
+        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchArticle(category: category, page: page), response: jsonDecode(responseType: [Article].self, response: { articles in
+            response(articles)
+        }))
     }
 }
