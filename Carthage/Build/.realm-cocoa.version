@@ -3,11 +3,11 @@
   "iOS" : [
     {
       "name" : "RealmSwift",
-      "hash" : "6610d72f20caeab3b1a1742b3f01299017324cf191b64e2a6dcdfb0350284be6"
+      "hash" : "7ba01e5aef63d6252e3e300b290bbf6cafb4e404e93d03e872d1904ce24650b6"
     },
     {
       "name" : "Realm",
-      "hash" : "5f7fd4619f04bdf9d1a8841c4e97c2df9a9466761bb0f2b04014d95bcbb5c502"
+      "hash" : "58279f1b9b8627f0204b3b667c0c88f80b2ed37f9a24774f5f8d04726b766126"
     }
   ]
 }
