@@ -11,7 +11,7 @@ import Alamofire
 
 struct AlamofireClient: APIClientType {
     typealias URLRequestType = URLRequestConvertible
-    func request(urlRequest: URLRequestConvertible, response: @escaping (Data?) -> ()) {
+    func request(urlRequest: URLRequestType, response: @escaping (Data?) -> ()) {
         Alamofire.request(urlRequest).responseData { (responseData) in
             switch (responseData.result) {
                 case .success(let data):
