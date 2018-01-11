@@ -43,8 +43,12 @@ enum EngeniusAPIRouter {
             }
         }
 
-        static let offset = 15
-        static let limit = 15
+        static var offset: Int {
+            return 15
+        }
+        static var limit: Int {
+            return 15
+        }
 
         func asURLRequest() throws -> URLRequest {
             let result: (path: String, parameters: Parameters) = {
