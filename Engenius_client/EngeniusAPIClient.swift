@@ -13,18 +13,24 @@ struct EngeniusAPIClient {
     init(apiClient: AlamofireClient) {
         self.apiClient = apiClient
     }
-    func fetchCategory(response: @escaping (Category) -> ()) {
-        apiClient.request(urlRequest: EngeniusAPIRouter.category.getCategories()) { responseData in
+
+    private func jsonDecode<T:Decodable>(responseType: T.Type, response: @escaping (T) -> ()) -> (Data?) -> () {
+        return { responseData in
             guard let data = responseData else {
                 return
             }
             do {
-                response(try JSONDecoder().decode(Category.self, from: data))
+                response(try JSONDecoder().decode(responseType.self, from: data))
             } catch {
                 print(error)
             }
-
         }
+    }
+
+    func fetchCategory(response: @escaping (Category) -> ()) {
+        apiClient.request(urlRequest: EngeniusAPIRouter.category.getCategories(), response: jsonDecode(responseType: Category.self, response: { category in
+            response(category)
+        }))
     }
 
     func fetchNewsFeed(categories: [String], page: Int, response: @escaping ([Article]) -> ()) {
