@@ -10,7 +10,9 @@ import Foundation
 import Alamofire
 
 enum EngeniusAPIRouter {
-    static let baseURLString = "http://192.168.100.101:3000"
+    private static var baseURL: URL {
+        return URL(string: "http://192.168.100.101:3000")!
+    }
 
     enum category : URLRequestConvertible {
         case getCategories()
@@ -23,8 +25,7 @@ enum EngeniusAPIRouter {
         }
 
         func asURLRequest() throws -> URLRequest {
-            let url = try EngeniusAPIRouter.baseURLString.asURL()
-            let urlRequest = URLRequest(url: url.appendingPathComponent(path))
+            let urlRequest = URLRequest(url: EngeniusAPIRouter.baseURL.appendingPathComponent(path))
             return try URLEncoding.default.encode(urlRequest, with: nil)
         }
     }
@@ -59,8 +60,7 @@ enum EngeniusAPIRouter {
                 }
             }()
 
-            let url = try EngeniusAPIRouter.baseURLString.asURL()
-            let urlRequest = URLRequest(url: url.appendingPathComponent(result.path))
+            let urlRequest = URLRequest(url: EngeniusAPIRouter.baseURL.appendingPathComponent(result.path))
             return try URLEncoding.default.encode(urlRequest, with: result.parameters)
         }
     }
