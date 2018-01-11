@@ -90,13 +90,13 @@ class Engenius_clientTests: XCTestCase {
     func testArticleURLRoute() {
         let baseURL = "http://192.168.100.101:3000/article"
 
-        var request = URLRequest(url: URL(string: baseURL + ".json?category[]=Docker&category[]=Swift&limit=15")!)
+        var request = URLRequest(url: URL(string: baseURL + ".json?category[]=Docker&category[]=Swift&limit=15&offset=0")!)
         XCTAssertEqual(try! EngeniusAPIRouter.article.fetchFeed(categories: ["Docker", "Swift"], page: 0).asURLRequest(), request)
 
         request = URLRequest(url: URL(string: baseURL + ".json?category[]=Docker&category[]=Swift&limit=15&offset=15")!)
         XCTAssertEqual(try! EngeniusAPIRouter.article.fetchFeed(categories: ["Docker", "Swift"], page: 1).asURLRequest(), request)
 
-        request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=15")!)
+        request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=15&offset=0")!)
         XCTAssertEqual(try! EngeniusAPIRouter.article.fetchArticle(category: "Swift", page: 0).asURLRequest(), request)
 
         request = URLRequest(url: URL(string: baseURL + "/show.json?category=Swift&limit=15&offset=15")!)
