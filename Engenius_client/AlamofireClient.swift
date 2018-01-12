@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-struct AlamofireClient: APIClientType {
+final class AlamofireClient: APIClientType {
     typealias URLRequestType = URLRequestConvertible
     func request(urlRequest: URLRequestType, response: @escaping (Data?) -> ()) {
         Alamofire.request(urlRequest).responseData { (responseData) in
