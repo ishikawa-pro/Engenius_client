@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import RealmSwift
 
 class NewsFeedViewController: UIViewController, ArticlesViewController {
 
@@ -21,6 +22,7 @@ class NewsFeedViewController: UIViewController, ArticlesViewController {
     //記事の格納用
     //tableViewの宣言
     var articleTableView = UITableView()
+    var selectedCategory: [String] = []
     var articles: [Article] = [] {
         didSet {
             //記事を追加読み込みする場合はreloadData
@@ -52,6 +54,7 @@ class NewsFeedViewController: UIViewController, ArticlesViewController {
         // カスタムセルクラス名でnibを作成する
         let nib = UINib(nibName: "ArticlesTableViewCell", bundle: nil)
         articleTableView.register(nib, forCellReuseIdentifier: "customCell")
+        getSelectedCategory()
         fetchArticles()
     }
 
@@ -61,6 +64,7 @@ class NewsFeedViewController: UIViewController, ArticlesViewController {
             //request?.resume()
             engeniusAPIClient.apiClient.resume()
         }
+        getSelectedCategory()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,6 +72,16 @@ class NewsFeedViewController: UIViewController, ArticlesViewController {
         if isFetching {
             //request?.suspend()
             engeniusAPIClient.apiClient.suspend()
+        }
+    }
+
+    func getSelectedCategory() {
+        do {
+            let realm = try Realm()
+            selectedCategory = realm.objects(InterestedCategory.self).map { $0.category }
+        }
+        catch {
+            print(error)
         }
     }
 
