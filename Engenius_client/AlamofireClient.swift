@@ -23,4 +23,12 @@ final class AlamofireClient: APIClientType {
             }
         }
     }
+
+    func resume() {
+        dataRequest?.resume()
+    }
+
+    func suspend() {
+        dataRequest?.suspend()
+    }
 }
