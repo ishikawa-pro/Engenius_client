@@ -8,12 +8,11 @@
 
 import UIKit
 import XLPagerTabStrip
-import Alamofire
 
 class CategoryArticlesViewController: UIViewController, ArticlesViewController {
 
     var delegate: ArticlesViewControllerDelegate!
-    var request: Alamofire.DataRequest?
+    var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     //ページ数
     //オフセット数は、EngeniusAPIRouterで設定
     private var page = 0
@@ -59,14 +58,16 @@ class CategoryArticlesViewController: UIViewController, ArticlesViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isFetching {
-            request?.resume()
+            //request?.resume()
+            engeniusAPIClient.apiClient.resume()
         }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isFetching {
-            request?.suspend()
+            //request?.suspend()
+            engeniusAPIClient.apiClient.suspend()
         }
     }
 
@@ -74,33 +75,18 @@ class CategoryArticlesViewController: UIViewController, ArticlesViewController {
         guard let vcTitle = title else {
             return
         }
-
-        if vcTitle == "最新記事" {
-            request = Alamofire.request(EngeniusAPIRouter.article.fetchFeed(categories: ["Swift", "機械学習", "Docker"], page: page))
-        } else {
-            request = Alamofire.request(EngeniusAPIRouter.article.fetchArticle(category: vcTitle, page: page))
-        }
-        request?.responseData { (response) in
-            switch (response.result) {
-                case .success(let data):
-                    do {
-                        let newArticle = try JSONDecoder().decode([Article].self, from: data)
-                        //記事がなければappendせずにreturn
-                        if newArticle.count == 0 {
-                            //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
-                            self.isFetching = true
-                            return
-                        } else {
-                            self.articles.append(contentsOf: newArticle)
-                        }
-                    } catch {
-                        print(error)
-                    }
-                case .failure(let error):
-                    print(error)
+        
+        engeniusAPIClient.fetchCategoryArticles(category: vcTitle, page: page) { response in
+            //記事がなければappendせずにreturn
+            if response.count == 0 {
+                //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
+                self.isFetching = true
+                return
+            } else {
+                self.articles.append(contentsOf: response)
+                self.page += 1
             }
         }
-        page += 1
     }
     
     override func didReceiveMemoryWarning() {
