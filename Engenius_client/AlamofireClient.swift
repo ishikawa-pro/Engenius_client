@@ -11,8 +11,10 @@ import Alamofire
 
 final class AlamofireClient: APIClientType {
     typealias URLRequestType = URLRequestConvertible
+    private var dataRequest: Alamofire.DataRequest?
     func request(urlRequest: URLRequestType, response: @escaping (Data?) -> ()) {
-        Alamofire.request(urlRequest).responseData { (responseData) in
+        dataRequest = Alamofire.request(urlRequest)
+        dataRequest?.responseData { (responseData) in
             switch (responseData.result) {
                 case .success(let data):
                     response(data)
