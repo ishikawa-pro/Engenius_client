@@ -86,7 +86,7 @@ class NewsFeedViewController: UIViewController, ArticlesViewController {
     }
 
     func fetchArticles() {
-        engeniusAPIClient.fetchNewsFeed(categories: ["Swift", "Docker"], page: page) { response in
+        engeniusAPIClient.fetchNewsFeed(categories: selectedCategory, page: page) { response in
             //記事がなければappendせずにreturn
             if response.count == 0 {
                 //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
