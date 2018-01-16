@@ -1,8 +1,8 @@
 language: Swift
 osx_image: xcode9.2
 
-before_install:
-  - carthage bootstrap --platform ios
+before_install: 
+  - travis_wait 30 carthage bootstrap --platform ios
 
 xcode_workspace: Engenius_client.xcworkspace
 xcode_scheme: Engenius_clientTests 
