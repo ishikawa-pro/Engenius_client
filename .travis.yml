@@ -2,8 +2,6 @@ language: Swift
 osx_image: xcode9.2
 
 before_install:
-  - brew update
-  - brew install carthage
   - carthage bootstrap --platform ios
 
 xcode_workspace: Engenius_client.xcworkspace
