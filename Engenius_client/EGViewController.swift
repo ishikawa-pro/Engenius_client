@@ -49,13 +49,15 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
         articleViewControllers = categories.map { (category) -> UIViewController in
             //既に作られているカテゴリのViewControllerなら再利用する。
             //ToDo : リファクタリング
-            if ((articleViewControllers
-                .filter({ (avc) -> Bool in category == "最新記事"})
-                .first as? CategoryArticlesViewController) == nil)  {
-                    let newsFeedViewController = NewsFeedViewController()
-                    newsFeedViewController.title = category
-                    newsFeedViewController.delegate = self
-                    return newsFeedViewController
+            if let newsFeedViewController = articleViewControllers
+                .filter({ _ in category == "最新記事" })
+                .first {
+                return newsFeedViewController
+            } else if articleViewControllers.count == 0 {
+                let newsFeedViewController = NewsFeedViewController()
+                newsFeedViewController.title = category
+                newsFeedViewController.delegate = self
+                return newsFeedViewController
             }
 
             guard let articleViewController = articleViewControllers
