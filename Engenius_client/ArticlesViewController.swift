@@ -18,6 +18,7 @@ protocol ArticlesViewControllerDelegate {
 
 protocol ArticlesViewController {
     var indicatorTitle: String? { get set }
+    var delegate: ArticlesViewControllerDelegate? { get set }
     func fetchArticles()
     func downloadThumbnail(imageURL: URL, imageView: UIImageView)
     func setArticleCell(cell: ArticlesTableViewCell, article: Article ) -> ArticlesTableViewCell
