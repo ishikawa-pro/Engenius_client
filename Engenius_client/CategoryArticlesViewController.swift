@@ -71,11 +71,10 @@ class CategoryArticlesViewController: UIViewController, IndicatorInfoProvider, A
     }
 
     func fetchArticles() {
-        guard let vcTitle = title else {
+        guard let category = indicatorTitle else {
             return
         }
-        
-        engeniusAPIClient.fetchCategoryArticles(category: vcTitle, page: page) { response in
+        engeniusAPIClient.fetchCategoryArticles(category: category, page: page) { response in
             //記事がなければappendせずにreturn
             if response.count == 0 {
                 //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
