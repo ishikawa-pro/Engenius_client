@@ -23,7 +23,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
     }
     
     // インスタンス配列
-    var articleViewControllers : [UIViewController] = []
+    var articleVCDictionary = [String: ArticlesViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,10 +74,15 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         //カテゴリごとの記事一覧を作成
-        if articleViewControllers.count == 0 {
+        if articleVCDictionary.count == 0 {
             createArticlesViewControllers()
         }
-        return articleViewControllers
+        return categories.map({ category -> UIViewController? in
+            guard let vc = articleVCDictionary[category] as? UIViewController else {
+                return nil
+            }
+            return vc
+        }).flatMap({$0})
     }
 
     override func didReceiveMemoryWarning() {
