@@ -62,8 +62,7 @@ class NewsFeedViewController: UIViewController, IndicatorInfoProvider, ArticlesV
         if isFetching {
             //request?.resume()
             engeniusAPIClient.apiClient.resume()
-        }
-        getSelectedCategory()
+        }   
     }
 
     override func viewWillDisappear(_ animated: Bool) {
