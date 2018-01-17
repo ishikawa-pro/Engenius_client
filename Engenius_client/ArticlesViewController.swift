@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AlamofireImage
+import XLPagerTabStrip
 
 protocol ArticlesViewControllerDelegate {
     func showArticle(url: URL?)
@@ -16,6 +17,7 @@ protocol ArticlesViewControllerDelegate {
 
 
 protocol ArticlesViewController {
+    var indicatorTitle: String? { get set }
     func fetchArticles()
     func downloadThumbnail(imageURL: URL, imageView: UIImageView)
     func setArticleCell(cell: ArticlesTableViewCell, article: Article ) -> ArticlesTableViewCell
@@ -43,6 +45,13 @@ extension ArticlesViewController where Self: UIViewController {
         }
         downloadThumbnail(imageURL: url, imageView: cell.thumbnailImageView)
         return cell
+    }
+}
+
+
+extension IndicatorInfoProvider where Self: ArticlesViewController {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+            return IndicatorInfo(title: indicatorTitle)
     }
 }
 
