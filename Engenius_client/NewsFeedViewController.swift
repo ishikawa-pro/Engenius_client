@@ -11,8 +11,7 @@ import XLPagerTabStrip
 import RealmSwift
 
 class NewsFeedViewController: UIViewController, ArticlesViewController {
-
-    var delegate: ArticlesViewControllerDelegate!
+    var delegate: ArticlesViewControllerDelegate?
     var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     //ページ数
     //オフセット数は、EngeniusAPIRouterで設定
