@@ -11,7 +11,7 @@ import XLPagerTabStrip
 
 class CategoryArticlesViewController: UIViewController, ArticlesViewController {
 
-    var delegate: ArticlesViewControllerDelegate!
+    var delegate: ArticlesViewControllerDelegate?
     var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     //ページ数
     //オフセット数は、EngeniusAPIRouterで設定
