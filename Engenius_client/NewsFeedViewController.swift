@@ -10,7 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class NewsFeedViewController: UIViewController, ArticlesViewController {
+class NewsFeedViewController: UIViewController, IndicatorInfoProvider, ArticlesViewController {
     var delegate: ArticlesViewControllerDelegate?
     var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     //ページ数
@@ -165,14 +165,3 @@ extension NewsFeedViewController : UITableViewDataSourcePrefetching {
         }
     }
 }
-
-extension NewsFeedViewController : IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        if let barTitle = title {
-            return IndicatorInfo(title: barTitle)
-        } else {
-            return IndicatorInfo(title: "No title")
-        }
-    }
-}
-
