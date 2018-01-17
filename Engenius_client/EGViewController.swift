@@ -46,29 +46,30 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
     }
 
     private func createArticlesViewControllers() {
-        articleViewControllers = categories.map { (category) -> UIViewController in
-            //既に作られているカテゴリのViewControllerなら再利用する。
-            //ToDo : リファクタリング
-            if let newsFeedViewController = articleViewControllers
-                .filter({ _ in category == "最新記事" })
-                .first {
-                return newsFeedViewController
-            } else if articleViewControllers.count == 0 {
-                let newsFeedViewController = NewsFeedViewController()
-                newsFeedViewController.title = category
-                newsFeedViewController.delegate = self
-                return newsFeedViewController
+        let articlesViewControllers = categories.map { category -> ArticlesViewController in
+            //最新記事は、選択カテゴリが変われば内容が変更するため、現状ではViewControllerを使い回さずに、毎回インスタンスを生成し直す。
+            if let articlesViewController = articleVCDictionary[category], category != "最新記事" {
+                return articlesViewController
             }
-
-            guard let articleViewController = articleViewControllers
-                .filter({ (avc) -> Bool in avc.title == category})
-                .first as? CategoryArticlesViewController else {
-                    let articleTableViewController = CategoryArticlesViewController()
-                    articleTableViewController.title = category
-                    articleTableViewController.delegate = self
-                    return articleTableViewController
-            }            
-            return articleViewController
+            var articlesViewController: ArticlesViewController
+            if category == "最新記事" {
+                articlesViewController = NewsFeedViewController()
+            } else {
+                articlesViewController = CategoryArticlesViewController()
+            }
+            articlesViewController.indicatorTitle = category
+            return articlesViewController
+        }
+        articleVCDictionary = Dictionary(uniqueKeysWithValues:
+            zip(categories, articlesViewControllers)
+        )
+        articleVCDictionary = articleVCDictionary.mapValues {
+            guard $0.delegate == nil else {
+                return $0
+            }
+            var vc = $0
+            vc.delegate = self
+            return vc
         }
     }
 
