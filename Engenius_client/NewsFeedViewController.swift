@@ -129,7 +129,7 @@ extension NewsFeedViewController : UITableViewDelegate {
     //セルがタップされたら呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //webViewControllerへ遷移する部分をデリゲートする。
-        delegate.showArticle(url: articles[indexPath.row].url)
+        delegate?.showArticle(url: articles[indexPath.row].url)
     }
 }
 
