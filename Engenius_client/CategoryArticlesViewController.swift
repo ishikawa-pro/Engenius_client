@@ -9,8 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class CategoryArticlesViewController: UIViewController, ArticlesViewController {
-
+class CategoryArticlesViewController: UIViewController, IndicatorInfoProvider, ArticlesViewController {
     var delegate: ArticlesViewControllerDelegate?
     var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     //ページ数
@@ -156,12 +155,3 @@ extension CategoryArticlesViewController : UITableViewDataSourcePrefetching {
     }
 }
 
-extension CategoryArticlesViewController : IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        if let barTitle = title {
-            return IndicatorInfo(title: barTitle)
-        } else {
-            return IndicatorInfo(title: "No title")
-        }
-    }
-}
