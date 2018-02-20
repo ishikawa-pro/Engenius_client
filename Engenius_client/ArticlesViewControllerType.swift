@@ -16,7 +16,7 @@ protocol ArticlesViewControllerDelegate {
 }
 
 
-protocol ArticlesViewController {
+protocol ArticlesViewControllerType {
     var indicatorTitle: String? { get set }
     var delegate: ArticlesViewControllerDelegate? { get set }
     func fetchArticles()
@@ -24,7 +24,7 @@ protocol ArticlesViewController {
     func setArticleCell(cell: ArticlesTableViewCell, article: Article ) -> ArticlesTableViewCell
 }
 
-extension ArticlesViewController where Self: UIViewController {
+extension ArticlesViewControllerType where Self: UIViewController {
     func downloadThumbnail(imageURL: URL, imageView: UIImageView) {
         //2回目以降キャッシュが使われる
         imageView.af_setImage(withURL: imageURL) { (response) in

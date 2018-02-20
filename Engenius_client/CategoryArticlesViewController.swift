@@ -9,7 +9,9 @@
 import UIKit
 import XLPagerTabStrip
 
-class CategoryArticlesViewController: UIViewController, IndicatorInfoProvider, ArticlesViewController {
+class CategoryArticlesViewController: UIViewController, IndicatorInfoProvider, ArticlesViewControllerType {
+    var indicatorTitle: String?
+
     var delegate: ArticlesViewControllerDelegate?
     var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     //ページ数

@@ -10,7 +10,9 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class NewsFeedViewController: UIViewController, IndicatorInfoProvider, ArticlesViewController {
+class NewsFeedViewController: UIViewController, IndicatorInfoProvider, ArticlesViewControllerType {
+    var indicatorTitle: String?
+    
     var delegate: ArticlesViewControllerDelegate?
     var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     //ページ数
