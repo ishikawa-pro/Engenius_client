@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class CategoryArticlesViewController: UIViewController, IndicatorInfoProvider, ArticlesViewControllerType {
+class CategoryArticlesViewController: UIViewController, ArticlesViewControllerType {
     var indicatorTitle: String?
 
     var delegate: ArticlesViewControllerDelegate?

@@ -10,7 +10,8 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class NewsFeedViewController: UIViewController, IndicatorInfoProvider, ArticlesViewControllerType {
+class NewsFeedViewController: UIViewController, ArticlesViewControllerType {
+
     var indicatorTitle: String?
     
     var delegate: ArticlesViewControllerDelegate?
