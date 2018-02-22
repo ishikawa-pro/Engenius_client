@@ -130,25 +130,20 @@ extension ArticlesViewController : UITableViewDataSource {
         }
     }
 
-    func setArticleCell(cell: ArticlesTableViewCell = ArticlesTableViewCell(), article: Article ) -> ArticlesTableViewCell {
-        //再利用するcellの画像残っているので、デフォルトの画像に一旦差し替える。
-        cell.thumbnailImageView.image =  UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
-        cell.titleLabel.text = article.title
-        guard let url = article.imageURL else {
-            return cell
-        }
-        downloadThumbnail(imageURL: url, imageView: cell.thumbnailImageView)
-        return cell
-    }
-
     //各行に表示するcellを定義
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //cellの作成
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? ArticlesTableViewCell {
-            return setArticleCell(cell: cell, article:  articles[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ArticlesTableViewCell
+
+        //再利用するcellの画像残っているので、デフォルトの画像に一旦差し替える。
+        cell.thumbnailImageView.image =  UIImage(named: "81v2Ahk8X-L._SX355_.jpg")
+        cell.titleLabel.text = articles[indexPath.row].title
+        guard let url = articles[indexPath.row].imageURL else {
+            return cell
         }
-        return setArticleCell(article: 
-            articles[indexPath.row])
+        downloadThumbnail(imageURL: url, imageView: cell.thumbnailImageView)
+
+        return cell
     }
 
     //cellの数を指定
