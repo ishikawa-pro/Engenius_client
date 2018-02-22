@@ -16,13 +16,8 @@ protocol ArticlesViewControllerDelegate {
 }
 
 protocol ArticlesViewControllerType {
-    var indicatorTitle: String? { get set }
-    var delegate: ArticlesViewControllerDelegate? { get set }
-    var articles: [Article] {get set}
-    var isFetching: Bool {get set}
     var notificationCenter: NotificationCenter? {get set}
-    var response: (([Article]) -> ()) {get}
-    var articleTableView: UITableView? {get set}
+    var response: (([Article]) -> ()) {get}    
     func fetchArticles()    
 }
 
