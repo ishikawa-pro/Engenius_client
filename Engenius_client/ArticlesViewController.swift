@@ -83,6 +83,32 @@ extension Notification.Name {
     static let fetchArticles = Notification.Name("fetchArticles")
 }
 
+extension ArticlesViewController : UIScrollViewDelegate {
+    //スクロールするたびに呼ばれる
+    //スクロールが早すぎて、セルのpreFetchが行われない場合は、スクロールの終端を判定して新しい記事を取りに行く
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //contentOffset.y + frame.size.height = UITableViewの高さ0からの変位量 + TableViewの高さ
+        //contentSize.height = スクロールする中身の高さ
+        //isFetching = 記事を取りに行っているか
+        //UITableViewの高さ0からの変位量 + TableViewの高さ > スクロールする中身の高さ
+        //スクロール中かどうか
+        guard let tableView = articleTableView else {
+            return
+        }
+        if tableView.contentOffset.y + tableView.frame.size.height >
+            tableView.contentSize.height &&
+            tableView.isDragging && !isFetching {
+
+            NotificationCenter.default.post(name: .fetchArticles, object: nil)
+
+            isFetching = true
+
+            //一番下まで行った時に全てのtableViewで残り50pointだけスクロールできない問題の暫定処置
+            tableView.contentSize = CGSize.init(width: tableView.contentSize.width, height: tableView.contentSize.height + 145)
+        }
+    }
+}
+
 extension ArticlesViewController : UITableViewDelegate {
     //セルがタップされたら呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -129,30 +155,6 @@ extension ArticlesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //記事の数に応じたcell数を返す
         return articles.count
-    }
-
-    //スクロールするたびに呼ばれる
-    //スクロールが早すぎて、セルのpreFetchが行われない場合は、スクロールの終端を判定して新しい記事を取りに行く
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //contentOffset.y + frame.size.height = UITableViewの高さ0からの変位量 + TableViewの高さ
-        //contentSize.height = スクロールする中身の高さ
-        //isFetching = 記事を取りに行っているか
-        //UITableViewの高さ0からの変位量 + TableViewの高さ > スクロールする中身の高さ
-        //スクロール中かどうか
-        guard let tableView = articleTableView else {
-            return
-        }
-        if tableView.contentOffset.y + tableView.frame.size.height >
-            tableView.contentSize.height &&
-            tableView.isDragging && !isFetching {
-
-            NotificationCenter.default.post(name: .fetchArticles, object: nil)
-
-            isFetching = true
-
-            //一番下まで行った時に全てのtableViewで残り50pointだけスクロールできない問題の暫定処置
-            tableView.contentSize = CGSize.init(width: tableView.contentSize.width, height: tableView.contentSize.height + 145)
-        }
     }
 }
 
