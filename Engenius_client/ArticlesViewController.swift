@@ -58,10 +58,6 @@ class ArticlesViewController: UIViewController, IndicatorInfoProvider {
         articleTableView?.register(nib, forCellReuseIdentifier: "customCell")        
     }
 
-    func notified() {
-        print("notified")
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isFetching {
