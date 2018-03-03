@@ -10,7 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class NewsFeedViewController: ArticlesViewController, ArticlesViewControllerType{
+class NewsFeedViewController: ArticlesViewController, ArticlesViewControllerType {
     var notificationCenter: NotificationCenter?
 
     override func viewDidLoad() {
