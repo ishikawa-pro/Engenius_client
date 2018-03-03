@@ -9,6 +9,7 @@
 import UIKit
 
 class ConfigViewController: UITableViewController {
+    var dismissionAction: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class ConfigViewController: UITableViewController {
     }
     
     @IBAction func closeTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.dismissionAction?()
+        }
     }
 }

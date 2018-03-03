@@ -14,6 +14,7 @@ import RealmSwift
 
 
 class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewControllerDelegate{
+    let interestedCategory = InterestedCategory()
     var categories:[String] = ["最新記事"] {
         didSet {
             createArticlesViewControllers()
@@ -27,22 +28,14 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categories = interestedCategory.fetchInterestedCategory()
+        categories.insert("最新記事", at: 0)
         navigationItem.hidesBackButton = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //カテゴリの取得などは、viewDidApperでやらないと描画されるタイミング的にCellがうまく描画されない。
-        do {
-            let realm = try Realm()
-            var selectedCategory:[String] = realm.objects(InterestedCategory.self).map { $0.category }
-            selectedCategory.insert("最新記事", at: 0)
-            categories = selectedCategory
-        }
-        catch (let e) {
-            print(e)
-        }
-        //navigationController?.setNavigationBarHidden(true, animated: false)
+        reloadPagerTabStripView()
     }
 
     private func createArticlesViewControllers() {
@@ -93,11 +86,16 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
 
     @IBAction func configButtonTapped(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Config", bundle: nil)
-        guard let ConfigViewController = storyboard.instantiateViewController(withIdentifier: "ConfigViewController")as? UITableViewController else {
+        guard let configViewController = storyboard.instantiateViewController(withIdentifier: "ConfigViewController")as? ConfigViewController else {
             return
         }
-        let navigationController = UINavigationController(rootViewController: ConfigViewController)
-        present(navigationController, animated: true, completion: nil)
+        //設定画面から戻ってきた時に、realmからカテゴリの再取得をする
+        configViewController.dismissionAction = {
+            self.categories = self.interestedCategory.fetchInterestedCategory()
+            self.categories.insert("最新記事", at: 0)
+        }
+        let navigationController = UINavigationController(rootViewController: configViewController)
+        present(navigationController, animated: true,completion: nil)
     }
     
     //ArticlesTableViewControllerからのデリゲート
