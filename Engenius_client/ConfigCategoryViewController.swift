@@ -10,7 +10,8 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-class ConfigCategoryViewController: UITableViewController {
+class ConfigCategoryViewController: UITableViewController, UINavigationControllerDelegate {
+    var isChangeCategory = false
     var categories : Category? {
         didSet {
             tableView.reloadData()
@@ -19,6 +20,7 @@ class ConfigCategoryViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.delegate = self
         //cateogryの取得
         Alamofire.request(EngeniusAPIRouter.category.getCategories()).responseData { (response) in
             switch (response.result) {
@@ -84,6 +86,7 @@ class ConfigCategoryViewController: UITableViewController {
                 let interestedCategory = InterestedCategory()
                 interestedCategory.category = title
                 cell.accessoryType = .checkmark
+                isChangeCategory = true
                 try realm.write {
                     realm.add(interestedCategory)
                 }
@@ -100,6 +103,14 @@ class ConfigCategoryViewController: UITableViewController {
         }
         catch (let e){
             print(e)
+        }
+    }
+
+    //navigationControllerが持つViewControllerのviewが表示される時に呼ばれる。
+    //UINavigationControllerDelegateのdelegate method
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if let configVC = viewController as? ConfigViewController, isChangeCategory != true {
+            configVC.dismissionAction = nil
         }
     }
 }
