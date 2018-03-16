@@ -10,10 +10,9 @@ import UIKit
 
 class ConfigViewController: UITableViewController {
     var dismissionAction: (() -> Void)?
-
+    var isChangeCategory = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,6 +27,9 @@ class ConfigViewController: UITableViewController {
     
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true) {
+            guard self.isChangeCategory else {
+                return
+            }
             self.dismissionAction?()
         }
     }

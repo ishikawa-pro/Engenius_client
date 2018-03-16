@@ -93,6 +93,7 @@ class ConfigCategoryViewController: UITableViewController, UINavigationControlle
             case .checkmark:
                 let interestedCategory = realm.objects(InterestedCategory.self).filter("category = %@", title)
                 cell.accessoryType = .none
+                isChangeCategory = true
                 try realm.write {
                     realm.delete(interestedCategory)
                 }
@@ -109,8 +110,8 @@ class ConfigCategoryViewController: UITableViewController, UINavigationControlle
     //navigationControllerが持つViewControllerのviewが表示される時に呼ばれる。
     //UINavigationControllerDelegateのdelegate method
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if let configVC = viewController as? ConfigViewController, isChangeCategory != true {
-            configVC.dismissionAction = nil
+        if let configVC = viewController as? ConfigViewController {
+            configVC.isChangeCategory = isChangeCategory
         }
     }
 }
