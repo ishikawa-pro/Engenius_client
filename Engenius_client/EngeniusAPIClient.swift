@@ -38,10 +38,4 @@ struct EngeniusAPIClient {
             response(articles)
         }))
     }
-
-    func fetchCategoryArticles(category: String, page: Int, response: @escaping ([Article]) -> ()) {
-        apiClient.request(urlRequest: EngeniusAPIRouter.article.fetchArticle(category: category, page: page), response: jsonDecode(responseType: [Article].self, response: { articles in
-            response(articles)
-        }))
-    }
 }

@@ -27,6 +27,6 @@ extension CategoryArticlesViewController : ArticlesViewControllerType {
         guard let category = indicatorTitle else {
             return
         }
-        engeniusAPIClient.fetchCategoryArticles(category: category, page: page,response: response)
+        engeniusAPIClient.fetchNewsFeed(categories: [category], page: page, response: response)        
     }
 }
