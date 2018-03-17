@@ -25,7 +25,7 @@ class ArticlesViewController: UIViewController, IndicatorInfoProvider {
     //記事の格納用
     //tableViewの宣言
     var articleTableView: UITableView?
-    var selectedCategory: [String] = []
+    
     var articles: [Article] = [] {
         didSet {
             //記事を追加読み込みする場合はreloadData

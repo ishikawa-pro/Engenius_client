@@ -10,30 +10,14 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class NewsFeedViewController: ArticlesViewController, ArticlesViewControllerType {
+class NewsFeedViewController: ArticlesViewController {
     var notificationCenter: NotificationCenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationCenter = NotificationCenter.default
         notificationCenter?.addObserver(self, selector: #selector(type(of: self).fetchArticles), name: .fetchArticles, object: nil)
-        getSelectedCategory()
         fetchArticles()
-    }
-    //NewsFeedView固有の関数
-    func getSelectedCategory() {
-        do {
-            let realm = try Realm()
-            selectedCategory = realm.objects(InterestedCategory.self).map { $0.category }
-        }
-        catch {
-            print(error)
-        }
-    }
-    
-    //NewsFeedView固有の関数
-    func fetchArticles() {
-        engeniusAPIClient.fetchNewsFeed(categories: selectedCategory, page: page, response: response)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,3 +26,25 @@ class NewsFeedViewController: ArticlesViewController, ArticlesViewControllerType
     }
 }
 
+extension NewsFeedViewController : ArticlesViewControllerType {
+    //NewsFeedView固有の関数
+    func fetchArticles() {
+        engeniusAPIClient.fetchNewsFeed(categories: selectedCategory, page: page, response: response)
+    }
+    
+    var selectedCategory: [String] {
+        get {
+            let category: [String]
+            do {
+                let realm = try Realm()
+
+                category = realm.objects(InterestedCategory.self).map { $0.category }
+            }
+            catch {
+                print(error)
+                category = [""]
+            }
+            return category
+        }
+    }
+}

@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class CategoryArticlesViewController: ArticlesViewController, ArticlesViewControllerType {
+class CategoryArticlesViewController: ArticlesViewController  {
     var notificationCenter: NotificationCenter?
 
     override func viewDidLoad() {
@@ -18,7 +18,11 @@ class CategoryArticlesViewController: ArticlesViewController, ArticlesViewContro
         notificationCenter?.addObserver(self, selector: #selector(type(of: self).fetchArticles), name: .fetchArticles, object: nil)
         fetchArticles()
     }
-    
+
+}
+
+extension CategoryArticlesViewController : ArticlesViewControllerType {
+    //NewsFeedView固有の関数
     func fetchArticles() {
         guard let category = indicatorTitle else {
             return
