@@ -15,6 +15,8 @@ class NewsFeedViewController: ArticlesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        articleTableView?.refreshControl = UIRefreshControl()
+        articleTableView?.refreshControl?.addTarget(self, action: #selector(type(of: self).fetchArticles), for:  UIControlEvents.valueChanged)
         notificationCenter = NotificationCenter.default
         notificationCenter?.addObserver(self, selector: #selector(type(of: self).fetchArticles), name: .fetchArticles, object: nil)
         fetchArticles()

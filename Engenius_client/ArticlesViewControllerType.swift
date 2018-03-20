@@ -29,11 +29,11 @@ extension ArticlesViewControllerType where Self: ArticlesViewController {
                 if response.count == 0 {
                     //tableの終端でisFetchingをtrueにすることで新しい記事を取りに行けなくする。
                     self.isFetching = true
-                    return
                 } else {
                     self.articles.append(contentsOf: response)
                     self.page += 1
                 }
+                self.articleTableView?.refreshControl?.endRefreshing()
             }
         }
     }
