@@ -11,6 +11,7 @@ import Alamofire
 import RealmSwift
 
 class ConfigCategoryViewController: UITableViewController, UINavigationControllerDelegate {
+    var engeniusAPIClient: EngeniusAPIClient = EngeniusAPIClient(apiClient: AlamofireClient())
     var isChangeCategory = false
     var categories : Category? {
         didSet {
@@ -21,24 +22,14 @@ class ConfigCategoryViewController: UITableViewController, UINavigationControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
-        //cateogryの取得
-        Alamofire.request(EngeniusAPIRouter.category.getCategories()).responseData { (response) in
-            switch (response.result) {
-                case .success(let data):
-                    do {
-                        self.categories = try JSONDecoder().decode(Category.self, from: data)
-                    } catch {
-                        print("error")
-                    }
-                case .failure(let error):
-                    print(error)
-            }
-        }
+        fetchCategories()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //cateogryの取得
+    func fetchCategories() {
+        engeniusAPIClient.fetchCategory { categories in
+            self.categories = categories
+        }
     }
 
     // MARK: - Table view data source
