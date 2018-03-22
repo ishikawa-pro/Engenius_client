@@ -11,7 +11,12 @@ import Alamofire
 
 enum EngeniusAPIRouter {
     private static var baseURL: URL {
-        return URL(string: "https://murmuring-journey-70649.herokuapp.com")!
+        #if LOCAL_SERVER
+            return URL(string: "http://192.168.22.186:3000")!
+        #else
+            return URL(string: "https://murmuring-journey-70649.herokuapp.com")!
+        #endif
+
     }
 
     enum category : URLRequestConvertible {
