@@ -1,0 +1,9 @@
+{
+  "commitish" : "6.1.0",
+  "iOS" : [
+    {
+      "name" : "OHHTTPStubs",
+      "hash" : "0a3b405e2efdff033335ae2679936ab5254b4f16a11b8a41b054f9d5fa5b9028"
+    }
+  ]
+}
