@@ -8,11 +8,13 @@
 
 import Foundation
 import Alamofire
+import SVProgressHUD
 
 final class AlamofireClient: APIClientType {
     typealias URLRequestType = URLRequestConvertible
     private var dataRequest: Alamofire.DataRequest?
     func request(urlRequest: URLRequestType, response: @escaping (Data?) -> ()) {
+        SVProgressHUD.show()
         dataRequest = Alamofire.request(urlRequest)
         dataRequest?.responseData { (responseData) in
             switch (responseData.result) {
@@ -21,6 +23,7 @@ final class AlamofireClient: APIClientType {
                 case .failure(let error):
                     print(error)
             }
+            SVProgressHUD.dismiss()
         }
     }
 
