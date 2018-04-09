@@ -1,3 +1,27 @@
+3.3.2 Release notes (2018-04-03)
+=============================================================
+
+Add a prebuilt binary for Xcode 9.3.
+
+3.3.1 Release notes (2018-03-28)
+=============================================================
+
+Realm Object Server v3.0.0 or newer is required when using synchronized Realms.
+
+### Enhancements
+
+* Expose `RLMObject.object(forPrimaryKey:)` as a factory method for Swift so
+  that it is callable with recent versions of Swift.
+
+### Bugfixes
+
+* Exclude the RLMObject-derived Permissions classes from the types repored by
+  `Realm.Configuration.defaultConfiguration.objectTypes` to avoid a failed
+  cast.
+* Cancel pending `Realm.asyncOpen()` calls when authentication fails with a
+  non-transient error such as missing the Realm path in the URL.
+* Fix "fcntl() inside prealloc()" errors on APFS.
+
 3.3.0 Release notes (2018-03-19)
 =============================================================
 

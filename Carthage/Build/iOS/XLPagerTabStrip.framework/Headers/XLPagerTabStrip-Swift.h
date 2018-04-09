@@ -263,8 +263,9 @@ SWIFT_CLASS("_TtC15XLPagerTabStrip17ButtonBarViewCell")
 @interface ButtonBarViewCell : UICollectionViewCell
 @property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified imageView;
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified label;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, getter=isSelected) BOOL selected;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
