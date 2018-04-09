@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E90F36CE1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */; };
+		E91FB4FC2066208E00FB5C12 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91FB4FB2066208E00FB5C12 /* OHHTTPStubs.framework */; };
 		E9207D6D1FA5D1870068C907 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9207D6C1FA5D1870068C907 /* XLPagerTabStrip.framework */; };
 		E92D92922008336E00314B57 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D92912008336E00314B57 /* NewsFeedViewController.swift */; };
 		E9444E661FB5EC6200D8103F /* EngeniusAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */; };
@@ -66,6 +67,7 @@
 		1DCEB2494EF09B942AD21D8C /* Pods_Engenius_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engenius_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		743EB98D82596569853A51F1 /* Pods-Engenius_client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engenius_client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Engenius_client/Pods-Engenius_client.release.xcconfig"; sourceTree = "<group>"; };
 		E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "81v2Ahk8X-L._SX355_.jpg"; path = "../../../../../../Users/akira/Pictures/81v2Ahk8X-L._SX355_.jpg"; sourceTree = "<group>"; };
+		E91FB4FB2066208E00FB5C12 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		E9207D6C1FA5D1870068C907 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
 		E92D92912008336E00314B57 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngeniusAPIRouter.swift; sourceTree = "<group>"; };
@@ -94,7 +96,6 @@
 		E9AC16CA2006428300300B25 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
 		E9AC16CC200652A400300B25 /* AlamofireClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireClient.swift; sourceTree = "<group>"; };
 		E9AC16CE2006533C00300B25 /* EngeniusAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngeniusAPIClient.swift; sourceTree = "<group>"; };
-		E9C2EF1F2007C9D500208FB3 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		E9C45C0F1FB70C11008DEE5B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		E9C7E5471FB50BB30017D8FF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E9CD643F1FD6C63B00B914F6 /* InterestedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCategory.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E91FB4FC2066208E00FB5C12 /* OHHTTPStubs.framework in Frameworks */,
 				E9CD64481FD6DFB400B914F6 /* RealmSwift.framework in Frameworks */,
 				E9CD64471FD6DFA700B914F6 /* Realm.framework in Frameworks */,
 				E9207D6D1FA5D1870068C907 /* XLPagerTabStrip.framework in Frameworks */,
@@ -141,7 +143,7 @@
 		07E93755D0DC91B6B804B6F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9C2EF1F2007C9D500208FB3 /* Swinject.framework */,
+				E91FB4FB2066208E00FB5C12 /* OHHTTPStubs.framework */,
 				E9CD64451FD6DF9800B914F6 /* Realm.framework.dSYM */,
 				E9CD64431FD6D82300B914F6 /* Realm.framework */,
 				E9CD64411FD6D81100B914F6 /* RealmSwift.framework */,
@@ -484,6 +486,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/XLPagerTabStrip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			outputPaths = (
 			);
@@ -1006,7 +1009,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E97CA9841E54AC6400901AC7 /* Debug */,
-				E98EC3772063F0850082A11B /* LocalServer */,
 				E98EC3732063B4010082A11B /* Stub */,
 				E97CA9851E54AC6400901AC7 /* Release */,
 			);
@@ -1017,7 +1019,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E97CA9871E54AC6400901AC7 /* Debug */,
-				E98EC3782063F0850082A11B /* LocalServer */,
 				E98EC3742063B4010082A11B /* Stub */,
 				E97CA9881E54AC6400901AC7 /* Release */,
 			);
@@ -1028,7 +1029,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E97CA98A1E54AC6400901AC7 /* Debug */,
-				E98EC3792063F0850082A11B /* LocalServer */,
 				E98EC3752063B4010082A11B /* Stub */,
 				E97CA98B1E54AC6400901AC7 /* Release */,
 			);
@@ -1039,7 +1039,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E97CA98D1E54AC6400901AC7 /* Debug */,
-				E98EC37A2063F0850082A11B /* LocalServer */,
 				E98EC3762063B4010082A11B /* Stub */,
 				E97CA98E1E54AC6400901AC7 /* Release */,
 			);
