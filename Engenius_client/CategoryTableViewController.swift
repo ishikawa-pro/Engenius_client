@@ -9,26 +9,25 @@
 import UIKit
 import XLPagerTabStrip
 
-class CategoryArticlesViewController: ArticlesViewController  {
+class CategoryTableViewController: ArticlesTableViewController {
     var notificationCenter: NotificationCenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        articleTableView?.refreshControl = UIRefreshControl()
-        articleTableView?.refreshControl?.addTarget(self, action: #selector(type(of: self).fetchArticles), for:  UIControlEvents.valueChanged)
+        tableView?.refreshControl = UIRefreshControl()
+        tableView?.refreshControl?.addTarget(self, action: #selector(type(of: self).fetchArticles), for:  UIControlEvents.valueChanged)
         notificationCenter = NotificationCenter.default
         notificationCenter?.addObserver(self, selector: #selector(type(of: self).fetchArticles), name: .fetchArticles, object: nil)
         fetchArticles()
     }
-
 }
 
-extension CategoryArticlesViewController : ArticlesViewControllerType {
+extension CategoryTableViewController: ArticlesViewControllerType {
     //NewsFeedView固有の関数
     func fetchArticles() {
         guard let category = indicatorTitle else {
             return
         }
-        engeniusAPIClient.fetchNewsFeed(categories: [category], page: page, response: response)        
+        engeniusAPIClient.fetchNewsFeed(categories: [category], page: page, response: response)
     }
 }
