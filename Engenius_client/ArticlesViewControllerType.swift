@@ -21,7 +21,15 @@ protocol ArticlesViewControllerType {
     func fetchArticles()    
 }
 
-extension ArticlesViewControllerType where Self: ArticlesViewController {
+// MARK: ArticlesTableViewController
+
+extension IndicatorInfoProvider where Self: ArticlesTableViewController {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: indicatorTitle)
+    }
+}
+
+extension ArticlesViewControllerType where Self: ArticlesTableViewController {
     var response: (([Article]) -> ()) {
         get {
             return {response in
@@ -33,15 +41,8 @@ extension ArticlesViewControllerType where Self: ArticlesViewController {
                     self.articles.append(contentsOf: response)
                     self.page += 1
                 }
-                self.articleTableView?.refreshControl?.endRefreshing()
+                self.tableView.refreshControl?.endRefreshing()
             }
         }
     }
 }
-
-extension IndicatorInfoProvider where Self: ArticlesViewController {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-            return IndicatorInfo(title: indicatorTitle)
-    }
-}
-
