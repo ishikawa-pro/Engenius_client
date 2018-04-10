@@ -10,7 +10,7 @@
 		E90F36CE1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */; };
 		E91FB4FC2066208E00FB5C12 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91FB4FB2066208E00FB5C12 /* OHHTTPStubs.framework */; };
 		E9207D6D1FA5D1870068C907 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9207D6C1FA5D1870068C907 /* XLPagerTabStrip.framework */; };
-		E92D92922008336E00314B57 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D92912008336E00314B57 /* NewsFeedViewController.swift */; };
+		E92D92922008336E00314B57 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D92912008336E00314B57 /* NewsFeedTableViewController.swift */; };
 		E9444E661FB5EC6200D8103F /* EngeniusAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */; };
 		E95844791FCEC44D00874826 /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95844781FCEC44D00874826 /* Config.storyboard */; };
 		E95844801FCEDC8200874826 /* ConfigCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */; };
@@ -70,7 +70,7 @@
 		E90F36CD1E8A721D00E7F85D /* 81v2Ahk8X-L._SX355_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "81v2Ahk8X-L._SX355_.jpg"; path = "../../../../../../Users/akira/Pictures/81v2Ahk8X-L._SX355_.jpg"; sourceTree = "<group>"; };
 		E91FB4FB2066208E00FB5C12 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		E9207D6C1FA5D1870068C907 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
-		E92D92912008336E00314B57 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		E92D92912008336E00314B57 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		E9444E651FB5EC6200D8103F /* EngeniusAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngeniusAPIRouter.swift; sourceTree = "<group>"; };
 		E95844781FCEC44D00874826 /* Config.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 		E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCategoryViewController.swift; sourceTree = "<group>"; };
@@ -272,8 +272,8 @@
 				E97CA9601E54AC6300901AC7 /* EGViewController.swift */,
 				E9ED3BA6207BC28700F7AB8C /* ArticlesTableViewController.swift */,
 				E978DFB21FF3797D00C6257D /* ArticlesViewControllerType.swift */,
-				E92D92912008336E00314B57 /* NewsFeedViewController.swift */,
 				E99066141E8E203A00FB5EE6 /* CategoryArticlesViewController.swift */,
+				E92D92912008336E00314B57 /* NewsFeedTableViewController.swift */,
 				E958447F1FCEDC8200874826 /* ConfigCategoryViewController.swift */,
 				E95844811FCEFA5700874826 /* ConfigViewController.swift */,
 				E9FE5D361FEBF0CC008CCBB5 /* FirstCategoryConfigViewController.swift */,
@@ -509,7 +509,7 @@
 				E9951F021E882C2C00457B72 /* ArticlesTableViewCell.swift in Sources */,
 				E9AC16CB2006428300300B25 /* APIClientType.swift in Sources */,
 				E97CA9611E54AC6300901AC7 /* EGViewController.swift in Sources */,
-				E92D92922008336E00314B57 /* NewsFeedViewController.swift in Sources */,
+				E92D92922008336E00314B57 /* NewsFeedTableViewController.swift in Sources */,
 				E978DFB31FF3797D00C6257D /* ArticlesViewControllerType.swift in Sources */,
 				E9C45C101FB70C11008DEE5B /* Article.swift in Sources */,
 				E9444E661FB5EC6200D8103F /* EngeniusAPIRouter.swift in Sources */,
