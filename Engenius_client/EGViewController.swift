@@ -24,7 +24,7 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
     }
     
     // インスタンス配列
-    var articleVCDictionary = [String: ArticlesViewController]()
+    var articleVCDictionary = [String: ArticlesTableViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +39,22 @@ class EGViewController: ButtonBarPagerTabStripViewController, ArticlesViewContro
     }
 
     private func createArticlesViewControllers() {
-        let articlesViewControllers = categories.map { category -> ArticlesViewController in
+        let articlesTableViewControllers = categories.map { category -> ArticlesTableViewController in
             //最新記事は、選択カテゴリが変われば内容が変更するため、現状ではViewControllerを使い回さずに、毎回インスタンスを生成し直す。
             if let articlesViewController = articleVCDictionary[category], category != "最新記事" {
                 return articlesViewController
             }
-            var articlesViewController: ArticlesViewController
+            var articlesTableViewController: ArticlesTableViewController
             if category == "最新記事" {
-                articlesViewController = NewsFeedViewController()
+                articlesTableViewController = NewsFeedTableViewController()
             } else {
-                articlesViewController = CategoryArticlesViewController()
+                articlesTableViewController = CategoryTableViewController()
             }
-            articlesViewController.indicatorTitle = category
-            return articlesViewController
+            articlesTableViewController.indicatorTitle = category
+            return articlesTableViewController
         }
         articleVCDictionary = Dictionary(uniqueKeysWithValues:
-            zip(categories, articlesViewControllers)
+            zip(categories, articlesTableViewControllers)
         )
         articleVCDictionary = articleVCDictionary.mapValues {
             guard $0.delegate == nil else {
